@@ -1,0 +1,10 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+html,body{scrollbar-width: none;}
+[data-scroll-container]{
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+}
