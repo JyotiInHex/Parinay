@@ -8,7 +8,7 @@ import BlogStories from "../dynamic/blogStories";
 const Landing = () => {
   return (
     <>
-      <div className='px-11 w-full h-auto flex flex-col'>
+      <div className='px-11 w-full h-auto flex flex-col mb-9'>
         <div className='relative w-full h-auto overflow-hidden bg-transparent flex items-center justify-start rounded-3xl'> {/* banner */}
             <figure className='background w-full h-[95vh]'>
               <img src={background} alt='background' className='w-full h-full object-cover pointer-events-none'></img>
@@ -79,6 +79,14 @@ const Landing = () => {
         <Features/>
         <About/>
         <BlogStories/>
+      </div>
+      <div className="relative mb-9">
+        <div className="w-full h-auto bg-[#FFF5E1] p-12 flex flex-col gap-6 justify-between">
+          <div className='mb-5 text-xl text-zinc-400 font-opensans font-medium underline transition-all'>(04) Get Started </div>
+          <h2 className="w-[75%] text-5xl text-left text-zinc-900 font-merriweather font-semibold leading-relaxed">Embark on your journey to find true love <i className="ri-chat-heart-fill text-[#E91E63]"></i> with Parinay.com. Creating your profile is quick and easy, allowing you to showcase your personality and preferences.</h2>
+          <p className="w-[55%] self-end text-xl text-justify text-zinc-900 text-shadow-md font-lato font-medium">Discover a community of like-minded Assamese singles. Our user-friendly interface ensures a seamless experience as you navigate through profiles and features. Join Parinay.com today and take the first step towards finding <i className="ri-search-2-line text-[#FFC107] font-bold"></i> your perfect match.</p>
+          <button className="border-2 border-zinc-900 bg-[#FF6F61] w-fit h-fit self-end px-8 py-3 rounded-full text-xl text-white font-lato font-semibold "><Link>Begin Your Journey <i className="ri-arrow-right-line"></i></Link></button>
+        </div>
       </div>
     </>
   )

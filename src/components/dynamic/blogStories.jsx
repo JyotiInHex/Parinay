@@ -19,7 +19,7 @@ const blogStories = () => {
           </div>
 
           <div className='stores group relative overflow-hidden w-full h-fit flex flex-col gap -7 bg-slate-200 rounded-3xl'>
-            <figure className='top-0 left-0 w-full h-[50vh] max-h-[50vh]'>
+            <figure className='top-0 left-0 w-full h-[50vh] max-h-[50vh] pointer-events-none'>
               <img className='w-full h-full object-cover' src={stories} alt="storie" />
             </figure>          
             <figcaption className='absolute p-5 bottom-0'>
