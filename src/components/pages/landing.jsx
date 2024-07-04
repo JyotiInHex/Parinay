@@ -1,6 +1,7 @@
 import {Link } from "react-router-dom";
 import background from '../../assets/parinay-desktop-banner 3.webp';
 import Profiles from "../dynamic/profiles";
+import About from "../dynamic/about";
 import Features from "../static/features";
 
 const Landing = () => {
@@ -75,6 +76,7 @@ const Landing = () => {
             <button type="button" className="relative overflow-hidden w-[50%] p-1 text-lg text-zinc-900 text-center font-lato font-semibold whitespace-nowrap border-2 border-zinc-900 bg-transparent rounded-full hover:text-slate-100 after:absolute after:left-[-6px] after:top-6 after:z-[-1] after:translate-y-[50%] after:rounded-[50%] after:bg-zinc-900 after:w-[10em] after:h-[2.5em] after:transition-all duration-1000 ease-in-out hover:after:top-[-25px] hover:after:rounded-none">Find My Match</button>
         </form>
         <Features/>
+        <About/>
       </div>
     </>
   )
