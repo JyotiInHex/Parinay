@@ -3,11 +3,12 @@ import background from '../../assets/parinay-desktop-banner 3.webp';
 import Profiles from "../dynamic/profiles";
 import About from "../dynamic/about";
 import Features from "../static/features";
+import BlogStories from "../dynamic/blogStories";
 
 const Landing = () => {
   return (
     <>
-      <div className='px-11 w-full h-auto flex flex-col items-start'>
+      <div className='px-11 w-full h-auto flex flex-col'>
         <div className='relative w-full h-auto overflow-hidden bg-transparent flex items-center justify-start rounded-3xl'> {/* banner */}
             <figure className='background w-full h-[95vh]'>
               <img src={background} alt='background' className='w-full h-full object-cover pointer-events-none'></img>
@@ -77,6 +78,7 @@ const Landing = () => {
         </form>
         <Features/>
         <About/>
+        <BlogStories/>
       </div>
     </>
   )
