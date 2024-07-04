@@ -11,7 +11,7 @@ const Features = () => {
                 <h3 className='text-xl font-semibold font-merriweather'>Matching</h3>
                 <p className='text-base'>Our advanced matching algorithm ensures you find compatible partners and profile data, enhancing the likelihood of meaningful connections. By analyzing interests, values and lifestyle choices, we match you with individuals who share your vision for the future. Start your journey towards finding a compatible life partner today.</p>
               </div>
-              <div className="flex flex-col gap-2 bg-white w-[22%] h-auto min-h-[22.5em] p-5 border-2 border-white rounded-3xl transition-all cursor-default hover:border-[#007BFF] hover:text-[#007BFF] hover:-translate-y-8">
+              <div className="flex flex-col gap-2 bg-white w-[22%] h-auto min-h-[22.5em] p-5 border-2 border-white rounded-3xl transition-all cursor-default hover:border-[#007BFF] hover:text-[#007BFF] -translate-y-8">
                 <i className='ri-message-3-fill text-2xl text-[#007BFF]'></i>
                 <h3 className='text-xl font-semibold font-merriweather'>Chatting</h3>
                 <p className='text-base'>Our secure and user-friendly chat feature allows you to communicate freely and get to know potential matches in a safe environment. With real-time messaging and intuitive design, our chat system makes it easy to connect and build rapport Enjoy meaningful conversations that can lead to lasting relationships.</p>
