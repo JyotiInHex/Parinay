@@ -2,6 +2,7 @@ import {useRef, useEffect} from "react";
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import locomotiveScroll from "locomotive-scroll";
 import 'locomotive-scroll/dist/locomotive-scroll.css';
+import { useGSAP } from "@gsap/react";
 import 'remixicon/fonts/remixicon.css';
 import Header from './components/header/header';
 import Landing from "./components/pages/landing";
@@ -9,7 +10,6 @@ import Prices from "./components/pages/prices";
 import Services from "./components/pages/services";
 import Contact from "./components/pages/contact";
 import Footer from "./components/footer/footer";
-
 const App = () => {
   const scrollRef = useRef(null);
   useEffect(() =>{
@@ -19,7 +19,10 @@ const App = () => {
     });
     return () =>{if (scroll) scroll.destroy();};
   }, [])
+  useGSAP(() =>{
 
+  });
+  
   return (
     <>
       <Router>
