@@ -8,6 +8,7 @@ import Landing from "./components/pages/landing";
 import Prices from "./components/pages/prices";
 import Services from "./components/pages/services";
 import Contact from "./components/pages/contact";
+import Footer from "./components/footer/footer";
 
 const App = () => {
   const scrollRef = useRef(null);
@@ -30,6 +31,7 @@ const App = () => {
             <Route path="/services" element={<Services />} />
             <Route path="/contact" element={<Contact />} />
           </Routes>
+          <Footer/>
         </div>
     </Router>
     </>

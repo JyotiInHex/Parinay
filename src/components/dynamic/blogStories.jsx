@@ -3,7 +3,7 @@ import stories from '../../assets/8.jpg';
 
 const blogStories = () => {
   return (
-    <div className='mt-[5em]'>
+    <div className='mt-[5em] mb-7'>
       <div className='mb-5 text-xl text-zinc-400 font-opensans font-medium underline transition-all'>(03) Our Blog's and Stories </div>
       <div className='relative p-12 w-full max-w-full h-auto bg-slate-50 rounded-3xl mb-5'>
         <h2 className='text-5xl text-zinc-900 font-semibold font-merriweather leading-normal'>Love Chronicles, Stories, Tips, and Insights form Our Dating Site Blog</h2>
