@@ -5,7 +5,7 @@ const blogStories = () => {
   return (
     <div className='mt-[5em]'>
       <div className='mb-5 text-xl text-zinc-400 font-opensans font-medium underline transition-all'>(03) Our Blog's and Stories </div>
-      <div className='relative p-12 w-full max-w-full h-auto bg-slate-100 rounded-3xl mb-5'>
+      <div className='relative p-12 w-full max-w-full h-auto bg-slate-50 rounded-3xl mb-5'>
         <h2 className='text-5xl text-zinc-900 font-semibold font-merriweather leading-normal'>Love Chronicles, Stories, Tips, and Insights form Our Dating Site Blog</h2>
         <div className='flex flex-row gap-4 mt-9'>
           <div className='blog max-w-[25%] h-fit flex flex-col justify-between gap-7 bg-slate-200 p-7 rounded-3xl'>
