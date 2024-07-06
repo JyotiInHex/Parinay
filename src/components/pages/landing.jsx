@@ -17,8 +17,8 @@ const Landing = () => {
             <figcaption className='absolute z-10 p-11 w-full h-auto text-left pointer-events-none'>
               <h1 className='text-8xl font-chaviera text-white capitalize text-shadow-2xl'>Welcome to Parinay.com <br></br> <span className="text-6xl">Find your perfect match effortlessly.</span></h1>
               <figcaption className="flex flex-col gap-3 text-shadow-5xl">
-                <h2 className='flex items-center justify-end gap-2 text-right text-xl text-white font-merriweather'><span className='font-lato bg-[#4CAF50] border-2 border-white px-4 py-2 rounded-full pointer-events-auto'><Link>Join our</Link></span> community and find your perfect life partner.</h2>
-                <h2 className='text-right text-xl text-slate-200 font-merriweather flex items-center justify-end gap-1'>With thousands of profiles <Profiles/> to browse, you're sure to meet someone special.</h2>
+                <h2 className='flex items-center justify-end gap-2 text-right text-xl text-white font-merriweather'><span className='font-lato bg-[#4CAF50] border-2 border-white px-4 py-2 rounded-full pointer-events-auto'><Link>Join our</Link></span> vibrant community and discover your perfect life partner.</h2>
+                <h2 className='text-right text-xl text-slate-200 font-merriweather flex items-center justify-end gap-1'>With thousands of profiles <Profiles/> to explore, you're destined to meet someone truly special.</h2>
               </figcaption>
             </figcaption>
         </div>

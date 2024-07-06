@@ -6,7 +6,7 @@ const blogStories = () => {
     <div className='mt-[5em] mb-7'>
       <div className='mb-5 text-xl text-zinc-400 font-opensans font-medium underline transition-all'>(03) Our Blog's and Stories </div>
       <div className='relative p-12 w-full max-w-full h-auto bg-slate-50 rounded-3xl mb-5'>
-        <h2 className='text-5xl text-zinc-900 font-semibold font-merriweather leading-normal'>Love Chronicles, Stories, Tips, and Insights form Our Dating Site Blog</h2>
+        <h2 className='text-5xl text-zinc-900 font-semibold font-merriweather leading-normal'>Explore Love Chronicles, Stories, Tips, and Insights on Our Dating App Blog</h2>
         <div className='flex flex-row gap-4 mt-9'>
           <div className='blog max-w-[25%] h-fit flex flex-col justify-between gap-7 bg-slate-200 p-7 rounded-3xl'>
             <h3 className='text-3xl text-zinc-900 font-playfair font-bold'>Mistake to Avoid in Online Dating</h3>
@@ -23,7 +23,7 @@ const blogStories = () => {
               <img className='w-full h-full object-cover' src={stories} alt="storie" />
             </figure>          
             <figcaption className='absolute p-5 bottom-0'>
-              <p className='text-lg text-justify text-white font-lato font-medium text-shadow-4xl mb-3'>"We met through this website and it was love at first sight. Thank you for bringing us together."</p>
+              <p className='text-lg text-justify text-white font-lato font-medium text-shadow-4xl mb-3'>"We met through this web app and it was love at first sight. Thank you for bringing us together."</p>
               <h5 className='text-base text-white font-lato font-medium text-shadow-2xl'>-Amit & Priya</h5>
             </figcaption>
             <dir className='absolute right-5 bottom-0 flex flex-row gap-3 opacity-0 transition-all group-hover:opacity-100'>
