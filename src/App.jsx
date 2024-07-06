@@ -4,14 +4,16 @@ import locomotiveScroll from "locomotive-scroll";
 import 'locomotive-scroll/dist/locomotive-scroll.css';
 import { useGSAP } from "@gsap/react";
 import 'remixicon/fonts/remixicon.css';
+
 import Header from './components/header/header';
-import Landing from "./components/pages/landing";
-import Prices from "./components/pages/prices";
-import Services from "./components/pages/services";
-import Contact from "./components/pages/contact";
-import Login from "./components/pages/login";
-import AboutUs from "./components/pages/aboutUs"; //{About}
 import Footer from "./components/footer/footer";
+
+import Landing from "./pages/landing";
+import Prices from "./pages/prices";
+import Services from "./pages/services";
+import Contact from "./pages/contact";
+import Login from "./pages/login";
+import AboutUs from "./pages/aboutUs"; //{About}
 
 const App = () => {
   const scrollRef = useRef(null);

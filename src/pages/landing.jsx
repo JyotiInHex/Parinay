@@ -1,10 +1,10 @@
 import {Link } from "react-router-dom";
-import background from '../../assets/parinay-desktop-banner 3.webp';
-import Profiles from "../dynamic/profiles";
-import About from "../dynamic/about";
-import Features from "../static/features";
-import BlogStories from "../dynamic/blogStories";
-import GetStarted from "../dynamic/getStarted";
+import background from '../assets/parinay-desktop-banner 3.webp';
+import Profiles from "../components/dynamic/profiles";
+import About from "../components/dynamic/about";
+import Features from "../components/static/features";
+import BlogStories from "../components/dynamic/blogStories";
+import GetStarted from "../components/dynamic/getStarted";
 
 const Landing = () => {
   return (
