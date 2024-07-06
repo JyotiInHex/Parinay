@@ -10,7 +10,7 @@ import Prices from "./components/pages/prices";
 import Services from "./components/pages/services";
 import Contact from "./components/pages/contact";
 import Login from "./components/pages/login";
-import LearnMore from "./components/pages/learnMore"; //{About}
+import AboutUs from "./components/pages/aboutUs"; //{About}
 import Footer from "./components/footer/footer";
 
 const App = () => {
@@ -37,7 +37,7 @@ const App = () => {
             <Route path="/services" element={<Services />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/login" element={<Login />} />
-            <Route path="/learnMore" element={<LearnMore />} />
+            <Route path="/aboutUs" element={<AboutUs />} />
           </Routes>
           <Footer/>
         </div>
