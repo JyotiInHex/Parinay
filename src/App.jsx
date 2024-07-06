@@ -9,7 +9,10 @@ import Landing from "./components/pages/landing";
 import Prices from "./components/pages/prices";
 import Services from "./components/pages/services";
 import Contact from "./components/pages/contact";
+import Login from "./components/pages/login";
+import LearnMore from "./components/pages/learnMore"; //{About}
 import Footer from "./components/footer/footer";
+
 const App = () => {
   const scrollRef = useRef(null);
   useEffect(() =>{
@@ -33,6 +36,8 @@ const App = () => {
             <Route path="/prices" element={<Prices />} />
             <Route path="/services" element={<Services />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/learnMore" element={<LearnMore />} />
           </Routes>
           <Footer/>
         </div>
