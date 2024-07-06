@@ -8,9 +8,9 @@ import GetStarted from "../dynamic/getStarted";
 
 const Landing = () => {
   return (
-    <>
+    <div className="cursor-default">
       <div className='px-11 w-full h-auto flex flex-col mb-9'>
-        <div className='relative w-full h-auto overflow-hidden bg-transparent flex items-center justify-start rounded-3xl'> {/* banner */}
+        <div className='relative w-full h-auto overflow-hidden bg-transparent flex items-center justify-start rounded-3xl'>
             <figure className='background w-full h-[95vh]'>
               <img src={background} alt='background' className='w-full h-full object-cover pointer-events-none'></img>
             </figure>
@@ -82,7 +82,7 @@ const Landing = () => {
         <BlogStories/>
       </div>
       <GetStarted/>
-    </>
+    </div>
   )
 }
 
