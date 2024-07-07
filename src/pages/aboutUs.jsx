@@ -12,7 +12,7 @@ const aboutUs = () => {
           <h6 className='px-5 text-justify'>Welcome to <strong>Parinay</strong>, where we unite hearts within the rich cultural tapestry of Assam. <strong>Parinay</strong> is Assam's premier dating app designed to connect hearts and build meaningful relationships. Rooted in the rich culture and traditions of Assam, <strong>Parinay</strong> goes beyond being just a dating platform; it's a space where singles can find love, companionship, and lasting bonds. At <strong>Parinay</strong>, we understand the unique nuances of Assamese heritage and values. Our platform is tailored to bring together like-minded individuals who share a common cultural background, making it easier to find someone who resonates with your lifestyle and beliefs.</h6>
           <br></br><h6 className='px-5 text-justify'>At <strong>Parinay</strong>, we're dedicated to fostering meaningful connections and lifelong partnerships within the Assamese community. We believe in the power of love and community. Our mission is to create a trusted and reliable platform where Assamese singles can connect, interact, and build lasting relationships. We understand the cultural values and traditions of Assam, and our platform is designed to cater specifically to the needs of Assamese individuals seeking love and companionship.</h6>
 
-          <div className='mt-8 mb-3 px-5 flex flex-col'>
+          <div className='mt-8 mb-3 px-5'>
             <h5 className='text-2xl'>Why Choose Parinay.com?</h5>
             <div className='w-full h-auto py-5 drop-shadow-xl flex gap-5 cursor-default'>
               <div className='overflow-hidden group w-[25%] h-auto min-h-[47vh] max-h-[47vh] rounded-2xl bg-[#B2DFDB] p-5'>
@@ -48,7 +48,10 @@ const aboutUs = () => {
             </div>
           </div>
           <h6 className='px-5 text-justify'>Whether you are looking for a serious relationship or simply want to expand your social circle, <strong>Parinay</strong> is your go-to platform. Join us today and embark on a journey to find your perfect partner within the vibrant and diverse Assamese community.</h6>
-          <button className='w-[25%] h-fit py-3 my-4 border-2 border-zinc-700 rounded-xl self-center text-center text-lg font-lato font-semibold'><Link to="/register">Join Parinay.com Today</Link></button>
+          <div className='flex justify-between items-center mt-10 px-20'>
+            <p className='text-xl font-semibold text-right'>Parinay.com – Where Assamese Hearts Connect.</p>
+            <button className='w-[25%] h-fit py-3 my-4 border-2 border-zinc-700 rounded-xl self-center text-center text-lg font-semibold'><Link to="/register">Join Parinay.com Today</Link> <i className="ri-arrow-right-up-line"></i> </button>
+          </div>
         </div>
       </div>
     </>
