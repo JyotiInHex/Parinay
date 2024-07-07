@@ -46,9 +46,9 @@ const aboutUs = () => {
               </div>
 
             </div>
-            <button className='w-[25%] h-fit py-3 my-4 border-2 border-zinc-700 rounded-xl self-center text-center text-lg font-lato font-semibold'><Link to="/register">Join Parinay.com Today</Link></button>
           </div>
           <h6 className='px-5 text-justify'>Whether you are looking for a serious relationship or simply want to expand your social circle, <strong>Parinay</strong> is your go-to platform. Join us today and embark on a journey to find your perfect partner within the vibrant and diverse Assamese community.</h6>
+          <button className='w-[25%] h-fit py-3 my-4 border-2 border-zinc-700 rounded-xl self-center text-center text-lg font-lato font-semibold'><Link to="/register">Join Parinay.com Today</Link></button>
         </div>
       </div>
     </>
