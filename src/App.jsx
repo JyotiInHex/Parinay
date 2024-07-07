@@ -12,7 +12,7 @@ import Footer from "./components/footer/footer";
 
 import Landing from "./pages/landing";
 import Prices from "./pages/prices";
-import Services from "./pages/services";
+import Features from "./pages/features";
 import Contact from "./pages/contact";
 import Login from "./pages/login";
 import AboutUs from "./pages/aboutUs"; //{About}
@@ -49,7 +49,7 @@ const ScrollContainer = () => {
       <Routes>
         <Route path="/" element={<Landing />} />
         <Route path="/prices" element={<Prices />} />
-        <Route path="/services" element={<Services />} />
+        <Route path="/features" element={<Features />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/login" element={<Login />} />
         <Route path="/aboutUs" element={<AboutUs />} />

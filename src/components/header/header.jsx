@@ -6,7 +6,7 @@ const Header = () => {
     <><nav className="grid grid-cols-3 items-center px-14 py-9 bg-[#ffffff15] backdrop-blur-sm w-full h-fit">
         <ul className="text-base font-lato font-bold text-zinc-900 tracking-wider justify-self-start flex gap-3">
           <li className="cursor-pointer"><Link to="/prices">Pricing</Link></li>
-          <li className="cursor-pointer"><Link to="/services">Services</Link></li>
+          <li className="cursor-pointer"><Link to="/features">Features</Link></li>
           <li className="cursor-pointer"><Link to="/contact">Contact us</Link></li>
         </ul>
         <figure className="logo justify-self-center">
