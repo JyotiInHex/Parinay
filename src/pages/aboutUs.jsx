@@ -6,7 +6,7 @@ const aboutUs = () => {
     <>
       <div className='w-full h-auto p-5'>
         <figure className='p-6 mr-5 ml-5 mb-5 rounded-3xl bg-gradient-to-tr'>
-          <h1 className='text-9xl text-gray-500 text-shadow-sm font-bold font-opensans relative'><sup className='text-base font-semibold cursor-pointer underline'><Link to="/">(Home)</Link></sup>About Us</h1> 
+          <h1 className='text-9xl text-gray-500 text-shadow-sm font-bold font-opensans relative'><sup className='text-base font-semibold underline'><Link to="/">(Home)</Link></sup>About Us</h1> 
         </figure>
         <div className='bg-white w-full h-full p-10 rounded-2xl text-lg text-zinc-700 font-lato font-medium'>
           <h6 className='px-5 text-justify'>Welcome to <strong>Parinay</strong>, where we unite hearts within the rich cultural tapestry of Assam. <strong>Parinay</strong> is Assam's premier dating app designed to connect hearts and build meaningful relationships. Rooted in the rich culture and traditions of Assam, <strong>Parinay</strong> goes beyond being just a dating platform; it's a space where singles can find love, companionship, and lasting bonds. At <strong>Parinay</strong>, we understand the unique nuances of Assamese heritage and values. Our platform is tailored to bring together like-minded individuals who share a common cultural background, making it easier to find someone who resonates with your lifestyle and beliefs.</h6>
@@ -14,7 +14,7 @@ const aboutUs = () => {
 
           <div className='mt-8 mb-3 px-5'>
             <h5 className='text-2xl'>Why Choose Parinay.com?</h5>
-            <div className='w-full h-auto py-5 drop-shadow-xl flex gap-5 cursor-default'>
+            <div className='w-full h-auto py-5 drop-shadow-xl flex gap-5'>
               <div className='overflow-hidden group w-[25%] h-auto rounded-2xl bg-[#B2DFDB] p-5'>
                 <i className='ri-earth-fill block text-4xl text-zinc-800 h-[80%] transition-all group-hover:h-[23%]'></i>
                 <h5 className='relative flex justify-between items-center text-[1em] text-zinc-700 leading-6 font-opensans font-semibold border-b-2 border-transparent transition-all group-hover:border-zinc-700'><sup className='absolute -top-5 text-lg text-zinc-700 font-opensans font-bold'>01.</sup>Cultural Connection<span className='ri-arrow-right-up-line text-3xl font-normal transition-all group-hover:rotate-90'></span></h5>

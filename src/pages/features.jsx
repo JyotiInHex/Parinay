@@ -7,7 +7,7 @@ const services = () => {
       <div className="w-full h-auto p-5">
         <figure className="p-6 mr-5 ml-5 mb-5 rounded-3xl bg-gradient-to-tr">
           <h1 className="text-9xl text-gray-500 text-shadow-sm font-bold font-opensans relative">
-            <sup className="text-base font-semibold cursor-pointer underline">
+            <sup className="text-base font-semibold underline">
               <Link to="/">(Home)</Link>
             </sup>
             Features
@@ -23,7 +23,7 @@ const services = () => {
           </h6>
           <div className="flex flex-wrap gap-5 px-5 mb-5">
             <div className="relative overflow-hidden z-10 w-[32.1%] h-auto mt-4 p-4 rounded-3xl border-2 bg-[#ffffff] drop-shadow-md border-transparent transition-all hover:border-[#4A90E2]">
-              <i className="ri-user-search-line absolute right-0 bottom-0 text-9xl z-[-1] text-slate-100 pointer-events-none"></i>
+              <i className="ri-user-search-line absolute right-0 bottom-0 text-9xl z-[-1] text-slate-50 pointer-events-none"></i>
               <span className="text-base text-zinc-700 font-lato font-semibold">
                 (01)
               </span>
@@ -36,9 +36,8 @@ const services = () => {
                 matches your criteria.
               </p>
             </div>
-
             <div className="relative overflow-hidden z-10 w-[32.1%] h-auto mt-4 p-4 rounded-3xl border-2 bg-[#ffffff] drop-shadow-md border-transparent transition-all hover:border-[#43A047]">
-              <i className="ri-check-double-line absolute right-0 bottom-0 text-9xl z-[-1] text-slate-100  pointer-events-none"></i>
+              <i className="ri-check-double-line absolute right-0 bottom-0 text-9xl z-[-1] text-slate-50  pointer-events-none"></i>
               <span className="text-base text-zinc-700 font-lato font-semibold">
                 (02)
               </span>
@@ -51,9 +50,8 @@ const services = () => {
                 individualities.
               </p>
             </div>
-
             <div className="relative overflow-hidden z-10 w-[32.1%] h-auto mt-4 p-4 rounded-3xl border-2 bg-[#ffffff] drop-shadow-md border-transparent transition-all hover:border-[#00bcd4]">
-              <i className="ri-user-heart-line absolute right-0 bottom-0 text-9xl z-[-1] text-slate-100 pointer-events-none"></i>
+              <i className="ri-user-heart-line absolute right-0 bottom-0 text-9xl z-[-1] text-slate-50 pointer-events-none"></i>
               <span className="text-base text-zinc-700 font-lato font-semibold">
                 (03)
               </span>
@@ -67,9 +65,8 @@ const services = () => {
                 chances of chancing a meaningful connection.
               </p>
             </div>
-
             <div className="relative overflow-hidden z-10 w-[32.1%] h-auto mt-4 p-4 rounded-3xl border-2 bg-[#ffffff] drop-shadow-md border-transparent transition-all hover:border-[#FF5252]">
-              <i className="ri-message-3-line absolute right-0 bottom-0 text-9xl z-[-1] text-slate-100 pointer-events-none"></i>
+              <i className="ri-message-3-line absolute right-0 bottom-0 text-9xl z-[-1] text-slate-50 pointer-events-none"></i>
               <span className="text-base text-zinc-700 font-lato font-semibold">
                 (04)
               </span>
@@ -82,9 +79,8 @@ const services = () => {
                 know each other better without leaving the app.{" "}
               </p>
             </div>
-
             <div className="relative overflow-hidden z-10 w-[32.1%] h-auto mt-4 p-4 rounded-3xl border-2 bg-[#ffffff] drop-shadow-md border-transparent transition-all hover:border-[#8E24AA]">
-              <i className="ri-shield-check-line absolute right-0 bottom-0 text-9xl z-[-1] text-slate-100  pointer-events-none"></i>
+              <i className="ri-shield-check-line absolute right-0 bottom-0 text-9xl z-[-1] text-slate-50  pointer-events-none"></i>
               <span className="text-base text-zinc-700 font-lato font-semibold">
                 (05)
               </span>
@@ -96,9 +92,8 @@ const services = () => {
                 measures to cover your data and insure a safe courting terrain.
               </p>
             </div>
-
             <div className="relative overflow-hidden z-10 w-[32.1%] h-auto mt-4 p-4 rounded-3xl border-2 bg-[#ffffff] drop-shadow-md border-transparent transition-all hover:border-[#F57C00]">
-              <i className="ri-link absolute right-0 bottom-0 text-9xl z-[-1] text-slate-100 pointer-events-none"></i>
+              <i className="ri-link absolute right-0 bottom-0 text-9xl z-[-1] text-slate-50 pointer-events-none"></i>
               <span className="text-base text-zinc-700 font-lato font-semibold">
                 (06)
               </span>
@@ -111,9 +106,8 @@ const services = () => {
                 Assamese traditions together.
               </p>
             </div>
-
             <div className="relative overflow-hidden z-10 w-[32.1%] h-auto mt-4 p-4 rounded-3xl border-2 bg-[#ffffff] drop-shadow-md border-transparent transition-all hover:border-[#8BC34A]">
-              <i className="ri-user-settings-line absolute right-0 bottom-0 text-9xl z-[-1] text-slate-100 pointer-events-none"></i>
+              <i className="ri-user-settings-line absolute right-0 bottom-0 text-9xl z-[-1] text-slate-50 pointer-events-none"></i>
               <span className="text-base text-zinc-700 font-lato font-semibold">
                 (07)
               </span>
@@ -126,9 +120,8 @@ const services = () => {
                 looking for in a mate to attract like- inclined individualities.
               </p>
             </div>
-
             <div className="relative overflow-hidden z-10 w-[32.1%] h-auto mt-4 p-4 rounded-3xl border-2 bg-[#ffffff] drop-shadow-md border-transparent transition-all hover:border-[#4A90E2]">
-              <i className="ri-calendar-event-line absolute right-0 bottom-0 text-9xl z-[-1] text-slate-100 pointer-events-none"></i>
+              <i className="ri-calendar-event-line absolute right-0 bottom-0 text-9xl z-[-1] text-slate-50 pointer-events-none"></i>
               <span className="text-base text-zinc-700 font-lato font-semibold">
                 (08)
               </span>
@@ -141,9 +134,8 @@ const services = () => {
                 and make connections beyond the virtual world.
               </p>
             </div>
-
             <div className="relative overflow-hidden z-10 w-[32.1%] h-auto mt-4 p-4 rounded-3xl border-2 bg-[#ffffff] drop-shadow-md border-transparent transition-all hover:border-[#43A047]">
-              <i className="ri-hearts-line absolute right-0 bottom-0 text-9xl z-[-1] text-slate-100 pointer-events-none"></i>
+              <i className="ri-hearts-line absolute right-0 bottom-0 text-9xl z-[-1] text-slate-50 pointer-events-none"></i>
               <span className="text-base text-zinc-700 font-lato font-semibold">
                 (09)
               </span>
@@ -156,9 +148,8 @@ const services = () => {
                 you might have missed.
               </p>
             </div>
-
             <div className="relative overflow-hidden z-10 w-[32.1%] h-auto mt-4 p-4 rounded-3xl border-2 bg-[#ffffff] drop-shadow-md border-transparent transition-all hover:border-[#00bcd4]">
-              <i className="ri-quill-pen-line absolute right-0 bottom-0 text-9xl z-[-1] text-slate-100 pointer-events-none"></i>
+              <i className="ri-quill-pen-line absolute right-0 bottom-0 text-9xl z-[-1] text-slate-50 pointer-events-none"></i>
               <span className="text-base text-zinc-700 font-lato font-semibold">
                 (10)
               </span>
@@ -171,9 +162,8 @@ const services = () => {
                 chancing love.
               </p>
             </div>
-
             <div className="relative overflow-hidden z-10 w-[32.1%] h-auto mt-4 p-4 rounded-3xl border-2 bg-[#ffffff] drop-shadow-md border-transparent transition-all hover:border-[#FF5252]">
-              <i className="ri-customer-service-2-line absolute right-0 bottom-0 text-9xl z-[-1] text-slate-100 pointer-events-none"></i>
+              <i className="ri-customer-service-2-line absolute right-0 bottom-0 text-9xl z-[-1] text-slate-50 pointer-events-none"></i>
               <span className="text-base text-zinc-700 font-lato font-semibold">
                 (11)
               </span>
