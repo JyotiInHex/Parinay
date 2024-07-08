@@ -15,36 +15,40 @@ const aboutUs = () => {
           <div className='mt-8 mb-3 px-5'>
             <h5 className='text-2xl'>Why Choose Parinay.com?</h5>
             <div className='w-full h-auto py-5 drop-shadow-xl flex gap-5'>
-              <div className='overflow-hidden group w-[25%] h-auto rounded-2xl bg-[#B2DFDB] p-5'>
-                <i className='ri-earth-fill block text-4xl text-zinc-800 h-[80%] transition-all group-hover:h-[23%]'></i>
-                <h5 className='relative flex justify-between items-center text-[1em] text-zinc-700 leading-6 font-opensans font-semibold border-b-2 border-transparent transition-all group-hover:border-zinc-700'><sup className='absolute -top-5 text-lg text-zinc-700 font-opensans font-bold'>01.</sup>Cultural Connection<span className='ri-arrow-right-up-line text-3xl font-normal transition-all group-hover:rotate-90'></span></h5>
+              <div className='relative z-10 overflow-hidden group w-[25%] h-auto rounded-2xl bg-[#B2DFDB] p-5'>
+                <i className='ri-earth-fill block text-4xl text-slate-600 h-[80%] transition-all group-hover:h-[23%]'></i>
+                <span className='absolute top-[50%] z-[-1] text-8xl text-slate-50 opacity-20 font-opensans font-bold'>01.</span>
+                <h5 className='flex justify-between items-center text-[1em] text-zinc-700 leading-6 font-opensans font-semibold border-b-2 border-transparent transition-all group-hover:border-zinc-700'>Cultural Connection<span className='ri-arrow-right-up-line text-3xl font-normal transition-all group-hover:rotate-90'></span></h5>
                 <p className='mb-[1.3em] text-base text-zinc-700 font-lato font-semibold w-full h-fit opacity-0 transition-all  group-hover:opacity-100'>We celebrate Assamese culture and create opportunities for you to meet others who appreciate and cherish it as much as you do.</p>
               </div>
 
-              <div className='overflow-hidden group w-[25%] h-auto rounded-2xl bg-[#FFF9C4] p-5'>
-                <i className='ri-lightbulb-fill block text-4xl text-zinc-800 h-[80%] transition-all group-hover:h-[23%]'></i>
-                <h5 className='relative flex justify-between items-center text-[1em] text-zinc-700 leading-6 font-opensans font-semibold border-b-2 border-transparent transition-all group-hover:border-zinc-700'><sup className='absolute -top-5 text-lg text-zinc-700 font-opensans font-bold'>02.</sup>User-Friendly Interface <span className='ri-arrow-right-up-line text-3xl font-normal transition-all group-hover:rotate-90'></span></h5>
+              <div className='relative z-10 overflow-hidden group w-[25%] h-auto rounded-2xl bg-[#bdbefc] p-5'>
+                <i className='ri-lightbulb-fill block text-4xl text-slate-600 h-[80%] transition-all group-hover:h-[23%]'></i>
+                <span className='absolute top-[50%] z-[-1] text-8xl text-slate-50 opacity-20 font-opensans font-bold'>02.</span>
+                <h5 className='relative flex justify-between items-center text-[1em] text-zinc-700 leading-6 font-opensans font-semibold border-b-2 border-transparent transition-all group-hover:border-zinc-700'>User-Friendly Interface <span className='ri-arrow-right-up-line text-3xl font-normal transition-all group-hover:rotate-90'></span></h5>
                 <p className='mb-[1.3em] text-base text-zinc-700 font-lato font-semibold w-full h-fit opacity-0 transition-all  group-hover:opacity-100'>Our app is designed to be intuitive and easy to navigate, ensuring a seamless experience as you search for your perfect match.</p>
               </div>
 
-              <div className='overflow-hidden group w-[25%] h-auto rounded-2xl bg-[#BBDEFB] p-5'>
-                <i className='ri-user-follow-fill block text-4xl text-zinc-800 h-[80%] transition-all group-hover:h-[23%]'></i>
-                <h5 className='relative flex justify-between items-center text-[1em] text-zinc-700 leading-6 font-opensans font-semibold border-b-2 border-transparent transition-all group-hover:border-zinc-700'><sup className='absolute -top-5 text-lg text-zinc-700 font-opensans font-bold'>03.</sup>Verified Profiles <span className='ri-arrow-right-up-line text-3xl font-normal transition-all group-hover:rotate-90'></span></h5>                
+              <div className='relative z-10 overflow-hidden group w-[25%] h-auto rounded-2xl bg-[#BBDEFB] p-5'>
+                <i className='ri-user-follow-fill block text-4xl text-slate-600 h-[80%] transition-all group-hover:h-[23%]'></i>
+                <span className='absolute top-[50%] z-[-1] text-8xl text-slate-50 opacity-20 font-opensans font-bold'>03.</span>
+                <h5 className='relative flex justify-between items-center text-[1em] text-zinc-700 leading-6 font-opensans font-semibold border-b-2 border-transparent transition-all group-hover:border-zinc-700'>Verified Profiles <span className='ri-arrow-right-up-line text-3xl font-normal transition-all group-hover:rotate-90'></span></h5>                
                 <p className='mb-[1.3em] text-base text-zinc-700 font-lato font-semibold w-full h-fit opacity-0 transition-all  group-hover:opacity-100'>We prioritize your safety and peace of mind. All profiles are thoroughly verified to ensure genuine connections.</p>
               </div>
 
-              <div className='overflow-hidden group w-[25%] h-auto rounded-2xl bg-[#C8E6C9] p-5'>
-                <i className='ri-function-fill block text-4xl text-zinc-800 h-[80%] transition-all group-hover:h-[23%]'></i>
-                <h5 className='relative flex justify-between items-center text-[1em] text-zinc-700 leading-6 font-opensans font-semibold border-b-2 border-transparent transition-all group-hover:border-zinc-700'><sup className='absolute -top-5 text-lg text-zinc-700 font-opensans font-bold'>04.</sup>Advanced Matching Algorithms <span className='ri-arrow-right-up-line text-3xl font-normal transition-all group-hover:rotate-90'></span></h5>                
+              <div className='relative z-10 overflow-hidden group w-[25%] h-auto rounded-2xl bg-[#C8E6C9] p-5'>
+                <i className='ri-function-fill block text-4xl text-slate-600 h-[80%] transition-all group-hover:h-[23%]'></i>
+                <span className='absolute top-[50%] z-[-1] text-8xl text-slate-50 opacity-20 font-opensans font-bold'>04.</span>
+                <h5 className='relative flex justify-between items-center text-[1em] text-zinc-700 leading-6 font-opensans font-semibold border-b-2 border-transparent transition-all group-hover:border-zinc-700'>Advanced Matching Algorithms <span className='ri-arrow-right-up-line text-3xl font-normal transition-all group-hover:rotate-90'></span></h5>                
                 <p className='mb-[1.3em] text-base text-zinc-700 font-lato font-semibold w-full h-fit opacity-0 transition-all  group-hover:opacity-100'>Our smart algorithms consider your preferences, interests, and values to suggest the best potential matches, making your journey to finding love both efficient and enjoyable.</p>
               </div>
 
-              <div className='overflow-hidden group w-[25%] h-auto rounded-2xl bg-[#FFE0B2] p-5'>
-                <i className='ri-group-fill block text-4xl text-zinc-800 h-[80%] transition-all group-hover:h-[23%]'></i>
-                <h5 className='relative flex justify-between items-center text-[1em] text-zinc-700 leading-6 font-opensans font-semibold border-b-2 border-transparent transition-all group-hover:border-zinc-700'><sup className='absolute -top-5 text-lg text-zinc-700 font-opensans font-bold'>05.</sup>Community Focused <span className='ri-arrow-right-up-line text-3xl font-normal transition-all group-hover:rotate-90'></span></h5>                
+              <div className='relative z-10 overflow-hidden group w-[25%] h-auto rounded-2xl bg-[#e0b2ff] p-5'>
+                <i className='ri-group-fill block text-4xl text-slate-600 h-[80%] transition-all group-hover:h-[23%]'></i>
+                <span className='absolute top-[50%] z-[-1] text-8xl text-slate-50 opacity-20 font-opensans font-bold'>05.</span>
+                <h5 className='relative flex justify-between items-center text-[1em] text-zinc-700 leading-6 font-opensans font-semibold border-b-2 border-transparent transition-all group-hover:border-zinc-700'>Community Focused <span className='ri-arrow-right-up-line text-3xl font-normal transition-all group-hover:rotate-90'></span></h5>                
                 <p className='mb-[1.3em] text-base text-zinc-700 font-lato font-semibold w-full h-fit opacity-0 transition-all  group-hover:opacity-100'>We foster a supportive community where users can share their experiences and celebrate their journey towards finding love.</p>
               </div>
-
             </div>
           </div> {/* dynamic */}
 
@@ -52,7 +56,7 @@ const aboutUs = () => {
 
           <div className='flex justify-between items-center mt-10 px-20'>
             <p className='text-xl font-semibold text-right'>Parinay.com – Where Assamese Hearts Connect.</p>
-            <button className='relative z-10 overflow-hidden group w-[25%] h-fit py-3 my-4 border-2 border-zinc-700 rounded-xl text-lg font-semibold flex justify-evenly items-center hover:text-slate-50 transition-all after:w-full after:h-full after:bg-zinc-900 after:absolute after:-bottom-16 after:left-0 after:z-[-1] after:rounded-[50%] after:transition-all hover:after:rounded-none hover:after:bottom-0'><Link to="/register">Join Parinay Today</Link> <i className="ri-arrow-right-up-line text-3xl font-normal transition-all group-hover:rotate-90"></i></button>
+            <button className='relative z-10 overflow-hidden group w-[20%] h-fit py-3 my-4 border-2 border-zinc-700 rounded-xl text-xl text-zinc-700 font-semibold flex justify-center items-center gap-1 hover:text-slate-50 transition-all after:w-full after:h-full after:bg-zinc-700 after:absolute after:-bottom-16 after:left-0 after:z-[-1] after:rounded-[50%] after:transition-all hover:after:rounded-none hover:after:bottom-0'><Link to="/register">Join Now</Link> <i className="ri-arrow-right-up-line text-3xl font-normal transition-all group-hover:rotate-90"></i></button>
           </div>
         </div>
       </div>
