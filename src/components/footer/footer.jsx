@@ -92,13 +92,13 @@ const Footer = () => {
                         <li className='text-base text-slate-50 font-lato font-normal'><Link>Terms</Link></li>
                         <li className='text-base text-slate-50 font-lato font-normal'><Link>Cookies</Link></li>
                         <li className='text-base text-slate-50 font-lato font-normal'><Link>Privacy</Link></li>
-                        <li className='text-base text-slate-50 font-lato font-normal'><Link>FAQ</Link></li>
+                        <li className='text-base text-slate-50 font-lato font-normal'><Link to="/faqs">FAQ</Link></li>
                     </ul>
                     <ul className='flex flex-col gap-3'>
                         <h6 className='text-lg text-slate-50 font-opensans font-semibold'>Careers</h6>
                         <li className='text-base text-slate-50 font-lato font-normal'><Link>Portal</Link></li>
                         <li className='text-base text-slate-50 font-lato font-normal'><Link>Blog</Link></li>
-                        <li className='text-base text-slate-50 font-lato font-normal'><Link>Contact</Link></li>
+                        <li className='text-base text-slate-50 font-lato font-normal'><Link to="/contact">Contact</Link></li>
                     </ul>
                 </div>
             </nav>
