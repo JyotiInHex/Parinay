@@ -12,7 +12,7 @@ const prices = () => {
           <h6 className='px-5 text-3xl text-zinc-700 font-merriweather font-semibold'>Choose Your Perfect Plan.</h6>
           <p className='px-5 text-lg text-zinc-700 font-lato font-medium'>Select the plan that best fits your needs and start connecting today.</p>
         </div>
-        <div className='p-10 mt-2 bg-slate-50'>
+        <div className='p-10 mt-2'>
           <Plans/>
         </div>
       </div>

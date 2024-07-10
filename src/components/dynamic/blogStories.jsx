@@ -1,5 +1,5 @@
 import React from 'react';
-import stories from '../../assets/8.jpg';
+import stories from '../../assets/story-1.jpg';
 
 const blogStories = () => {
   return (
