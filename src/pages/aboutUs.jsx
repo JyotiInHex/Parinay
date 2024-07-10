@@ -56,7 +56,7 @@ const aboutUs = () => {
 
           <div className='flex justify-between items-center mt-10 px-20'>
             <p className='text-xl font-semibold text-right'>Parinay.com – Where Assamese Hearts Connect.</p>
-            <button className='relative z-10 overflow-hidden group w-[20%] h-fit py-3 my-4 border-2 border-zinc-700 rounded-xl text-xl text-zinc-700 font-semibold flex justify-center items-center gap-1 hover:text-slate-50 transition-all after:w-full after:h-full after:bg-zinc-700 after:absolute after:-bottom-16 after:left-0 after:z-[-1] after:rounded-[50%] after:transition-all hover:after:rounded-none hover:after:bottom-0'><Link to="/register">Join Now</Link> <i className="ri-arrow-right-up-line text-3xl font-normal transition-all group-hover:rotate-90"></i></button>
+            <button className='relative z-10 overflow-hidden group w-[20%] h-fit py-3 my-4 border-2 border-zinc-700 rounded-xl text-xl text-zinc-700 font-semibold flex justify-center items-center gap-1 hover:text-slate-50 transition-all after:w-full after:h-full after:bg-zinc-700 after:absolute after:-bottom-16 after:left-0 after:z-[-1] after:rounded-[50%] after:transition-all hover:after:rounded-none hover:after:bottom-0'><Link to="/register">Join Now</Link> <i className="ri-arrow-right-down-line text-3xl font-normal transition-all group-hover:-rotate-90"></i></button>
           </div>
         </div>
       </div>

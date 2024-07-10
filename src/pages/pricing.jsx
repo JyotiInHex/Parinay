@@ -1,0 +1,23 @@
+import React from 'react'
+import { Link } from 'react-router-dom'
+import Plans from '../components/dynamic/plans'
+const prices = () => {
+  return (
+    <>
+      <div className='w-full h-auto p-5'>
+        <figure className='p-6 mr-5 ml-5 mb-5 rounded-3xl bg-gradient-to-tr'>
+          <h1 className='text-9xl text-gray-500 text-shadow-sm font-bold font-opensans relative'><sup className='text-base font-semibold underline'><Link to="/">(Home)</Link></sup>Plans</h1> 
+        </figure>
+        <div className='bg-white w-full h-full p-10 rounded-2xl'>
+          <h6 className='px-5 text-3xl text-zinc-700 font-merriweather font-semibold'>Choose Your Perfect Plan.</h6>
+          <p className='px-5 text-lg text-zinc-700 font-lato font-medium'>Select the plan that best fits your needs and start connecting today.</p>
+        </div>
+        <div className='p-10 mt-2 bg-slate-50'>
+          <Plans/>
+        </div>
+      </div>
+    </>
+  )
+}
+
+export default prices

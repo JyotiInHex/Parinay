@@ -17,7 +17,7 @@ const Contact = () => {
         <div className="bg-white w-full h-full px-24 py-10 rounded-2xl text-lg text-zinc-700 font-lato font-medium">
           <h6 className="px-5 text-left">If you have any questions, feel free to reach out to us. We're here to help!</h6>
           <div className='relative z-10 px-5 mt-5 flex flex-wrap'>
-            <div className='w-1/2 flex flex-col'>
+            <div className='w-[40%] flex flex-col'>
               <div className='mt-7 p-3 w-full h-auto bg-slate-50 rounded-md'>
                 <h5 className='text-xl font-semibold text-orange-500'><i className='ri-phone-line font-normal'></i> Phone</h5>
                 <p>General Inquiries: +1234567890</p>
@@ -37,7 +37,7 @@ const Contact = () => {
                 <p className='text-lg text-zinc-700 font-lato font-medium'>Monday - Friday: 09:00 AM - 06:00 PM (Local Time)</p>
               </div>
             </div> {/* dynamic */}
-            <div className='w-1/2 h-auto relative top-7'>
+            <div className='w-[60%] h-auto relative top-7'>
               <form action="" method="post" className='ml-10 p-10 rounded-md drop-shadow-md bg-zinc-700 text-slate-50 w-auto h-auto flex flex-col items-end'>
                 <h3 className='text-2xl w-full font-merriweather font-semibold mb-5'>Send a Message</h3>
                 <div className='mb-5 w-full font-semibold'>
