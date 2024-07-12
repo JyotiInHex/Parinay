@@ -15,7 +15,8 @@ import Pricing from "./pages/pricing";
 import Features from "./pages/features";
 import Contact from "./pages/contact";
 import Login from "./pages/login";
-import AboutUs from "./pages/aboutUs"; //{About}
+import AboutUs from "./pages/aboutUs";
+import Faq from "./pages/faq";
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
@@ -45,6 +46,7 @@ const ScrollContainer = () => {
         <Route path="/contact" element={<Contact />} />
         <Route path="/login" element={<Login />} />
         <Route path="/aboutUs" element={<AboutUs />} />
+        <Route path="/faq" element={<Faq />} />
       </Routes>
       <Footer/>
     </div>

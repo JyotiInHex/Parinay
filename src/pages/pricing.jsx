@@ -15,6 +15,7 @@ const prices = () => {
         <div className='p-10 mt-2'>
           <Plans/>
         </div>
+        
       </div>
     </>
   )
