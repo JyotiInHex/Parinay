@@ -91,7 +91,7 @@ const services = () => {
           </ul>
           <div className="flex flex-col items-center gap-8 w-full h-fit">
             <h6 className="px-5 text-left w-full text-lg text-zinc-700 font-lato font-medium">Join Parinay.com moment and explore these features designed to help you find your perfect Assamese match. Your trip to love thresholds then!</h6>
-            <button className='relative z-10 overflow-hidden group w-[20%] h-fit py-3 my-4 border-2 border-zinc-700 rounded-xl text-xl text-zinc-700 font-semibold flex justify-center items-center gap-1 hover:text-slate-50 transition-all after:w-full after:h-full after:bg-zinc-700 after:absolute after:-bottom-16 after:left-0 after:z-[-1] after:rounded-[50%] after:transition-all hover:after:rounded-none hover:after:bottom-0'><Link to="/register">Join Now</Link> <i className="ri-arrow-right-down-line text-3xl font-normal transition-all group-hover:-rotate-90"></i></button>
+            <Link to="/register" className='w-fit h-auto '><button className='relative z-10 overflow-hidden group w-max h-fit px-5 py-2 my-4 border-2 border-zinc-700 rounded-xl text-xl text-zinc-700 font-semibold flex justify-center items-center gap-1 hover:text-slate-50 transition-all after:w-full after:h-full after:bg-zinc-700 after:absolute after:-bottom-16 after:left-0 after:z-[-1] after:rounded-[50%] after:transition-all hover:after:rounded-none hover:after:bottom-0'>Join Now <i className="ri-arrow-right-down-line text-3xl font-normal transition-all group-hover:-rotate-90"></i></button></Link>
           </div>
         </div>
       </div>

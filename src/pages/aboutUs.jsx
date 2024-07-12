@@ -54,9 +54,9 @@ const aboutUs = () => {
 
           <h6 className='px-5 text-justify'>Whether you are looking for a serious relationship or simply want to expand your social circle, <strong>Parinay</strong> is your go-to platform. Join us today and embark on a journey to find your perfect partner within the vibrant and diverse Assamese community.</h6>{/* dynamic */}
 
-          <div className='flex justify-between items-center mt-10 px-20'>
+          <div className='flex justify-between items-center w-full mt-10 px-20'>
             <p className='text-xl font-semibold text-right'>Parinay.com – Where Assamese Hearts Connect.</p>
-            <button className='relative z-10 overflow-hidden group w-[20%] h-fit py-3 my-4 border-2 border-zinc-700 rounded-xl text-xl text-zinc-700 font-semibold flex justify-center items-center gap-1 hover:text-slate-50 transition-all after:w-full after:h-full after:bg-zinc-700 after:absolute after:-bottom-16 after:left-0 after:z-[-1] after:rounded-[50%] after:transition-all hover:after:rounded-none hover:after:bottom-0'><Link to="/register">Join Now</Link> <i className="ri-arrow-right-down-line text-3xl font-normal transition-all group-hover:-rotate-90"></i></button>
+            <Link to="/register" className='w-fit h-auto '><button className='relative z-10 overflow-hidden group w-max h-fit px-5 py-2 my-4 border-2 border-zinc-700 rounded-xl text-xl text-zinc-700 font-semibold flex justify-center items-center gap-1 hover:text-slate-50 transition-all after:w-full after:h-full after:bg-zinc-700 after:absolute after:-bottom-16 after:left-0 after:z-[-1] after:rounded-[50%] after:transition-all hover:after:rounded-none hover:after:bottom-0'>Join Now <i className="ri-arrow-right-down-line text-3xl font-normal transition-all group-hover:-rotate-90"></i></button></Link>
           </div>
         </div>
       </div>
