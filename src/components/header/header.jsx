@@ -3,7 +3,8 @@ import 'remixicon/fonts/remixicon.css';
 
 const Header = () => {
   return (
-    <><nav className="grid grid-cols-3 items-center px-14 py-8 bg-[#ffffff15] backdrop-blur-sm w-full h-fit">
+    <>
+      <nav className="grid grid-cols-3 items-center px-14 py-8 bg-[#ffffff15] backdrop-blur-sm w-full h-fit">
         <ul className="text-base font-lato font-bold text-zinc-900 tracking-wider justify-self-start flex gap-3">
           <Link to="/pricing"><li className="cursor-pointer">Pricing</li></Link>
           <Link to="/features"><li className="cursor-pointer">Features</li></Link>
@@ -108,14 +109,11 @@ const Header = () => {
           </Link>
         </figure>
         <ul className="cta flex text-lg font-lato font-semibold justify-self-end gap-3 cursor-pointer">
-          <Link to="/register">
-            <li className="relative z-10 overflow-hidden w-[6em] border-2 border-zinc-900 rounded-full py-1 text-zinc-900 text-center hover:text-slate-100 after:absolute after:left-[-6px] after:top-6 after:z-[-1] after:translate-y-[50%] after:rounded-[50%] after:bg-zinc-900 after:w-[6.6em] after:h-[2.5em] after:transition-all duration-1000 ease-in-out hover:after:top-[-25px] hover:after:rounded-none">Join Now</li>
-          </Link>
-          <Link to="/login">
-            <li className="relative z-10 overflow-hidden w-[6em] border-2 border-zinc-900 rounded-full py-1 text-zinc-900 text-center hover:text-slate-100 after:absolute after:left-[-6px] after:top-6 after:z-[-1] after:translate-y-[50%] after:rounded-[50%] after:bg-zinc-900 after:w-[6.6em] after:h-[2.5em] after:transition-all duration-1000 ease-in-out hover:after:top-[-25px] hover:after:rounded-none">Login</li>
-          </Link>
+          <li className="relative z-10 overflow-hidden w-[6em] border-2 border-zinc-900 rounded-full py-1 text-zinc-900 text-center hover:text-slate-100 after:absolute after:left-[-6px] after:top-6 after:z-[-1] after:translate-y-[50%] after:rounded-[50%] after:bg-zinc-900 after:w-[6.6em] after:h-[2.5em] after:transition-all duration-1000 ease-in-out hover:after:top-[-25px] hover:after:rounded-none">Join Now</li>
+          <li className="relative z-10 overflow-hidden w-[6em] border-2 border-zinc-900 rounded-full py-1 text-zinc-900 text-center hover:text-slate-100 after:absolute after:left-[-6px] after:top-6 after:z-[-1] after:translate-y-[50%] after:rounded-[50%] after:bg-zinc-900 after:w-[6.6em] after:h-[2.5em] after:transition-all duration-1000 ease-in-out hover:after:top-[-25px] hover:after:rounded-none">Login</li>
         </ul>
-    </nav></>  
+      </nav>
+    </>  
   );
 };
 

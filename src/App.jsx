@@ -40,7 +40,12 @@ const ScrollContainer = () => {
   
   return (
     <>
-      <div className="bg-slate-200 relative cursor-default" ref={scrollRef} data-scroll-container>
+      <div className="absolute top-0 left-0 z-50 w-full h-full flex flex-col justify-center items-center bg-[#00000099]">
+        <div className="w-1/4 h-auto p-10 bg-slate-100 rounded-xl">
+          <Login/>
+        </div>
+      </div>
+      <div className="bg-slate-200 cursor-default" ref={scrollRef} data-scroll-container>
         <Header />
         <Routes>
           <Route path="/" element={<Landing />} />
