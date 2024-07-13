@@ -15,6 +15,7 @@ import Pricing from "./pages/pricing";
 import Features from "./pages/features";
 import Contact from "./pages/contact";
 import Login from "./pages/login";
+import Register from "./pages/register";
 import AboutUs from "./pages/aboutUs";
 import Faq from "./pages/faq";
 
@@ -36,20 +37,24 @@ const ScrollContainer = () => {
     return () =>{if (scroll) scroll.destroy();};
   }, [location.pathname])
   
+  
   return (
-    <div className="bg-slate-200 relative cursor-default" ref={scrollRef} data-scroll-container>
-      <Header />
-      <Routes>
-        <Route path="/" element={<Landing />} />
-        <Route path="/pricing" element={<Pricing />} />
-        <Route path="/features" element={<Features />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/aboutUs" element={<AboutUs />} />
-        <Route path="/faq" element={<Faq />} />
-      </Routes>
-      <Footer/>
-    </div>
+    <>
+      <div className="bg-slate-200 relative cursor-default" ref={scrollRef} data-scroll-container>
+        <Header />
+        <Routes>
+          <Route path="/" element={<Landing />} />
+          <Route path="/pricing" element={<Pricing />} />
+          <Route path="/features" element={<Features />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/aboutUs" element={<AboutUs />} />
+          <Route path="/faq" element={<Faq />} />
+        </Routes>
+        <Footer/>
+      </div>
+    </>
   );
 };
 
