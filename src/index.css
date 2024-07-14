@@ -1,6 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+*::selection{background-color: rgb(46, 44, 40);color: white;}
 html,body{scrollbar-width: none;}
 [data-scroll-container]{
     position: relative;
