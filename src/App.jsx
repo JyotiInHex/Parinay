@@ -14,8 +14,8 @@ import Landing from "./pages/landing";
 import Pricing from "./pages/pricing";
 import Features from "./pages/features";
 import Contact from "./pages/contact";
-import Login from "./pages/login";
-// import Register from "./pages/register";
+// import Login from "./auth/login";
+import Register from "./auth/register";
 import AboutUs from "./pages/aboutUs";
 import Faq from "./pages/faq";
 import NotFound from "./errors/notFound";
@@ -42,8 +42,8 @@ const ScrollContainer = () => {
   return (
     <>
       <div className="absolute top-0 left-0 z-50 w-full h-full flex flex-col justify-center items-center bg-[#00000099]">
-        <div className="w-1/2 h-auto p-10 bg-slate-100 rounded-xl">
-          <Login/>
+        <div className="w-1/2 h-auto px-10 py-6 bg-slate-100 rounded-xl">
+          <Register/>
         </div>
       </div>
       <div className="bg-slate-200 cursor-default" ref={scrollRef} data-scroll-container>

@@ -20,3 +20,11 @@ html,body{scrollbar-width: none;}
 .priceBg-art.four{background-image: url("assets/art-4.jpg");}
 .priceBg-art.five{background-image: url("assets/art-5.jpg");}
 .priceBg-art.six{background-image: url("assets/art-6.jpg");}
+
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type=number] {appearance: textfield;}
+input,textarea{text-transform: capitalize;}
