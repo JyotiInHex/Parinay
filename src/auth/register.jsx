@@ -22,8 +22,8 @@ const Register = () => {
                 <h3 className="text-xl font-lato font-semibold mb-4">Create your account</h3>
                 <p className="text-lg font-opensans font-medium mb-6">Fill in the details below to start your journey towards finding your perfect match. Join our community and explore the possibilities.</p>
             </div>
-            <form className="w-[125vh] bg-white p-7 rounded-lg drop-shadow-lg overflow-hidden">
-              <div className='flex flex-row transition-all translate-x-[-231.5%]'>
+            <form className="w-[125vh] bg-white p-7 rounded-lg drop-shadow-lg overflow-hidden" method='POST'>
+              <div className='flex flex-row transition-all translate-x-[-6.1%]'>
                 <div className='mx-5 flex flex-col gap-y-5 w-full min-w-full'>
                   <div className='flex items-center justify-between'>
                     <h3 className='space-y-4 text-xl text-zinc-700 font-semibold font-merriweather'>Account Details</h3>
@@ -104,12 +104,11 @@ const Register = () => {
                     <input className="outline-none border-2 border-zinc-200 rounded-xl w-full py-3 px-4 text-lg font-lato font-semibold text-zinc-800 leading-tight transition-all focus:border-blue-500" id="city" type="text" name="city" required />
                   </div>
                 </div>
-
+                
               </div>
                 {/* <h5 className="mt-3 w-full text-center text-base font-lato font-medium">already have an account? <button type="button" className="font-semibold text-blue-500 transition-all hover:text-blue-700 underline">Sign In</button></h5> */}
             </form>
         </div>
-
       </div>
     </>
   )

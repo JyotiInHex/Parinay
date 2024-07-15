@@ -14,11 +14,13 @@ import Landing from "./pages/landing";
 import Pricing from "./pages/pricing";
 import Features from "./pages/features";
 import Contact from "./pages/contact";
-// import Login from "./auth/login";
+import Login from "./auth/login";
 import Register from "./auth/register";
+import ForgotPass from "./auth/forgotPass";
 import AboutUs from "./pages/aboutUs";
 import Faq from "./pages/faq";
 import NotFound from "./errors/notFound";
+
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
@@ -43,7 +45,7 @@ const ScrollContainer = () => {
     <>
       <div className="absolute top-0 left-0 z-50 w-full h-full flex flex-col justify-center items-center bg-[#00000099]">
         <div className="w-1/2 h-auto px-10 py-6 bg-slate-100 rounded-xl">
-          <Register/>
+          <Login/>
         </div>
       </div>
       <div className="bg-slate-200 cursor-default" ref={scrollRef} data-scroll-container>
@@ -55,6 +57,7 @@ const ScrollContainer = () => {
           <Route path="/contact" element={<Contact />} />
           <Route path="/aboutUs" element={<AboutUs />} />
           <Route path="/faq" element={<Faq />} />
+          <Route path="/register" element={<Register />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
         <Footer/>
