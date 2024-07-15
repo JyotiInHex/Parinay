@@ -2,11 +2,11 @@ import React from 'react'
 import logo from "../assets/logo.jpeg";
 import { Link } from 'react-router-dom';
 
-const ForgotPass = () => {
+const ForgotPass = ({onLoginClick, onCloseClick}) => {
   return (
     <>
         <div className="relative w-full h-auto text-zinc-700">
-            <i className="ri-close-line absolute -right-3 top-6 text-xl  font-semibold cursor-pointer"></i>
+            <i className="ri-close-line absolute -right-3 top-6 text-xl  font-semibold cursor-pointer" onClick={onCloseClick}></i>
             <figure className="w-auto h-auto flex flex-col items-center justify-center mb-6">
             <img
                 className="relative rounded-full w-[5.5%] h-auto object-cover pointer-events-none"
@@ -23,8 +23,11 @@ const ForgotPass = () => {
                     <h3 className="text-xl font-lato font-semibold mb-4">Reset it now</h3>
                     <p className="text-lg font-opensans font-medium mb-6">No worries, we will send you an email to reset your password and get you back on track.</p>
                 </div>
-                <form className="w-[125vh] bg-white p-7 rounded-lg drop-shadow-lg" method="POST">
-                    <div className="mb-4 drop-shadow-md">
+                <form className="relative w-[125vh] bg-white p-7 rounded-lg drop-shadow-lg" method="POST">
+                    <span className='absolute top-4 text-lg text-zinc-700 font-semibold cursor-pointer' onClick={onLoginClick}>
+                        <i className='ri-arrow-left-s-line'></i>Back
+                    </span>
+                    <div className="mb-4 mt-5 drop-shadow-md">
                         <label className="block text-lg font-lato font-semibold mb-1" for="email">Email</label>
                         <input className="outline-none border-2 border-zinc-200 rounded-xl w-full py-3 px-4 text-base font-lato font-semibold text-zinc-800 leading-tight transition-all focus:border-blue-500" id="email" type="email" name="email" required/>
                     </div>

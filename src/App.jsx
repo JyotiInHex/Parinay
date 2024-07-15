@@ -1,4 +1,4 @@
-import {useRef, useEffect} from "react";
+import {useRef, useEffect, useState} from "react";
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 
 import locomotiveScroll from "locomotive-scroll";
@@ -31,6 +31,22 @@ const ScrollToTop = () => {
 const ScrollContainer = () => {
   const scrollRef = useRef(null);
   const location = useLocation();
+  const [showLogin, setShowLogin] = useState(false);
+  const [showForgot, setShowForgot] = useState(false);
+
+  const handleLoginClick = () => {
+    setShowLogin(true);
+    setShowForgot(false);
+  };
+  const handleForgotClick = () =>{
+    setShowLogin(false);
+    setShowForgot(true);
+  }
+  const handleCloseClick = () =>{
+    setShowLogin(false);
+    setShowForgot(false);
+  }
+
   useEffect(() =>{
     const scroll = new locomotiveScroll({
       el: scrollRef.current,
@@ -40,16 +56,23 @@ const ScrollContainer = () => {
     return () =>{if (scroll) scroll.destroy();};
   }, [location.pathname])
   
+
   
   return (
     <>
-      <div className="absolute top-0 left-0 z-50 w-full h-full flex flex-col justify-center items-center bg-[#00000099]">
-        <div className="w-1/2 h-auto px-10 py-6 bg-slate-100 rounded-xl">
-          <Login/>
+      {showLogin && 
+        <div className="absolute top-0 left-0 z-50 w-full h-full flex flex-col justify-center items-center bg-[#00000099]">
+          <div className="w-1/2 h-auto px-10 py-6 bg-slate-100 rounded-xl">{showLogin && <Login onCloseClick={handleCloseClick} onForgotClick={handleForgotClick}/>}</div>
         </div>
-      </div>
+      }
+      {showForgot && 
+        <div className="absolute top-0 left-0 z-50 w-full h-full flex flex-col justify-center items-center bg-[#00000099]">
+          <div className="w-1/2 h-auto px-10 py-6 bg-slate-100 rounded-xl">{showForgot && <ForgotPass onLoginClick={handleLoginClick} onCloseClick={handleCloseClick}/>}</div>
+        </div>
+      }
+
       <div className="bg-slate-200 cursor-default" ref={scrollRef} data-scroll-container>
-        <Header />
+        <Header onLoginClick={handleLoginClick}/>
         <Routes>
           <Route path="/" element={<Landing />} />
           <Route path="/pricing" element={<Pricing />} />
@@ -67,11 +90,15 @@ const ScrollContainer = () => {
 };
 
 const App = ()=>{
+  
+
   return (
-    <Router>
-      <ScrollToTop />
-      <ScrollContainer />
-    </Router>
+    <>
+      <Router>
+        <ScrollToTop />
+        <ScrollContainer />
+      </Router>
+    </>
   )
 }
 
