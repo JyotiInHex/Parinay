@@ -14,12 +14,12 @@ html,body{scrollbar-width: none;}
     background-repeat: no-repeat;  
     background-size: 80%;
 }
-.priceBg-art.one{background-image: url("assets/art-1.jpg");}
-.priceBg-art.two{background-image: url("assets/art-2.jpg");}
-.priceBg-art.three{background-image: url("assets/art-3.jpg");}
-.priceBg-art.four{background-image: url("assets/art-4.jpg");}
-.priceBg-art.five{background-image: url("assets/art-5.jpg");}
-.priceBg-art.six{background-image: url("assets/art-6.jpg");}
+.priceBg-art.one{background-image: url("assets/art-1.webp");}
+.priceBg-art.two{background-image: url("assets/art-2.webp");}
+.priceBg-art.three{background-image: url("assets/art-3.webp");}
+.priceBg-art.four{background-image: url("assets/art-4.webp");}
+.priceBg-art.five{background-image: url("assets/art-5.webp");}
+.priceBg-art.six{background-image: url("assets/art-6.webp");}
 
 input[type=number]::-webkit-outer-spin-button,
 input[type=number]::-webkit-inner-spin-button {
@@ -28,3 +28,53 @@ input[type=number]::-webkit-inner-spin-button {
 }
 input[type=number] {appearance: textfield;}
 input,textarea{text-transform: capitalize;}
+
+.popupVisible{
+  opacity: 1;
+  visibility: visible;
+  transition: all 0.3s ease-in-out;
+}
+.popupInvisible{
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease-in-out;
+}
+.formVisible{
+  transform: translateY(0px);
+  transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.formHidden{
+  transform: translateY(-100px);
+  transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+
+@keyframes slide-left {
+  from {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slide-right {
+  from {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-slide-left {
+  animation: slide-left 0.5s ease-in-out;
+}
+
+.animate-slide-right {
+  animation: slide-right 0.5s ease-in-out;
+}

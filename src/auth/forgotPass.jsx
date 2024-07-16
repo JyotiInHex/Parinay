@@ -24,7 +24,7 @@ const ForgotPass = ({onLoginClick, onCloseClick}) => {
                     <p className="text-lg font-opensans font-medium mb-6">No worries, we will send you an email to reset your password and get you back on track.</p>
                 </div>
                 <form className="relative w-[125vh] bg-white p-7 rounded-lg drop-shadow-lg" method="POST">
-                    <span className='absolute top-4 text-lg text-zinc-700 font-semibold cursor-pointer' onClick={onLoginClick}>
+                    <span className='absolute top-4 left-0 text-lg text-zinc-700 font-semibold cursor-pointer' onClick={onLoginClick}>
                         <i className='ri-arrow-left-s-line'></i>Back
                     </span>
                     <div className="mb-4 mt-5 drop-shadow-md">

@@ -60,16 +60,13 @@ const ScrollContainer = () => {
   
   return (
     <>
-      {showLogin && 
-        <div className="absolute top-0 left-0 z-50 w-full h-full flex flex-col justify-center items-center bg-[#00000099]">
-          <div className="w-1/2 h-auto px-10 py-6 bg-slate-100 rounded-xl">{showLogin && <Login onCloseClick={handleCloseClick} onForgotClick={handleForgotClick}/>}</div>
-        </div>
-      }
-      {showForgot && 
-        <div className="absolute top-0 left-0 z-50 w-full h-full flex flex-col justify-center items-center bg-[#00000099]">
-          <div className="w-1/2 h-auto px-10 py-6 bg-slate-100 rounded-xl">{showForgot && <ForgotPass onLoginClick={handleLoginClick} onCloseClick={handleCloseClick}/>}</div>
-        </div>
-      }
+      <div className={`${showLogin ? 'popupVisible' : 'popupInvisible'} absolute top-0 left-0 z-50 w-full h-full flex flex-col justify-center items-center bg-[#00000099] transition-all`}>
+        <div className={`${showLogin ? 'formVisible' : 'formHidden'} w-1/2 h-auto px-10 py-6 bg-slate-100 rounded-xl`}><Login onForgotClick={handleForgotClick} onCloseClick={handleCloseClick}/></div>
+      </div>
+      
+      <div className={`${showForgot ? 'popupVisible' : 'popupInvisible'} absolute top-0 left-0 z-50 w-full h-full flex flex-col justify-center items-center bg-[#00000099] transition-all`}>
+        <div className={`${showForgot ? 'formVisible' : 'formHidden'} w-1/2 h-auto px-10 py-6 bg-slate-100 rounded-xl`}><ForgotPass onLoginClick={handleLoginClick} onCloseClick={handleCloseClick}/></div>
+      </div>
 
       <div className="bg-slate-200 cursor-default" ref={scrollRef} data-scroll-container>
         <Header onLoginClick={handleLoginClick}/>
