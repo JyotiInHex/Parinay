@@ -85,7 +85,9 @@ input[type="radio"]:checked:after {
   font-weight: 500;
 }
 
-select{appearance: none;}
+select {
+  appearance: none;
+}
 
 .popupVisible {
   opacity: 1;
