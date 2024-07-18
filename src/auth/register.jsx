@@ -102,19 +102,19 @@ const Register = () => {
                     
                     <div className='flex flex-wrap items-center gap-3 mt-3 mb-4'>
                       <h3 className='text-xl font-lato font-semibold'>Gender:</h3>
-                      <div className='w-fit h-fit flex items-center justify-between gap-2 border-2 border-blue-500 bg-blue-100 rounded-full px-5 py-1'>
+                      <div className='w-fit h-fit flex items-center justify-between gap-2 border-2 border-yellow-500 bg-yellow-100 rounded-full px-5 py-1'>
                         <input type="radio" name="gender" id="man" className='w-fit h-5'/>
                         <label className='w-fit h-fit rounded-full text-lg font-lato font-semibold cursor-pointer' htmlFor="man">
                           Man
                         </label>
                       </div>
-                      <div className='w-fit h-fit flex items-center justify-between gap-2 border-2 border-blue-500 bg-blue-100 rounded-full px-5 py-1'>
+                      <div className='w-fit h-fit flex items-center justify-between gap-2 border-2 border-yellow-500 bg-yellow-100 rounded-full px-5 py-1'>
                         <input type="radio" name="gender" id="woman" className='w-fit h-5'/>
                         <label className='w-fit h-fit rounded-full text-lg font-lato font-semibold cursor-pointer' htmlFor="woman">
                           Woman
                         </label>
                       </div>
-                      <div className='w-fit h-fit flex items-center justify-between gap-2 border-2 border-blue-500 bg-blue-100 rounded-full px-5 py-1'>
+                      <div className='w-fit h-fit flex items-center justify-between gap-2 border-2 border-yellow-500 bg-yellow-100 rounded-full px-5 py-1'>
                         <input type="radio" name="gender" id="other" className='w-fit h-5'/>
                         <label className='w-fit h-fit rounded-full text-lg font-lato font-semibold cursor-pointer' htmlFor="other">
                           Other
@@ -124,31 +124,9 @@ const Register = () => {
 
                     <label className='flex flex-col gap-3 mb-4' htmlFor="Religion">
                       <h3 className='text-xl font-lato font-semibold'>Religion:</h3>
-                      <div className="relative outline-none border-2 border-zinc-200 rounded-xl w-full py-3 px-4 text-lg font-lato font-semibold text-zinc-800 leading-tight transition-all focus:border-blue-500">
-                        <h6>Assamese</h6>
-                        <div className='absolute top-14 left-0 z-10 p-7 w-1/2 h-auto flex flex-col gap-3 bg-white rounded-md opacity-0 invisible'>
-                          <h4>Hinduism</h4>
-                          <h4>Islam</h4>
-                          <h4>Christianity</h4>
-                          <h4>Buddhism</h4>
-                          <h4>Sikhism</h4>
-                          <h4>Jainism</h4>
-                        </div>
-                      </div>
-                    </label>
-                    <label className='flex flex-col gap-3 mb-4' htmlFor="Religion">
-                      <h3 className='text-xl font-lato font-semibold'>Religion:</h3>
-                      <div className="relative outline-none border-2 border-zinc-200 rounded-xl w-full py-3 px-4 text-lg font-lato font-semibold text-zinc-800 leading-tight transition-all focus:border-blue-500">
-                        <h6>Assamese</h6>
-                        <div className='absolute top-14 left-0 z-10 p-7 w-1/2 h-auto flex flex-col gap-3 bg-white rounded-md opacity-0 invisible'>
-                          <h4>Hinduism</h4>
-                          <h4>Islam</h4>
-                          <h4>Christianity</h4>
-                          <h4>Buddhism</h4>
-                          <h4>Sikhism</h4>
-                          <h4>Jainism</h4>
-                        </div>
-                      </div>
+                      <select className='outline-none border-2 border-zinc-200 rounded-xl w-full py-3 px-4 text-lg font-lato font-semibold text-zinc-800 leading-tight transition-all focus:border-blue-500' name="" id="">
+                        <option className='text-xl' value="">Hindu</option>
+                      </select>
                     </label>
                   </fieldset>
                 </div>      

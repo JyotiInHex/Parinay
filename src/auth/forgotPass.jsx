@@ -28,11 +28,11 @@ const ForgotPass = ({onLoginClick, onCloseClick}) => {
                         <i className='ri-arrow-left-s-line'></i>Back
                     </span>
                     <div className="mb-4 mt-5 drop-shadow-md">
-                        <label className="block text-lg font-lato font-semibold mb-1" for="email">Email</label>
-                        <input className="outline-none border-2 border-zinc-200 rounded-xl w-full py-3 px-4 text-base font-lato font-semibold text-zinc-800 leading-tight transition-all focus:border-blue-500" id="email" type="email" name="email" required/>
+                        <label className="block text-lg font-lato font-semibold mb-1" for="recoverEmail">Email</label>
+                        <input className="outline-none border-2 border-zinc-200 rounded-xl w-full py-3 px-4 text-base font-lato font-semibold text-zinc-800 leading-tight transition-all focus:border-blue-500" id="recoverEmail" type="email" name="email" required/>
                     </div>
                     <button className="w-full bg-blue-500 transition-all hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg" type="submit">Send Reset Link</button>
-                    <h5 className="mt-3 text-center text-base font-lato font-medium">Don’t have an account? <Link to="/register"><button type="button" className="font-semibold text-blue-500 transition-all hover:text-blue-700 underline">Register</button></Link></h5>
+                    <h5 className="mt-3 text-center text-base font-lato font-medium">Don’t have an account? <Link to="/register"><button type="button" className="font-semibold text-blue-500 transition-all hover:text-blue-700 underline" onClick={onCloseClick}>Register</button></Link></h5>
                 </form>
             </div>
 
