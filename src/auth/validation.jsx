@@ -1,5 +1,5 @@
-function validation(step, check) {
-  const { profileFor, fName, lName, gender, religion, community,email } = check;
+function validation(step, data) {
+  const { profileFor, fName, lName, gender, religion, community, email} = data;
   let errors = {};
   const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   const passwordPattern =
@@ -26,7 +26,11 @@ function validation(step, check) {
         errors.community = "Enter community.";
       }
       break;
-
+    case 2:
+      if (email === ""){
+        errors.email = 'Enter Email ID'
+      }
+      break;
     default:
       break;
   }

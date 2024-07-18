@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, {useState } from "react";
 import registerBg from "../assets/registration-2.webp";
 import validation from "./validation";
 
 const Register = () => {
-  const [step, setStep] = useState(1);
+  const [step, setStep] = useState(2);
   const [formData, setFormData] = useState({
     profileFor: "",
     fName: "",
@@ -38,10 +38,6 @@ const Register = () => {
     }));
     setIsDropdownOpen(null);
   };
-
-  // useEffect(() => {
-  //   setErrors(validation(step, formData));
-  // }, [formData, step]);
 
   const handleNext = () => {
     const currentError = validation(step, formData);
@@ -88,7 +84,7 @@ const Register = () => {
             </p>
             <span className="pointer-events-none text-base text-red-600 text-shadow-5xl text-right mt-5 font-lato font-semibold">
               All Fields Are Required to fill !&nbsp;&nbsp;
-              <i className="ri-information-fill font-normal"></i>
+              <i className="ri-information-fill text-slate-50 font-normal"></i>
             </span>
           </div>
           <form
@@ -314,7 +310,9 @@ const Register = () => {
                         required
                         onChange={handleChange}
                       />
+                      {errors.email && (<p className="error">{errors.email}</p>)}
                     </label>
+                    
                     <div className="flex flex-row justify-between items-center w-full h-auto">
                       <button
                         className="self-end w-fit h-auto px-5 py-2 bg-gray-500 rounded-lg flex justify-between items-center text-xl text-slate-100 font-opensans font-medium transition-all hover:bg-gray-600"
