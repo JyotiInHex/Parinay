@@ -1,10 +1,6 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import registerBg from "../assets/registration-2.webp";
-
-const validStep1 = (data) => {
-  const {profileFor,fName,lName,gender,religion,community} = data;
-  return profileFor && fName && lName && gender && religion && community;
-}
+import validation from "./validation";
 
 const Register = () => {
   const [step, setStep] = useState(1);
@@ -15,14 +11,14 @@ const Register = () => {
     gender: "",
     religion: "",
     community: "",
+    email: "",
+    phoneNumber: "",
+    DOB: "",
+    livingIn: "",
   });
-  
-  const [isValid, setIsValid] = useState(false);
-
   const [animation, setAnimation] = useState("");
-  
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  
+  const [errors, setErrors] = useState({});
   const religions = [
     "Hinduism",
     "Islam",
@@ -32,41 +28,40 @@ const Register = () => {
     "Jainism",
     "Others",
   ];
-  
+
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData({
-      ...formData,
-      [name]: value,
-    });
-
-    if(step === 1){setIsValid(validStep1(setFormData));}
-    // if(step === 2){setIsValid(validStep2(setFormData));}
-    // if(step === 3){setIsValid(validStep3(setFormData));}
-    // if(step === 4){setIsValid(validStep4(setFormData));}
-    // if(step === 5){setIsValid(validStep5(setFormData));}
-    // if(step === 6){setIsValid(validStep6(setFormData));}
-    // if(step === 7){setIsValid(validStep7(setFormData));}
-    // if(step === 8){setIsValid(validStep8(setFormData));}
+    setFormData({...formData, [name]: value });
+    setErrors((prevErrors) => ({
+      ...prevErrors,
+      [name]: undefined // or null, or ''
+    }));
     setIsDropdownOpen(null);
   };
 
+  // useEffect(() => {
+  //   setErrors(validation(step, formData));
+  // }, [formData, step]);
+
   const handleNext = () => {
-    if(step === 1 && validStep1(formData)){setAnimation("animate-slide-left"); setStep(step + 1);}
-    // if(step === 2 && validStep2(formData)){setStep(step + 1);}
-    // if(step === 3 && validStep3(formData)){setStep(step + 1);}
-    // if(step === 4 && validStep4(formData)){setStep(step + 1);}
-    // if(step === 5 && validStep5(formData)){setStep(step + 1);}
-    // if(step === 6 && validStep6(formData)){setStep(step + 1);}
-    // if(step === 7 && validStep7(formData)){setStep(step + 1);}
-    // if(step === 8 && validStep8(formData)){setStep(step + 1);}
+    const currentError = validation(step, formData);
+    if (Object.keys(currentError).length > 0) {
+      setErrors(currentError);
+    }else{
+      setAnimation("animate-slide-left");
+      setStep(step + 1);
+    }
   };
 
   const handlePrev = () => {
     setAnimation("animate-slide-right");
     step === 0 ? setStep(0) : setStep(step - 1);
   };
-
+  
+  const handleSubmission = (e) => {
+    e.preventDefault();
+  };
+  
   return (
     <>
       <div className="relative w-full h-auto p-5">
@@ -91,22 +86,26 @@ const Register = () => {
               your perfect match. Join our community and explore the
               possibilities.
             </p>
+            <span className="pointer-events-none text-base text-red-600 text-shadow-5xl text-right mt-5 font-lato font-semibold">
+              All Fields Are Required to fill !&nbsp;&nbsp;
+              <i className="ri-information-fill font-normal"></i>
+            </span>
           </div>
           <form
             className="w-full h-auto bg-slate-50 rounded-r-md overflow-x-clip"
             method="POST"
+            onSubmit={handleSubmission}
           >
             <div className="relative w-full h-fit transition-all p-7 flex text-zinc-700">
-              {step === 1 &&
+              {step === 1 && (
                 <div className={`${animation} w-full min-w-full h-auto`}>
                   <h2 className="flex justify-between items-end text-3xl font-playfair font-extrabold border-b-2 border-gray-600 pb-2">
                     Profile Information
                     <i className="ri-arrow-right-s-line text-end font-medium"></i>
                   </h2>
-
-                  <fieldset className="flex flex-col mt-5 w-full h-auto">
+                  <fieldset className=" flex flex-col mt-5 w-full h-auto">
                     {/* Profile For */}
-                    <div className="flex flex-wrap items-center gap-3 mt-3 mb-4">
+                    <div className="relative flex flex-row flex-wrap gap-3 gap-x-2 mt-3 mb-4">
                       <h3 className="text-xl font-lato font-semibold">
                         Profile For:
                       </h3>
@@ -129,6 +128,9 @@ const Register = () => {
                             id={profile.toLowerCase()}
                             className="w-fit h-5"
                             value={profile.toLowerCase()}
+                            checked={
+                              profile.toLowerCase() === formData.profileFor
+                            }
                             onChange={handleChange}
                           />
                           <label
@@ -139,16 +141,18 @@ const Register = () => {
                           </label>
                         </div>
                       ))}
+                      {errors.profileFor && (<p className="error">{errors.profileFor}</p>)}
                     </div>
 
                     {/* First Name */}
                     <label
-                      className="flex flex-col gap-3 mb-4"
+                      className="relative flex flex-col gap-3 mb-4"
                       htmlFor="First_name"
                     >
                       <h3 className="text-xl font-lato font-semibold">
                         First Name:
                       </h3>
+                      {errors.fName && (<p className="error">{errors.fName}</p>)}
                       <input
                         className="outline-none border-2 border-zinc-200 rounded-xl w-full py-3 px-4 text-lg font-lato font-semibold text-zinc-800 leading-tight transition-all focus:border-blue-500"
                         id="First_name"
@@ -162,12 +166,13 @@ const Register = () => {
 
                     {/* Last Name */}
                     <label
-                      className="flex flex-col gap-3 mb-4"
+                      className="relative flex flex-col gap-3 mb-4"
                       htmlFor="Last_name"
                     >
                       <h3 className="text-xl font-lato font-semibold">
                         Last Name:
                       </h3>
+                      {errors.lName && (<p className="error">{errors.lName}</p>)}
                       <input
                         className="outline-none border-2 border-zinc-200 rounded-xl w-full py-3 px-4 text-lg font-lato font-semibold text-zinc-800 leading-tight transition-all focus:border-blue-500"
                         id="Last_name"
@@ -180,8 +185,10 @@ const Register = () => {
                     </label>
 
                     {/* Gender */}
-                    <div className="flex flex-wrap items-center gap-3 mt-3 mb-4">
-                      <h3 className="text-xl font-lato font-semibold">Gender:</h3>
+                    <div className="relative flex flex-wrap items-center gap-3 mt-3 mb-4">
+                      <h3 className="text-xl font-lato font-semibold">
+                        Gender:
+                      </h3>
                       {["Man", "Woman", "Other"].map((gender, index) => (
                         <div
                           key={index}
@@ -193,6 +200,7 @@ const Register = () => {
                             id={gender.toLowerCase()}
                             className="w-fit h-5"
                             value={gender.toLowerCase()}
+                            checked={gender.toLowerCase() === formData.gender}
                             onChange={handleChange}
                           />
                           <label
@@ -203,16 +211,18 @@ const Register = () => {
                           </label>
                         </div>
                       ))}
+                      {errors.gender && (<p className="error">{errors.gender}</p>)}
                     </div>
 
                     {/* Religion */}
                     <label
-                      className="flex flex-col gap-3 mb-4"
+                      className="relative flex flex-col gap-3 mb-4"
                       htmlFor="Religion"
                     >
                       <h3 className="text-xl font-lato font-semibold">
                         Religion:
                       </h3>
+                      {errors.religion && (<p className="error">{errors.religion}</p>)}
                       <div className="relative">
                         <input
                           className="outline-none border-2 border-zinc-200 rounded-xl w-full py-3 px-4 text-lg font-lato font-semibold text-zinc-800 leading-tight cursor-pointer transition-all focus:border-blue-500"
@@ -249,15 +259,16 @@ const Register = () => {
 
                     {/* Community */}
                     <label
-                      className="flex flex-col gap-3 mb-4"
-                      htmlFor="Last_name"
+                      className="relative flex flex-col gap-3 mb-4"
+                      htmlFor="Community"
                     >
                       <h3 className="text-xl font-lato font-semibold">
                         Community:
                       </h3>
+                      {errors.community && (<p className="error">{errors.community}</p>)}
                       <input
                         className="outline-none border-2 border-zinc-200 rounded-xl w-full py-3 px-4 text-lg font-lato font-semibold text-zinc-800 leading-tight transition-all focus:border-blue-500"
-                        id="Last_name"
+                        id="Community"
                         type="text"
                         name="community"
                         required
@@ -265,84 +276,66 @@ const Register = () => {
                         onChange={handleChange}
                       />
                     </label>
-                    
+
                     <div className="flex flex-col justify-between items-center w-full h-auto">
-                      <button className="self-end w-fit h-auto px-5 py-2 bg-gray-500 rounded-lg flex justify-between items-center text-xl text-slate-100 font-opensans font-medium transition-all hover:bg-gray-600" type="button" onClick={handleNext}>Next <i className="ri-arrow-right-s-line text-end font-medium"></i></button>
+                      <button
+                        className="self-end w-fit h-auto px-5 py-2 bg-gray-500 rounded-lg flex justify-between items-center text-xl text-slate-100 font-opensans font-medium transition-all hover:bg-gray-600"
+                        type="button"
+                        onClick={handleNext}
+                      >
+                        Next{" "}
+                        <i className="ri-arrow-right-s-line text-end font-medium"></i>
+                      </button>
                     </div>
                   </fieldset>
                 </div>
-              }
+              )}
 
-              {step === 2 &&
+              {step === 2 && (
                 <div className={`${animation} w-full min-w-full h-auto`}>
                   <h2 className="flex justify-between items-end text-3xl font-playfair font-extrabold border-b-2 border-gray-600 pb-2">
-                    Profile Information
+                    <i className="ri-arrow-left-s-line text-end font-medium"></i>
+                    Contact Information
                     <i className="ri-arrow-right-s-line text-end font-medium"></i>
                   </h2>
-
-                  <fieldset className="flex flex-col mt-5 w-full h-auto">
-                    {/* First Name */}
-                    <label
-                      className="flex flex-col gap-3 mb-4"
-                      htmlFor="First_name"
-                    >
+                  <fieldset className="relative flex flex-col mt-5 w-full h-auto">
+                    {/* Email ID */}
+                    <label className="flex flex-col gap-3 mb-4" htmlFor="Email">
                       <h3 className="text-xl font-lato font-semibold">
-                        First Name:
+                        Email ID
                       </h3>
+                      {errors.email && (<p className="error">{errors.email}</p>)}
                       <input
                         className="outline-none border-2 border-zinc-200 rounded-xl w-full py-3 px-4 text-lg font-lato font-semibold text-zinc-800 leading-tight transition-all focus:border-blue-500"
-                        id="First_name"
-                        type="text"
-                        name="fName"
-                        value={formData.fName}
+                        id="Email"
+                        type="email"
+                        name="email"
+                        value={formData.email}
                         required
                         onChange={handleChange}
                       />
                     </label>
-
                     <div className="flex flex-row justify-between items-center w-full h-auto">
-                      <button className="self-end w-fit h-auto px-5 py-2 bg-gray-500 rounded-lg flex justify-between items-center text-xl text-slate-100 font-opensans font-medium transition-all hover:bg-gray-600" type="button" onClick={handlePrev}><i className="ri-arrow-left-s-line text-end font-medium"></i> Back</button>
-                      <button className="self-end w-fit h-auto px-5 py-2 bg-gray-500 rounded-lg flex justify-between items-center text-xl text-slate-100 font-opensans font-medium transition-all hover:bg-gray-600" type="button" onClick={handleNext}>Next <i className="ri-arrow-right-s-line text-end font-medium"></i></button>
+                      <button
+                        className="self-end w-fit h-auto px-5 py-2 bg-gray-500 rounded-lg flex justify-between items-center text-xl text-slate-100 font-opensans font-medium transition-all hover:bg-gray-600"
+                        type="button"
+                        onClick={handlePrev}
+                      >
+                        <i className="ri-arrow-left-s-line text-end font-medium"></i>{" "}
+                        Back
+                      </button>
+                      <button
+                        className="self-end w-fit h-auto px-5 py-2 bg-gray-500 rounded-lg flex justify-between items-center text-xl text-slate-100 font-opensans font-medium transition-all hover:bg-gray-600"
+                        type="button"
+                        onClick={handleNext}
+                      >
+                        Next{" "}
+                        <i className="ri-arrow-right-s-line text-end font-medium"></i>
+                      </button>
                     </div>
                   </fieldset>
                 </div>
-              }
-
-              {step === 3 &&
-                <div className={`${animation} w-full min-w-full h-auto`}>
-                  <h2 className="flex justify-between items-end text-3xl font-playfair font-extrabold border-b-2 border-gray-600 pb-2">
-                    Profile Information
-                    <i className="ri-arrow-right-s-line text-end font-medium"></i>
-                  </h2>
-
-                  <fieldset className="flex flex-col mt-5 w-full h-auto">
-                    {/* First Name */}
-                    <label
-                      className="flex flex-col gap-3 mb-4"
-                      htmlFor="First_name"
-                    >
-                      <h3 className="text-xl font-lato font-semibold">
-                        First Name:
-                      </h3>
-                      <input
-                        className="outline-none border-2 border-zinc-200 rounded-xl w-full py-3 px-4 text-lg font-lato font-semibold text-zinc-800 leading-tight transition-all focus:border-blue-500"
-                        id="First_name"
-                        type="text"
-                        name="fName"
-                        value={formData.fName}
-                        required
-                        onChange={handleChange}
-                      />
-                    </label>
-
-                    <div className="flex flex-row justify-between items-center w-full h-auto">
-                      <button className="self-end w-fit h-auto px-5 py-2 bg-gray-500 rounded-lg flex justify-between items-center text-xl text-slate-100 font-opensans font-medium transition-all hover:bg-gray-600" type="button" onClick={handlePrev}><i className="ri-arrow-left-s-line text-end font-medium"></i> Back</button>
-                      <button className="self-end w-fit h-auto px-5 py-2 bg-gray-500 rounded-lg flex justify-between items-center text-xl text-slate-100 font-opensans font-medium transition-all hover:bg-gray-600" type="button" onClick={handleNext}>Next <i className="ri-arrow-right-s-line text-end font-medium"></i></button>
-                    </div>
-                  </fieldset>
-                </div>
-              }
-
+              )}
             </div>
           </form>
         </div>

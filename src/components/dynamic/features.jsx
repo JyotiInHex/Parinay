@@ -5,7 +5,7 @@ const Features = () => {
     <>
       <div className='flex flex-col w-full h-auto mt-5 mb-5 group'>
         <div className='text-xl text-zinc-400 font-opensans font-medium underline transition-all'>(01) Features</div>
-        <h2 className='max-w-[10em] mb-8 text-7xl text-left font-merriweather font-light leading-snug'>Key Features to Enhance Your Dating Experience</h2>
+        <h2 className='max-w-[10em] mb-8 text-7xl text-left font-merriweather font-semibold leading-snug'>Key Features to Enhance Your Dating Experience</h2>
         <div className='self-end flex justify-end items-center gap-4'>
           <div className="flex flex-col gap-2 bg-white w-[22%] h-auto min-h-[22.5em] p-5 border-2 border-white rounded-3xl transition-all hover:border-[#E91E63] hover:text-[#E91E63] hover:-translate-y-8">
             <i className='ri-heart-fill text-2xl text-[#E91E63]'></i>
