@@ -10,6 +10,8 @@ function validation(step, data) {
     phoneNumber,
     DOB,
     livingIn,
+    marital,
+    diet
   } = data;
   let errors = {};
   const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -66,7 +68,13 @@ function validation(step, data) {
         errors.livingIn = "Please enter the city you currently live in.";
       }
       break;
-
+    case 3:
+      if (marital === "") {
+        errors.marital = "Please select your marital status.";
+      }
+      if (diet === "") {
+        errors.diet = "Please select your diet.";
+      }
     default:
       break;
   }

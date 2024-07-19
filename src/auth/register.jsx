@@ -1,6 +1,7 @@
 import React, {useState } from "react";
 import registerBg from "../assets/registration-1.webp";
 import validation from "./validation";
+import {religions, districts, maritalStatus, diets} from "../data/formData";
 
 const Register = () => {
   const [step, setStep] = useState(3);
@@ -15,57 +16,14 @@ const Register = () => {
     phoneNumber: "",
     DOB: "",
     livingIn: "",
+    marital: "",
+    diet: ""
   });
   const [animation, setAnimation] = useState("");
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [toggleDropdown ,setToggleDropdown] = useState('');
   const [errors, setErrors] = useState({});
-  const religions = [
-    "Hinduism",
-    "Islam",
-    "Christianity",
-    "Sikhism",
-    "Buddhism",
-    "Jainism",
-    "Others",
-  ];
-  const districts = [
-    "Baksa",
-    "Barpeta",
-    "Bajali",
-    "Biswanath",
-    "Bongaigaon",
-    "Cachar",
-    "Charaideo",
-    "Chirang",
-    "Darrang",
-    "Dhemaji",
-    "Dhubri",
-    "Dibrugarh",
-    "Dima Hasao",
-    "Goalpara",
-    "Golaghat",
-    "Hailakandi",
-    "Hojai",
-    "Jorhat",
-    "Kamrup",
-    "Kamrup Metropolitan",
-    "Karbi Anglong",
-    "Karimganj",
-    "Kokrajhar",
-    "Lakhimpur",
-    "Majuli",
-    "Morigaon",
-    "Nagaon",
-    "Nalbari",
-    "Sivasagar",
-    "Sonitpur",
-    "South Salmara-Mankachar",
-    "Tamulpur",
-    "Tinsukia",
-    "Udalguri",
-    "West Karbi Anglong",
-  ]
-
+  
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({...formData, [name]: value });
@@ -74,6 +32,7 @@ const Register = () => {
       [name]: undefined // or null, or ''
     }));
     setIsDropdownOpen(null);
+    setToggleDropdown("");
   };
 
   const handleNext = () => {
@@ -264,9 +223,9 @@ const Register = () => {
                           id="Religion"
                           value={formData.religion}
                           readOnly
-                          onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+                          onClick={() => {setIsDropdownOpen(!isDropdownOpen);  setToggleDropdown('religion')}}
                         />
-                        {isDropdownOpen && (
+                        {!isDropdownOpen && (toggleDropdown === 'religion') && (
                           <div className="absolute flex flex-col gap-2 w-full h-fit min-h-full mt-1 bg-white border-2 border-zinc-200 overflow-x-hidden overflow-y-auto rounded-xl z-10">
                             {religions.map((religion, index) => (
                               <label
@@ -389,7 +348,7 @@ const Register = () => {
                       <h3 className="text-xl font-lato font-semibold">
                         Living In:
                       </h3>
-                      {errors. livingIn && (<p className="error">{errors. livingIn}</p>)}
+                      {errors.livingIn && (<p className="error">{errors.livingIn}</p>)}
                       <div className="relative">
                         <input
                           className="outline-none border-2 border-zinc-200 rounded-xl w-full py-3 px-4 text-lg font-lato font-semibold text-zinc-800 leading-tight cursor-pointer transition-all focus:border-blue-500"
@@ -398,9 +357,9 @@ const Register = () => {
                           id="Living In"
                           value={formData.livingIn}
                           readOnly
-                          onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+                          onClick={() => {setIsDropdownOpen(!isDropdownOpen);  setToggleDropdown('livingIn')}}
                         />
-                        {isDropdownOpen && (
+                        {!isDropdownOpen && (toggleDropdown === 'livingIn') && (
                           <div className="absolute flex flex-col gap-2 w-full h-fit max-h-[350px] mt-1 bg-white border-2 border-zinc-200 overflow-x-hidden overflow-y-auto rounded-xl z-10" id="dropDownBox">
                             {districts.map((livingIn, index) => (
                               <label
@@ -438,6 +397,7 @@ const Register = () => {
                         onChange={handleChange}
                       />
                     </label>
+
                     <div className="flex flex-row justify-between items-center w-full h-auto">
                       <button
                         className="self-end w-fit h-auto px-5 py-2 bg-gray-500 rounded-lg flex justify-between items-center text-xl text-slate-100 font-opensans font-medium transition-all hover:bg-gray-600"
@@ -461,7 +421,119 @@ const Register = () => {
               )}
 
               {step === 3 && (
-                <div>Hi</div>
+                <div className={`${animation} w-full min-w-full h-auto`}>
+                  <h2 className="flex justify-between items-end text-3xl font-playfair font-extrabold border-b-2 border-gray-600 pb-2">
+                    <i className="ri-arrow-left-s-line text-end font-medium"></i>
+                    Personal Details
+                    <i className="ri-arrow-right-s-line text-end font-medium"></i>
+                  </h2>
+                  <fieldset className="relative flex flex-col mt-5 w-full h-auto">
+                    {/*  Marital Status */}
+                    <label
+                      className="relative flex flex-col gap-3 mb-4"
+                      htmlFor="Marital Status"
+                    >
+                      <h3 className="text-xl font-lato font-semibold">
+                        Marital Status:
+                      </h3>
+                      {errors.marital && (<p className="error">{errors.marital}</p>)}
+                      <div className="relative">
+                        <input
+                          className="outline-none border-2 border-zinc-200 rounded-xl w-full py-3 px-4 text-lg font-lato font-semibold text-zinc-800 leading-tight cursor-pointer transition-all focus:border-blue-500"
+                          type="text"
+                          name="marital"
+                          id="Marital Status"
+                          value={formData.marital}
+                          readOnly
+                          onClick={() => {setIsDropdownOpen(!isDropdownOpen);  setToggleDropdown('maritalStatus')}}
+                        />
+                        {!isDropdownOpen && (toggleDropdown === 'maritalStatus') && (
+                          <div className="absolute flex flex-col gap-2 w-full h-fit max-h-[350px] mt-1 bg-white border-2 border-zinc-200 overflow-x-hidden overflow-y-auto rounded-xl z-10" id="dropDownBox">
+                            {maritalStatus.map((status, index) => (
+                              <label
+                                key={index}
+                                className="py-2 px-4 text-lg font-lato font-semibold cursor-pointer hover:bg-gray-100"
+                                htmlFor={status.toLowerCase()}
+                              >
+                                <input
+                                  type="radio"
+                                  name="marital"
+                                  id={status.toLowerCase()}
+                                  className="w-fit h-5 hidden"
+                                  value={status.toLowerCase()}
+                                  onChange={handleChange}
+                                />
+                                {status}
+                              </label>
+                            ))}
+                          </div>
+                        )}
+                      </div>
+                    </label>
+
+                    {/*  Diet */}
+                    <label
+                      className="relative flex flex-col gap-3 mb-4"
+                      htmlFor="Diet"
+                    >
+                      <h3 className="text-xl font-lato font-semibold">
+                        Diet:
+                      </h3>
+                      {errors.diet && (<p className="error">{errors.diet}</p>)}
+                      <div className="relative">
+                        <input
+                          className="outline-none border-2 border-zinc-200 rounded-xl w-full py-3 px-4 text-lg font-lato font-semibold text-zinc-800 leading-tight cursor-pointer transition-all focus:border-blue-500"
+                          type="text"
+                          name="diet"
+                          id="Diet"
+                          value={formData.diet}
+                          readOnly
+                          onClick={() => {setIsDropdownOpen(!isDropdownOpen);  setToggleDropdown('diet')}}
+                        />
+                        {!isDropdownOpen && (toggleDropdown === 'diet') && (
+                          <div className="absolute flex flex-col gap-2 w-full h-fit max-h-[350px] mt-1 bg-white border-2 border-zinc-200 overflow-x-hidden overflow-y-auto rounded-xl z-10" id="dropDownBox">
+                            {diets.map((diet, index) => (
+                              <label
+                                key={index}
+                                className="py-2 px-4 text-lg font-lato font-semibold cursor-pointer hover:bg-gray-100"
+                                htmlFor={diet.toLowerCase()}
+                              >
+                                <input
+                                  type="radio"
+                                  name="diet"
+                                  id={diet.toLowerCase()}
+                                  className="w-fit h-5 hidden"
+                                  value={diet.toLowerCase()}
+                                  onChange={handleChange}
+                                />
+                                {diet}
+                              </label>
+                            ))}
+                          </div>
+                        )}
+                      </div>
+                    </label>
+
+                    <div className="flex flex-row justify-between items-center w-full h-auto">
+                      <button
+                        className="self-end w-fit h-auto px-5 py-2 bg-gray-500 rounded-lg flex justify-between items-center text-xl text-slate-100 font-opensans font-medium transition-all hover:bg-gray-600"
+                        type="button"
+                        onClick={handlePrev}
+                      >
+                        <i className="ri-arrow-left-s-line text-end font-medium"></i>{" "}
+                        Back
+                      </button>
+                      <button
+                        className="self-end w-fit h-auto px-5 py-2 bg-gray-500 rounded-lg flex justify-between items-center text-xl text-slate-100 font-opensans font-medium transition-all hover:bg-gray-600"
+                        type="button"
+                        onClick={handleNext}
+                      >
+                        Next{" "}
+                        <i className="ri-arrow-right-s-line text-end font-medium"></i>
+                      </button>
+                    </div>
+                  </fieldset>
+                </div>
               )}
             </div>
           </form>
