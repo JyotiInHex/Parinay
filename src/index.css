@@ -153,13 +153,29 @@ select {
     transform: translateX(0);
   }
 }
+.optional{
+  font: 0.75em "Lato";
+  font-weight: 600;
+  color: rgb(131, 131, 131);
+}
 .error {
   position: absolute;
-  top: 0px;
+  top: 6px;
   right: 0;
   font: 0.85em "Lato";
-  font-weight: bold;
+  font-weight: 500;
   color: rgb(220, 38, 38) ;
   border-radius: 2px;
   pointer-events: none;
+}
+#dropDownBox::-webkit-scrollbar{
+  scroll-behavior: smooth;
+  width: 7px;
+  background-color: transparent;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+#dropDownBox::-webkit-scrollbar-thumb{
+  background-color: #4CAF50;
+  border-radius: 5px;
 }

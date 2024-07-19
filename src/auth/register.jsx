@@ -1,9 +1,9 @@
 import React, {useState } from "react";
-import registerBg from "../assets/registration-2.webp";
+import registerBg from "../assets/registration-1.webp";
 import validation from "./validation";
 
 const Register = () => {
-  const [step, setStep] = useState(2);
+  const [step, setStep] = useState(3);
   const [formData, setFormData] = useState({
     profileFor: "",
     fName: "",
@@ -28,6 +28,43 @@ const Register = () => {
     "Jainism",
     "Others",
   ];
+  const districts = [
+    "Baksa",
+    "Barpeta",
+    "Bajali",
+    "Biswanath",
+    "Bongaigaon",
+    "Cachar",
+    "Charaideo",
+    "Chirang",
+    "Darrang",
+    "Dhemaji",
+    "Dhubri",
+    "Dibrugarh",
+    "Dima Hasao",
+    "Goalpara",
+    "Golaghat",
+    "Hailakandi",
+    "Hojai",
+    "Jorhat",
+    "Kamrup",
+    "Kamrup Metropolitan",
+    "Karbi Anglong",
+    "Karimganj",
+    "Kokrajhar",
+    "Lakhimpur",
+    "Majuli",
+    "Morigaon",
+    "Nagaon",
+    "Nalbari",
+    "Sivasagar",
+    "Sonitpur",
+    "South Salmara-Mankachar",
+    "Tamulpur",
+    "Tinsukia",
+    "Udalguri",
+    "West Karbi Anglong",
+  ]
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -62,7 +99,7 @@ const Register = () => {
     <>
       <div className="relative w-full h-auto p-5">
         <div className="p-10 w-full h-auto rounded-xl flex">
-          <div className="relative z-10 w-[60%] min-h-[95vh] flex flex-col justify-end text-slate-50 p-10">
+          <div className="relative z-10 w-[60%] min-h-[95vh] flex flex-col justify-start text-slate-50 p-10">
             <figure className="absolute top-0 left-0 z-[-1] w-full h-full overflow-hidden rounded-l-md">
               <img
                 src={registerBg}
@@ -70,7 +107,11 @@ const Register = () => {
                 className="w-full h-full object-cover pointer-events-none"
               />
             </figure>
-            <span className="absolute bottom-0 left-0 z-[-1] w-full h-[35vh] backdrop-blur-[2px] rounded-md"></span>
+            <span className="absolute top-0 left-0 z-[-1] w-full h-[40vh] backdrop-blur-[3px] rounded-md"></span>
+            <span className="pointer-events-none text-base text-slate-50 text-shadow-5xl text-right font-lato font-semibold">
+              All Fields Are  to fill !&nbsp;&nbsp;
+              <i className="ri-information-fill font-normal"></i>
+            </span>
             <h2 className="ml-5 text-4xl font-playfair font-extrabold text-shadow-3xl">
               Join Parinay
             </h2>
@@ -82,10 +123,6 @@ const Register = () => {
               your perfect match. Join our community and explore the
               possibilities.
             </p>
-            <span className="pointer-events-none text-base text-red-600 text-shadow-5xl text-right mt-5 font-lato font-semibold">
-              All Fields Are Required to fill !&nbsp;&nbsp;
-              <i className="ri-information-fill text-slate-50 font-normal"></i>
-            </span>
           </div>
           <form
             className="w-full h-auto bg-slate-50 rounded-r-md overflow-x-clip"
@@ -101,7 +138,7 @@ const Register = () => {
                   </h2>
                   <fieldset className=" flex flex-col mt-5 w-full h-auto">
                     {/* Profile For */}
-                    <div className="relative flex flex-row flex-wrap gap-3 gap-x-2 mt-3 mb-4">
+                    <div className="relative flex flex-row flex-wrap gap-y-2 gap-x-2 mb-4">
                       <h3 className="text-xl font-lato font-semibold">
                         Profile For:
                       </h3>
@@ -155,7 +192,7 @@ const Register = () => {
                         type="text"
                         name="fName"
                         value={formData.fName}
-                        required
+                        
                         onChange={handleChange}
                       />
                     </label>
@@ -174,14 +211,14 @@ const Register = () => {
                         id="Last_name"
                         type="text"
                         name="lName"
-                        required
+                        
                         value={formData.lName}
                         onChange={handleChange}
                       />
                     </label>
 
                     {/* Gender */}
-                    <div className="relative flex flex-wrap items-center gap-3 mt-3 mb-4">
+                    <div className="relative flex flex-wrap items-center gap-x-3 mb-4">
                       <h3 className="text-xl font-lato font-semibold">
                         Gender:
                       </h3>
@@ -267,7 +304,7 @@ const Register = () => {
                         id="Community"
                         type="text"
                         name="community"
-                        required
+                        
                         value={formData.community}
                         onChange={handleChange}
                       />
@@ -298,7 +335,7 @@ const Register = () => {
                     {/* Email ID */}
                     <label className="flex flex-col gap-3 mb-4" htmlFor="Email">
                       <h3 className="text-xl font-lato font-semibold">
-                        Email ID
+                        Email ID:
                       </h3>
                       {errors.email && (<p className="error">{errors.email}</p>)}
                       <input
@@ -307,12 +344,100 @@ const Register = () => {
                         type="email"
                         name="email"
                         value={formData.email}
-                        required
+                        
                         onChange={handleChange}
                       />
-                      {errors.email && (<p className="error">{errors.email}</p>)}
                     </label>
                     
+                    {/* Phone No */}
+                    <label className="relative flex flex-col gap-3 mb-4" htmlFor="Phone Number">
+                      <h3 className="text-xl font-lato font-semibold">
+                        Phone No:
+                      </h3>
+                      {errors.phoneNumber && (<p className="error">{errors.phoneNumber}</p>)}
+                      <input
+                        className="outline-none border-2 border-zinc-200 rounded-xl w-full py-3 px-4 text-lg font-lato font-semibold text-zinc-800 leading-tight transition-all focus:border-blue-500"
+                        id="Phone Number"
+                        type="number"
+                        name="phoneNumber"
+                        value={formData.phoneNumber}
+                        onChange={handleChange}
+                      />
+                    </label>
+
+                    {/* Date of Birth */}
+                    <label className="relative flex flex-col gap-3 mb-4" htmlFor="Date Of Birth">
+                      <h3 className="text-xl font-lato font-semibold">
+                        Date of Birth:
+                      </h3>
+                      {errors.DOB && (<p className="error">{errors.DOB}</p>)}
+                      <input
+                        className="outline-none border-2 border-zinc-200 rounded-xl w-full py-3 px-4 text-lg font-lato font-semibold text-zinc-800 leading-tight transition-all focus:border-blue-500"
+                        id="Date Of Birth"
+                        type="date"
+                        name="DOB"
+                        value={formData.DOB}
+                        onChange={handleChange}
+                      />
+                    </label>
+
+                    {/*  Living In */}
+                    <label
+                      className="relative flex flex-col gap-3 mb-4"
+                      htmlFor="Living In"
+                    >
+                      <h3 className="text-xl font-lato font-semibold">
+                        Living In:
+                      </h3>
+                      {errors. livingIn && (<p className="error">{errors. livingIn}</p>)}
+                      <div className="relative">
+                        <input
+                          className="outline-none border-2 border-zinc-200 rounded-xl w-full py-3 px-4 text-lg font-lato font-semibold text-zinc-800 leading-tight cursor-pointer transition-all focus:border-blue-500"
+                          type="text"
+                          name="livingIn"
+                          id="Living In"
+                          value={formData.livingIn}
+                          readOnly
+                          onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+                        />
+                        {isDropdownOpen && (
+                          <div className="absolute flex flex-col gap-2 w-full h-fit max-h-[350px] mt-1 bg-white border-2 border-zinc-200 overflow-x-hidden overflow-y-auto rounded-xl z-10" id="dropDownBox">
+                            {districts.map((livingIn, index) => (
+                              <label
+                                key={index}
+                                className="py-2 px-4 text-lg font-lato font-semibold cursor-pointer hover:bg-gray-100"
+                                htmlFor={livingIn.toLowerCase()}
+                              >
+                                <input
+                                  type="radio"
+                                  name="livingIn"
+                                  id={livingIn.toLowerCase()}
+                                  className="w-fit h-5 hidden"
+                                  value={livingIn.toLowerCase()}
+                                  onChange={handleChange}
+                                />
+                                {livingIn}
+                              </label>
+                            ))}
+                          </div>
+                        )}
+                      </div>
+                    </label>
+
+                    {/* Address */}
+                    <label className="relative flex flex-col gap-3 mb-4" htmlFor="Address">
+                      <h3 className="text-xl font-lato font-semibold">
+                        Address: <span className="optional">(optional)</span>
+                      </h3>
+                      <input
+                        className="outline-none border-2 border-zinc-200 rounded-xl w-full py-3 px-4 text-lg font-lato font-semibold text-zinc-800 leading-tight transition-all focus:border-blue-500"
+                        id="Address"
+                        type="text"
+                        name="address"
+                        value={formData.address}
+                        onChange={handleChange}
+                      />
+                    </label>
                     <div className="flex flex-row justify-between items-center w-full h-auto">
                       <button
                         className="self-end w-fit h-auto px-5 py-2 bg-gray-500 rounded-lg flex justify-between items-center text-xl text-slate-100 font-opensans font-medium transition-all hover:bg-gray-600"
@@ -333,6 +458,10 @@ const Register = () => {
                     </div>
                   </fieldset>
                 </div>
+              )}
+
+              {step === 3 && (
+                <div>Hi</div>
               )}
             </div>
           </form>

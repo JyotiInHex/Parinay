@@ -1,5 +1,5 @@
 import {Link } from "react-router-dom";
-import background from '../assets/parinay-desktop-banner 3.webp';
+import background from '../assets/parinay-desktop-banner 5.webp';
 import Profiles from "../components/dynamic/profiles";
 import About from "../components/dynamic/about";
 import Features from "../components/dynamic/features";
