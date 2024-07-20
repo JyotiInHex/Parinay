@@ -128,25 +128,92 @@ export let interest = [
 ];
 export let mostLikes = ["Listening Music", "Reading Book", "Watching Movie", "Nothing"];
 export let pets = ["Birds", "Cat", "Dog", "Ducks", "Fish", "Rabbits", "Nothing"];
-export let qualificationsType = [
-  "Doctorate",
-  "Postgraduate",
-  "Undergraduate",
-  "Diploma",
-  "Higher Secondary",
-  "Secondary School",
-  "Professional",
-  "Other Qualifications",
-]
-export let qualifications = [
-  "Ph.D (Science)",
-  "Ph.D (Engineering)",
-  "Ph.D (Humanities)",
-  "Ph.D (Social Science)",
-  "Ph.D (Commerce)",
-  "Ph.D (Medical Science)",
-  "Ph.D (Agriculture)",
-  "Ph.D (Law)",
-  "Ph.D (Education)",
-  "Ph.D (Doctor of Science)",
-]
+export let qualifications = {
+  "Doctorate Level": [
+    "Ph.D. in Science",
+    "Ph.D. in Engineering",
+    "Ph.D. in Humanities",
+    "Ph.D. in Social Sciences",
+    "Ph.D. in Commerce",
+    "Ph.D. in Medical Sciences",
+    "Ph.D. in Agriculture",
+    "Ph.D. in Law",
+    "Ph.D. in Education",
+    "D.Sc. (Doctor of Science)"
+  ],
+  "Postgraduate Level": [
+    "M.A. (Master of Arts)",
+    "M.Sc. (Master of Science)",
+    "M.Com. (Master of Commerce)",
+    "M.Tech. (Master of Technology)",
+    "M.E. (Master of Engineering)",
+    "M.B.A. (Master of Business Administration)",
+    "M.Ed. (Master of Education)",
+    "M.S.W. (Master of Social Work)",
+    "M.L.I.Sc. (Master of Library and Information Science)",
+    "M.D. (Doctor of Medicine)"
+  ],
+  "Undergraduate Level": [
+    "B.A. (Bachelor of Arts)",
+    "B.Sc. (Bachelor of Science)",
+    "B.Com. (Bachelor of Commerce)",
+    "B.Tech. (Bachelor of Technology)",
+    "B.E. (Bachelor of Engineering)",
+    "B.Ed. (Bachelor of Education)",
+    "B.S.W. (Bachelor of Social Work)",
+    "B.L.I.Sc. (Bachelor of Library and Information Science)",
+    "B.B.A. (Bachelor of Business Administration)",
+    "B.Pharma (Bachelor of Pharmacy)"
+  ],
+  "Diploma Level": [
+    "Engineering Diploma",
+    "Medical Diploma (e.g., Nursing)",
+    "Computer Applications Diploma",
+    "Electrical Diploma",
+    "Civil Engineering Diploma",
+    "Mechanical Engineering Diploma",
+    "Diploma in Education",
+    "Diploma in Fine Arts",
+    "Diploma in Hospitality Management",
+    "Diploma in Graphic Design"
+  ],
+  "Higher Secondary Level": [
+    "Higher Secondary (12th Grade) - Science",
+    "Higher Secondary (12th Grade) - Commerce",
+    "Higher Secondary (12th Grade) - Arts",
+    "Higher Secondary (12th Grade) - Vocational Studies",
+    "Higher Secondary (12th Grade) - Humanities",
+    "Higher Secondary (12th Grade) - Technical",
+    "Higher Secondary (12th Grade) - Business Studies",
+    "Higher Secondary (12th Grade) - Agriculture",
+    "Higher Secondary (12th Grade) - Engineering",
+    "Higher Secondary (12th Grade) - Medicine"
+  ],
+  "Professional Certification": [
+    "Chartered Accountant (CA)",
+    "Certified Public Accountant (CPA)",
+    "Chartered Financial Analyst (CFA)",
+    "Certified Management Accountant (CMA)",
+    "Project Management Professional (PMP)",
+    "Six Sigma Certification",
+    "Certified Information Systems Auditor (CISA)",
+    "Certified Information Systems Security Professional (CISSP)",
+    "Certified Professional in Human Resources (PHR)",
+    "Certified Financial Planner (CFP)"
+  ],
+  "Other Qualifications": [
+    "Trade Certificate (e.g., Electrician, Plumber)",
+    "Skill Development Certificate (e.g., Welding, Carpentry)",
+    "Language Proficiency Certificate (e.g., English, French)",
+    "Computer Programming Certificate",
+    "Certificate in Digital Marketing",
+    "Certificate in Graphic Design",
+    "Certificate in Culinary Arts",
+    "Certificate in Photography",
+    "Certificate in Event Management",
+    "Certificate in Yoga Instruction",
+  ],
+  "Others":[
+    "Preferred Not to say",
+  ]
+};

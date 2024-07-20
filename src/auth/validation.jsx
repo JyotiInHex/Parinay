@@ -16,6 +16,8 @@ function validation(step, data) {
     hobbies,
     mostLikes,
     pet,
+    qualifications,
+    collegeName,
   } = data;
   let errors = {};
   const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -24,7 +26,7 @@ function validation(step, data) {
   const DateOfBirth = new Date(DOB);
   const today = new Date();
   let years = Math.abs(today.getFullYear() - DateOfBirth.getFullYear());
-  
+  console.log(qualifications);
   switch (step) {
     case 1:
       if (profileFor === "") {
@@ -91,7 +93,12 @@ function validation(step, data) {
       }
     break;
     case 4:
-      
+      if (qualifications === "") {
+        errors.qualifications = "qualifications";
+      }
+      if (collegeName === "" && qualifications != "preferred not to say") {
+        errors.collegeName = "error";
+      }
       break;
     default:
       break;

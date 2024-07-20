@@ -12,7 +12,6 @@ import {
   hobbies,
   mostLikes,
   pets,
-  qualificationsType,
   qualifications,
 } from "../data/formData";
 
@@ -37,6 +36,8 @@ const Register = () => {
     hobbies: "",
     mostLikes: "",
     pet: "",
+    qualifications: "",
+    collegeName: "",
   });
   const [animation, setAnimation] = useState("");
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -72,7 +73,6 @@ const Register = () => {
   const handleSubmission = (e) => {
     e.preventDefault();
   };
-
   return (
     <>
       <div className="relative w-full h-auto p-5">
@@ -819,50 +819,81 @@ const Register = () => {
                       <h3 className="text-xl font-lato font-semibold">
                         Highest Qualifications:
                       </h3>
-                      {errors.highestQualification && (
-                        <p className="error">{errors.highestQualification}</p>
+                      {errors.qualifications && (
+                        <p className="error">{errors.qualifications}</p>
                       )}
                       <div className="relative">
                         <input
                           className="outline-none border-2 border-zinc-200 rounded-xl w-full py-3 px-4 text-lg font-lato font-semibold text-zinc-800 leading-tight cursor-pointer transition-all focus:border-blue-500"
                           type="text"
-                          name="highestQualification"
+                          name="qualifications"
                           id="Highest Qualifications"
-                          value={formData.highestQualification}
+                          value={formData.qualifications}
                           readOnly
                           onClick={() => {
                             setIsDropdownOpen(!isDropdownOpen);
-                            setToggleDropdown("highestQualification");
+                            setToggleDropdown("qualifications");
                           }}
                         />
                         {!isDropdownOpen &&
-                          toggleDropdown === "highestQualification" && (
+                          toggleDropdown === "qualifications" && (
                             <div
-                              className="absolute flex flex-col gap-2 w-full h-fit max-h-[350px] mt-1 bg-white border-2 border-zinc-200 overflow-x-hidden overflow-y-auto rounded-xl z-10"
+                              className="absolute w-full h-fit max-h-[350px] mt-1 bg-white border-2 border-zinc-200 overflow-x-hidden overflow-y-auto rounded-xl z-10"
                               id="dropDownBox"
                             >
-                              {qualifications.map((HQ, index) => (
-                                <label
-                                  key={index}
-                                  className="py-2 px-4 text-lg font-lato font-semibold cursor-pointer hover:bg-gray-100"
-                                  htmlFor={HQ.toLowerCase()}
+                              {Object.keys(qualifications).map((category) => (
+                                <div
+                                  className="flex flex-col gap-2"
+                                  key={category}
                                 >
-                                  <input
-                                    type="radio"
-                                    name="highestQualification"
-                                    id={HQ.toLowerCase()}
-                                    className="w-fit h-5 hidden"
-                                    value={HQ.toLowerCase()}
-                                    onChange={handleChange}
-                                  />
-                                  {HQ}
-                                </label>
+                                  <div className="px-4 py-2 text-xl text-center font-opensans font-semibold bg-zinc-100">
+                                    -{category} -
+                                  </div>
+                                  {qualifications[category].map((HQ, index) => (
+                                    <label
+                                      key={index}
+                                      className="py-2 px-10 text-lg font-lato font-semibold cursor-pointer hover:bg-gray-100"
+                                      htmlFor={HQ.toLowerCase()}
+                                    >
+                                      <input
+                                        type="radio"
+                                        name="qualifications"
+                                        id={HQ.toLowerCase()}
+                                        className="w-fit h-5 hidden"
+                                        value={HQ.toLowerCase()}
+                                        onChange={handleChange}
+                                      />
+                                      {HQ}
+                                    </label>
+                                  ))}
+                                </div>
                               ))}
                             </div>
                           )}
                       </div>
                     </label>
 
+                    {/* School/College You Attended */}
+                    <label
+                      className="relative flex flex-col gap-3 mb-4"
+                      htmlFor="College You Attended"
+                    >
+                      <h3 className="text-xl font-lato font-semibold">
+                        College You Attended:
+                      </h3>
+                      {errors.collegeName && <p className="error">{errors.collegeName}</p>}
+                      <input
+                        className="outline-none border-2 border-zinc-200 rounded-xl w-full py-3 px-4 text-lg font-lato font-semibold text-zinc-800 leading-tight transition-all focus:border-blue-500"
+                        id="College You Attended"
+                        type="text"
+                        name="collegeName"
+                        value={`${(formData.qualifications === 'preferred not to say') ? " " : formData.collegeName}`}
+                        onChange={handleChange}
+                        disabled={
+                          formData.qualifications === "preferred not to say"
+                        }
+                      />
+                    </label>
                     <div className="flex flex-row justify-between items-center w-full h-auto">
                       <button
                         className="self-end w-fit h-auto px-5 py-2 bg-gray-500 rounded-lg flex justify-between items-center text-xl text-slate-100 font-opensans font-medium transition-all hover:bg-gray-600"
