@@ -170,12 +170,12 @@ select {
 }
 #dropDownBox::-webkit-scrollbar{
   scroll-behavior: smooth;
-  width: 7px;
+  width: 8px;
   background-color: transparent;
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
 }
 #dropDownBox::-webkit-scrollbar-thumb{
-  background-color: #4CAF50;
+  background-color: rgb(59 130 246);
   border-radius: 5px;
 }

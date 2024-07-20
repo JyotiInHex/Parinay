@@ -26,7 +26,7 @@ const blogStories = () => {
               <p className='text-lg text-justify text-white font-lato font-medium text-shadow-4xl mb-3'>"We met through this web app and it was love at first sight. Thank you for bringing us together."</p>
               <h5 className='text-base text-white font-lato font-medium text-shadow-2xl'>-Amit & Priya</h5>
             </figcaption>
-            <dir className='absolute right-5 bottom-0 flex flex-row gap-3 opacity-0 transition-all group-hover:opacity-100'>
+            <dir className='absolute right-5 bottom-5 flex flex-row gap-3 opacity-0 transition-all group-hover:opacity-100'>
               <button className='border-2 border-slate-200 bg-slate-200 rounded-3xl text-lg font-bold text-zinc-900 w-12'><i className='ri-arrow-left-line'></i></button>
               <button className='border-2 border-slate-200 bg-slate-200 rounded-3xl text-lg font-bold text-zinc-900 w-12'><i className='ri-arrow-right-line'></i></button>
             </dir>

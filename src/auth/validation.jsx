@@ -11,7 +11,11 @@ function validation(step, data) {
     DOB,
     livingIn,
     marital,
-    diet
+    diet,
+    height,
+    hobbies,
+    mostLikes,
+    pet,
   } = data;
   let errors = {};
   const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -21,8 +25,6 @@ function validation(step, data) {
   const today = new Date();
   let years = Math.abs(today.getFullYear() - DateOfBirth.getFullYear());
   
-  console.log(years);
-
   switch (step) {
     case 1:
       if (profileFor === "") {
@@ -73,8 +75,24 @@ function validation(step, data) {
         errors.marital = "Please select your marital status.";
       }
       if (diet === "") {
-        errors.diet = "Please select your diet.";
+        errors.diet = "Select diet preference.";
       }
+      if (height === "") {
+        errors.height = "Please enter a valid height.";
+      }
+      if(hobbies === ""){
+        errors.hobbies = "Please select at least one hobby form the list.";
+      }
+      if(mostLikes === ""){
+        errors.mostLikes = "Choose one preferred activity.";
+      }
+      if(pet === ""){
+        errors.pet = "Select your pet.";
+      }
+    break;
+    case 4:
+      
+      break;
     default:
       break;
   }

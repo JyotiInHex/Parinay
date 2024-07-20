@@ -1,3 +1,13 @@
+export let profileFor = [
+  "Self",
+  "Son",
+  "Daughter",
+  "Brother",
+  "Sister",
+  "Friend",
+  "Relative",
+];
+export let genders = ["Man", "Woman", "Other"];
 export let religions = [
   "Hinduism",
   "Islam",
@@ -50,12 +60,93 @@ export let maritalStatus = [
   "Widowed",
   "Separated",
   "Annulled",
-]
+];
 export let diets = [
-  "Vegetarian", 
-  "Non Vegetarian", 
-  "Occasionally non-vegetarian", 
+  "Vegetarian",
+  "Non Vegetarian",
+  "Occasionally non-vegetarian",
   "Eggetarian",
   "Jain",
-  "Vegan"
+  "Vegan",
+];
+export let heights = [
+  "4ft 5in - 134cm",
+  "4ft 6in - 137cm",
+  "4ft 7in - 140cm",
+  "4ft 8in - 142cm",
+  "4ft 9in - 145cm",
+  "4ft 10in - 147cm",
+  "4ft 11in - 150cm",
+  "5ft 0in - 152cm",
+  "5ft 1in - 155cm",
+  "5ft 2in - 157cm",
+  "5ft 3in - 160cm",
+  "5ft 4in - 163cm",
+  "5ft 5in - 165cm",
+  "5ft 6in - 168cm",
+  "5ft 7in - 170cm",
+  "5ft 8in - 173cm",
+  "5ft 9in - 175cm",
+  "5ft 10in - 178cm",
+  "5ft 11in - 180cm",
+  "6ft 0in - 183cm",
+  "6ft 1in - 185cm",
+  "6ft 2in - 188cm",
+  "6ft 3in - 191cm",
+  "6ft 4in - 193cm",
+  "6ft 5in - 196cm",
+  "6ft 6in - 198cm",
+  "6ft 7in - 201cm",
+  "6ft 8in - 203cm",
+  "6ft 9in - 206cm",
+  "6ft 10in - 208cm",
+  "6ft 11in - 211cm",
+  "7ft 0in - 213cm",
+];
+export let hobbies = [
+  "Bird Watching",
+  "Cooking",
+  "Crafting",
+  "Dancing",
+  "Gardening",
+  "Painting",
+  "Reading Literature",
+  "Trekking",
+  "Writing Poetry",
+  "Nothing",
+];
+export let interest = [
+  "Cinema",
+  "Cuisine",
+  "Ethnic Fashion and Textiles",
+  "Festivals",
+  "Historical Sites",
+  "Local Community Service",
+  "Music (Folk Songs)",
+  "Wildlife Conservation",
+  "Nothing",
+];
+export let mostLikes = ["Listening Music", "Reading Book", "Watching Movie", "Nothing"];
+export let pets = ["Birds", "Cat", "Dog", "Ducks", "Fish", "Rabbits", "Nothing"];
+export let qualificationsType = [
+  "Doctorate",
+  "Postgraduate",
+  "Undergraduate",
+  "Diploma",
+  "Higher Secondary",
+  "Secondary School",
+  "Professional",
+  "Other Qualifications",
+]
+export let qualifications = [
+  "Ph.D (Science)",
+  "Ph.D (Engineering)",
+  "Ph.D (Humanities)",
+  "Ph.D (Social Science)",
+  "Ph.D (Commerce)",
+  "Ph.D (Medical Science)",
+  "Ph.D (Agriculture)",
+  "Ph.D (Law)",
+  "Ph.D (Education)",
+  "Ph.D (Doctor of Science)",
 ]
