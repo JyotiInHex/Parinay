@@ -18,6 +18,8 @@ function validation(step, data) {
     pet,
     qualifications,
     collegeName,
+    workWith,
+    annualIncome,
   } = data;
   let errors = {};
   const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -94,10 +96,16 @@ function validation(step, data) {
     break;
     case 4:
       if (qualifications === "") {
-        errors.qualifications = "qualifications";
+        errors.qualifications = "Enter highest qualification.";
       }
       if (collegeName === "" && qualifications != "preferred not to say") {
-        errors.collegeName = "error";
+        errors.collegeName = "Enter college name";
+      }
+      if (workWith === "") {
+        errors.workWith = "Specify employment type.";
+      }
+      if (annualIncome === "") {
+        errors.annualIncome = "Enter annual income.";
       }
       break;
     default:

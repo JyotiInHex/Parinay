@@ -214,6 +214,14 @@ export let qualifications = {
     "Certificate in Yoga Instruction",
   ],
   "Others":[
+    "Secondary School",
     "Preferred Not to say",
   ]
 };
+export let workWith = [
+  "Business",
+  "Government Job",
+  "Private Job",
+  "Self Employed",
+  "Not Working",
+]

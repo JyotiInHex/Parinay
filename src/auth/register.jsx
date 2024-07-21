@@ -13,6 +13,7 @@ import {
   mostLikes,
   pets,
   qualifications,
+  workWith,
 } from "../data/formData";
 
 const Register = () => {
@@ -38,6 +39,9 @@ const Register = () => {
     pet: "",
     qualifications: "",
     collegeName: "",
+    workWith: "",
+    jobRole: "",
+    annualIncome: "",
   });
   const [animation, setAnimation] = useState("");
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -879,19 +883,110 @@ const Register = () => {
                       htmlFor="College You Attended"
                     >
                       <h3 className="text-xl font-lato font-semibold">
-                        College You Attended:
+                        College You Attended:{" "}
+                        {formData.qualifications === "preferred not to say" && (
+                          <span className="optional">(optional)</span>
+                        )}
                       </h3>
-                      {errors.collegeName && <p className="error">{errors.collegeName}</p>}
+                      {formData.qualifications !== "preferred not to say" && errors.collegeName && (
+                        <p className="error">{errors.collegeName}</p>
+                      )}
                       <input
                         className="outline-none border-2 border-zinc-200 rounded-xl w-full py-3 px-4 text-lg font-lato font-semibold text-zinc-800 leading-tight transition-all focus:border-blue-500"
                         id="College You Attended"
                         type="text"
                         name="collegeName"
-                        value={`${(formData.qualifications === 'preferred not to say') ? " " : formData.collegeName}`}
+                        value={`${
+                          formData.qualifications === "preferred not to say"
+                            ? "No filing required."
+                            : formData.collegeName
+                        }`}
                         onChange={handleChange}
                         disabled={
                           formData.qualifications === "preferred not to say"
                         }
+                      />
+                    </label>
+
+                    {/*  Work With */}
+                    <label
+                      className="relative flex flex-col gap-3 mb-4"
+                      htmlFor="Work With"
+                    >
+                      <h3 className="text-xl font-lato font-semibold">
+                        Work With:
+                      </h3>
+                      {errors.workWith && (
+                        <p className="error">{errors.workWith}</p>
+                      )}
+                      <div className="relative">
+                        <input
+                          className="outline-none border-2 border-zinc-200 rounded-xl w-full py-3 px-4 text-lg font-lato font-semibold text-zinc-800 leading-tight cursor-pointer transition-all focus:border-blue-500"
+                          type="text"
+                          name="workWith"
+                          id="Work With"
+                          value={formData.workWith}
+                          readOnly
+                          onClick={() => {
+                            setIsDropdownOpen(!isDropdownOpen);
+                            setToggleDropdown("workWith");
+                          }}
+                        />
+                        {!isDropdownOpen &&
+                          toggleDropdown === "workWith" && (
+                            <div
+                              className="absolute flex flex-col gap-2 w-full h-fit max-h-[350px] mt-1 bg-white border-2 border-zinc-200 overflow-x-hidden overflow-y-auto rounded-xl z-10"
+                              id="dropDownBox"
+                            >
+                              {workWith.map((type, index) => (
+                                <label
+                                  key={index}
+                                  className="py-2 px-4 text-lg font-lato font-semibold cursor-pointer hover:bg-gray-100"
+                                  htmlFor={type.toLowerCase()}
+                                >
+                                  <input
+                                    type="radio"
+                                    name="workWith"
+                                    id={type.toLowerCase()}
+                                    className="w-fit h-5 hidden"
+                                    value={type.toLowerCase()}
+                                    onChange={handleChange}
+                                  />
+                                  {type}
+                                </label>
+                              ))}
+                            </div>
+                          )}
+                      </div>
+                    </label>
+                    
+                    {/* Job Role */}
+                    <label className="flex flex-col gap-3 mb-4" htmlFor="Job Role">
+                      <h3 className="text-xl font-lato font-semibold">
+                        Job Role: <span className="optional">(optional)</span>
+                      </h3>
+                      <input
+                        className="outline-none border-2 border-zinc-200 rounded-xl w-full py-3 px-4 text-lg font-lato font-semibold text-zinc-800 leading-tight transition-all focus:border-blue-500"
+                        id="Job Role"
+                        type="text"
+                        name="jobRole"
+                        value={formData.jobRole}
+                        onChange={handleChange}
+                      />
+                    </label>
+                    
+                    {/* Annual Income: */}
+                    <label className="flex flex-col gap-3 mb-4" htmlFor="Annual Income:">
+                      <h3 className="text-xl font-lato font-semibold">
+                        Annual Income:
+                      </h3>
+                      <input
+                        className="outline-none border-2 border-zinc-200 rounded-xl w-full py-3 px-4 text-lg font-lato font-semibold text-zinc-800 leading-tight transition-all focus:border-blue-500"
+                        id="Annual Income:"
+                        type="annualIncome"
+                        name="annualIncome"
+                        value={formData.annualIncome}
+                        onChange={handleChange}
                       />
                     </label>
                     <div className="flex flex-row justify-between items-center w-full h-auto">
