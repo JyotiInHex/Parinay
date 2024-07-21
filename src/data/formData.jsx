@@ -225,3 +225,20 @@ export let workWith = [
   "Self Employed",
   "Not Working",
 ]
+export let incomeList = [
+  "No Income",
+  "Up to ₹1 Lakh",
+  "₹1 Lakh to ₹2 Lakhs",
+  "₹2 Lakhs to ₹3 Lakhs",
+  "₹3 Lakhs to ₹4 Lakhs",
+  "₹4 Lakhs to ₹5 Lakhs",
+  "₹5 Lakhs to ₹7.5 Lakhs",
+  "₹7.5 Lakhs to ₹10 Lakhs",
+  "₹10 Lakhs to ₹15 Lakhs",
+  "₹15 Lakhs to ₹20 Lakhs",
+  "₹20 Lakhs to ₹30 Lakhs",
+  "₹30 Lakhs to ₹50 Lakhs",
+  "₹50 Lakhs to ₹75 Lakhs",
+  "₹75 Lakhs to ₹1 Crore",
+  "₹1 Crore & above",
+]

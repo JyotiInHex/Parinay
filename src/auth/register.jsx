@@ -14,6 +14,7 @@ import {
   pets,
   qualifications,
   workWith,
+  incomeList,
 } from "../data/formData";
 
 const Register = () => {
@@ -975,19 +976,59 @@ const Register = () => {
                       />
                     </label>
                     
-                    {/* Annual Income: */}
-                    <label className="flex flex-col gap-3 mb-4" htmlFor="Annual Income:">
+                    {/*  Annual Income */}
+                    <label
+                      className="relative flex flex-col gap-3 mb-4"
+                      htmlFor="Annual Income"
+                    >
                       <h3 className="text-xl font-lato font-semibold">
                         Annual Income:
                       </h3>
-                      <input
-                        className="outline-none border-2 border-zinc-200 rounded-xl w-full py-3 px-4 text-lg font-lato font-semibold text-zinc-800 leading-tight transition-all focus:border-blue-500"
-                        id="Annual Income:"
-                        type="annualIncome"
-                        name="annualIncome"
-                        value={formData.annualIncome}
-                        onChange={handleChange}
-                      />
+                      <div className="anyQuery absolute left-[9.5em] top-4 z-30 w-[25%] h-fit border-2 border-blue-600 bg-[#f8fafc85] backdrop-blur-sm p-3 rounded-md text-base text-zinc-700 font-lato font-medium transition-all">
+                        Why required? To understand financial stability and planning.
+                      </div>
+                      {errors.annualIncome && (
+                        <p className="error">{errors.annualIncome}</p>
+                      )}
+                      <div className="relative">
+                        <input
+                          className="outline-none border-2 border-zinc-200 rounded-xl w-full py-3 px-4 text-lg font-lato font-semibold text-zinc-800 leading-tight cursor-pointer transition-all focus:border-blue-500"
+                          type="text"
+                          name="annualIncome"
+                          id="Annual Income"
+                          value={formData.annualIncome}
+                          readOnly
+                          onClick={() => {
+                            setIsDropdownOpen(!isDropdownOpen);
+                            setToggleDropdown("annualIncome");
+                          }}
+                        />
+                        {!isDropdownOpen &&
+                          toggleDropdown === "annualIncome" && (
+                            <div
+                              className="absolute flex flex-col gap-2 w-full h-fit max-h-[350px] mt-1 bg-white border-2 border-zinc-200 overflow-x-hidden overflow-y-auto rounded-xl z-10"
+                              id="dropDownBox"
+                            >
+                              {incomeList.map((income, index) => (
+                                <label
+                                  key={index}
+                                  className="py-2 px-4 text-lg font-lato font-semibold cursor-pointer hover:bg-gray-100"
+                                  htmlFor={income.toLowerCase()}
+                                >
+                                  <input
+                                    type="radio"
+                                    name="annualIncome"
+                                    id={income.toLowerCase()}
+                                    className="w-fit h-5 hidden"
+                                    value={income.toLowerCase()}
+                                    onChange={handleChange}
+                                  />
+                                  {income}
+                                </label>
+                              ))}
+                            </div>
+                          )}
+                      </div>
                     </label>
                     <div className="flex flex-row justify-between items-center w-full h-auto">
                       <button
