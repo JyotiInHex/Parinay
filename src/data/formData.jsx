@@ -126,8 +126,21 @@ export let interest = [
   "Wildlife Conservation",
   "Nothing",
 ];
-export let mostLikes = ["Listening Music", "Reading Book", "Watching Movie", "Nothing"];
-export let pets = ["Birds", "Cat", "Dog", "Ducks", "Fish", "Rabbits", "Nothing"];
+export let mostLikes = [
+  "Listening Music",
+  "Reading Book",
+  "Watching Movie",
+  "Nothing",
+];
+export let pets = [
+  "Birds",
+  "Cat",
+  "Dog",
+  "Ducks",
+  "Fish",
+  "Rabbits",
+  "Nothing",
+];
 export let qualifications = {
   "Doctorate Level": [
     "Ph.D. in Science",
@@ -139,7 +152,7 @@ export let qualifications = {
     "Ph.D. in Agriculture",
     "Ph.D. in Law",
     "Ph.D. in Education",
-    "D.Sc. (Doctor of Science)"
+    "D.Sc. (Doctor of Science)",
   ],
   "Postgraduate Level": [
     "M.A. (Master of Arts)",
@@ -151,7 +164,7 @@ export let qualifications = {
     "M.Ed. (Master of Education)",
     "M.S.W. (Master of Social Work)",
     "M.L.I.Sc. (Master of Library and Information Science)",
-    "M.D. (Doctor of Medicine)"
+    "M.D. (Doctor of Medicine)",
   ],
   "Undergraduate Level": [
     "B.A. (Bachelor of Arts)",
@@ -163,7 +176,7 @@ export let qualifications = {
     "B.S.W. (Bachelor of Social Work)",
     "B.L.I.Sc. (Bachelor of Library and Information Science)",
     "B.B.A. (Bachelor of Business Administration)",
-    "B.Pharma (Bachelor of Pharmacy)"
+    "B.Pharma (Bachelor of Pharmacy)",
   ],
   "Diploma Level": [
     "Engineering Diploma",
@@ -175,7 +188,7 @@ export let qualifications = {
     "Diploma in Education",
     "Diploma in Fine Arts",
     "Diploma in Hospitality Management",
-    "Diploma in Graphic Design"
+    "Diploma in Graphic Design",
   ],
   "Higher Secondary Level": [
     "Higher Secondary (12th Grade) - Science",
@@ -187,7 +200,7 @@ export let qualifications = {
     "Higher Secondary (12th Grade) - Business Studies",
     "Higher Secondary (12th Grade) - Agriculture",
     "Higher Secondary (12th Grade) - Engineering",
-    "Higher Secondary (12th Grade) - Medicine"
+    "Higher Secondary (12th Grade) - Medicine",
   ],
   "Professional Certification": [
     "Chartered Accountant (CA)",
@@ -199,7 +212,7 @@ export let qualifications = {
     "Certified Information Systems Auditor (CISA)",
     "Certified Information Systems Security Professional (CISSP)",
     "Certified Professional in Human Resources (PHR)",
-    "Certified Financial Planner (CFP)"
+    "Certified Financial Planner (CFP)",
   ],
   "Other Qualifications": [
     "Trade Certificate (e.g., Electrician, Plumber)",
@@ -213,10 +226,7 @@ export let qualifications = {
     "Certificate in Event Management",
     "Certificate in Yoga Instruction",
   ],
-  "Others":[
-    "Secondary School",
-    "Preferred Not to say",
-  ]
+  Others: ["Secondary School", "Preferred Not to say"],
 };
 export let workWith = [
   "Business",
@@ -224,7 +234,74 @@ export let workWith = [
   "Private Job",
   "Self Employed",
   "Not Working",
-]
+];
+export let jobRole = {
+  "Business": [
+    "Manufacturing",
+    "Retail",
+    "Finance & Banking",
+    "Hospitality & Tourism",
+    "Real Estate",
+    "IT & Software Services",
+    "Media & Entertainment",
+    "Healthcare & Pharmaceuticals",
+    "Agriculture & Farming",
+    "Transport & Logistics",
+    "Wholesale & Distribution",
+    "Other",
+  ],
+  "Government Job": [
+    "Civil Services",
+    "Public Administration",
+    "Defense & Police",
+    "Education",
+    "Healthcare",
+    "Public Works",
+    "Finance & Taxation",
+    "Public Transportation",
+    "Social Services",
+    "Energy & Utilities",
+    "Postal Services",
+    "Other",
+  ],
+  "Private Job":[
+    "IT & Software Services",
+    "Healthcare",
+    "Education",
+    "Finance & Banking",
+    "Legal Services",
+    "Manufacturing",
+    "Retail",
+    "Media & Entertainment",
+    "Hospitality & Tourism",
+    "Construction & Real Estate",
+    "Transport & Logistics",
+    "Marketing & Advertising",
+    "Other",
+  ],
+  "Self-Employed":[
+    "Freelancing",
+    "Consultancy",
+    "Small Business Owner",
+    "Arts & Crafts",
+    "Agriculture & Farming",
+    "IT & Software Services",
+    "Healthcare",
+    "Education",
+    "Legal Services",
+    "Real Estate",
+    "Media & Entertainment",
+    "Marketing & Advertising",
+    "Other",
+  ],
+  "Not Working":[
+    "Homemaker",
+    "Retired",
+    "Student",
+    "Looking for Job",
+    "Not Seeking Employment",
+  ],
+};
 export let incomeList = [
   "No Income",
   "Up to ₹1 Lakh",
@@ -241,4 +318,4 @@ export let incomeList = [
   "₹50 Lakhs to ₹75 Lakhs",
   "₹75 Lakhs to ₹1 Crore",
   "₹1 Crore & above",
-]
+];

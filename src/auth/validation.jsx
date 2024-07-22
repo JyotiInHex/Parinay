@@ -19,6 +19,8 @@ function validation(step, data) {
     qualifications,
     collegeName,
     workWith,
+    jobRole,
+    additionalJobRole,
     annualIncome,
   } = data;
   let errors = {};
@@ -103,6 +105,12 @@ function validation(step, data) {
       }
       if (workWith === "") {
         errors.workWith = "Specify employment type.";
+      }
+      if(jobRole === ""){
+        errors.jobRole = "Please select a valid job role form the list"
+      }
+      if(additionalJobRole === "" && jobRole === "other"){
+        errors.additionalJobRole = "This field cannot be empty if not specified."
       }
       if (annualIncome === "") {
         errors.annualIncome = "Enter annual income.";

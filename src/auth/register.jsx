@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, {useState} from "react";
 import registerBg from "../assets/registration-1.webp";
 import validation from "./validation";
+
 import {
   profileFor,
   genders,
@@ -14,6 +15,7 @@ import {
   pets,
   qualifications,
   workWith,
+  jobRole,
   incomeList,
 } from "../data/formData";
 
@@ -42,6 +44,7 @@ const Register = () => {
     collegeName: "",
     workWith: "",
     jobRole: "",
+    additionalJobRole:"",
     annualIncome: "",
   });
   const [animation, setAnimation] = useState("");
@@ -78,6 +81,7 @@ const Register = () => {
   const handleSubmission = (e) => {
     e.preventDefault();
   };
+  
   return (
     <>
       <div className="relative w-full h-auto p-5">
@@ -108,7 +112,7 @@ const Register = () => {
             </p>
           </div>
           <form
-            className="w-full h-auto bg-slate-50 rounded-r-md overflow-x-clip"
+            className="registrationForm w-full h-auto bg-slate-50 rounded-r-md overflow-x-clip"
             method="POST"
             onSubmit={handleSubmission}
           >
@@ -299,7 +303,7 @@ const Register = () => {
                         type="button"
                         onClick={handleNext}
                       >
-                        Next{" "}
+                        Next
                         <i className="ri-arrow-right-s-line text-end font-medium"></i>
                       </button>
                     </div>
@@ -464,7 +468,7 @@ const Register = () => {
                         type="button"
                         onClick={handlePrev}
                       >
-                        <i className="ri-arrow-left-s-line text-end font-medium"></i>{" "}
+                        <i className="ri-arrow-left-s-line text-end font-medium"></i>
                         Back
                       </button>
                       <button
@@ -472,7 +476,7 @@ const Register = () => {
                         type="button"
                         onClick={handleNext}
                       >
-                        Next{" "}
+                        Next
                         <i className="ri-arrow-right-s-line text-end font-medium"></i>
                       </button>
                     </div>
@@ -792,7 +796,7 @@ const Register = () => {
                         type="button"
                         onClick={handlePrev}
                       >
-                        <i className="ri-arrow-left-s-line text-end font-medium"></i>{" "}
+                        <i className="ri-arrow-left-s-line text-end font-medium"></i>
                         Back
                       </button>
                       <button
@@ -800,7 +804,7 @@ const Register = () => {
                         type="button"
                         onClick={handleNext}
                       >
-                        Next{" "}
+                        Next
                         <i className="ri-arrow-right-s-line text-end font-medium"></i>
                       </button>
                     </div>
@@ -852,7 +856,7 @@ const Register = () => {
                                   key={category}
                                 >
                                   <div className="px-4 py-2 text-xl text-center font-opensans font-semibold bg-zinc-100">
-                                    -{category} -
+                                    -{category}-
                                   </div>
                                   {qualifications[category].map((HQ, index) => (
                                     <label
@@ -878,13 +882,13 @@ const Register = () => {
                       </div>
                     </label>
 
-                    {/* School/College You Attended */}
+                    {/* College/University Attended */}
                     <label
                       className="relative flex flex-col gap-3 mb-4"
                       htmlFor="College You Attended"
                     >
                       <h3 className="text-xl font-lato font-semibold">
-                        College You Attended:{" "}
+                        College/University Attended:
                         {formData.qualifications === "preferred not to say" && (
                           <span className="optional">(optional)</span>
                         )}
@@ -909,13 +913,13 @@ const Register = () => {
                       />
                     </label>
 
-                    {/*  Work With */}
+                    {/*  Current Employer */}
                     <label
                       className="relative flex flex-col gap-3 mb-4"
-                      htmlFor="Work With"
+                      htmlFor="Current Employer"
                     >
                       <h3 className="text-xl font-lato font-semibold">
-                        Work With:
+                        Current Employer:
                       </h3>
                       {errors.workWith && (
                         <p className="error">{errors.workWith}</p>
@@ -925,7 +929,7 @@ const Register = () => {
                           className="outline-none border-2 border-zinc-200 rounded-xl w-full py-3 px-4 text-lg font-lato font-semibold text-zinc-800 leading-tight cursor-pointer transition-all focus:border-blue-500"
                           type="text"
                           name="workWith"
-                          id="Work With"
+                          id="Current Employer"
                           value={formData.workWith}
                           readOnly
                           onClick={() => {
@@ -961,32 +965,112 @@ const Register = () => {
                       </div>
                     </label>
                     
-                    {/* Job Role */}
-                    <label className="flex flex-col gap-3 mb-4" htmlFor="Job Role">
+                    {/*  Job Role */}
+                    <label
+                      className="relative flex flex-col gap-3 mb-4"
+                      htmlFor="Job Role"
+                    >
                       <h3 className="text-xl font-lato font-semibold">
-                        Job Role: <span className="optional">(optional)</span>
+                        Job Role:
                       </h3>
-                      <input
-                        className="outline-none border-2 border-zinc-200 rounded-xl w-full py-3 px-4 text-lg font-lato font-semibold text-zinc-800 leading-tight transition-all focus:border-blue-500"
-                        id="Job Role"
-                        type="text"
-                        name="jobRole"
-                        value={formData.jobRole}
-                        onChange={handleChange}
-                      />
+                      {errors.jobRole && (
+                        <p className="error">{errors.jobRole}</p>
+                      )}
+                      <div className="relative">
+                        <input
+                          className="outline-none border-2 border-zinc-200 rounded-xl w-full py-3 px-4 text-lg font-lato font-semibold text-zinc-800 leading-tight cursor-pointer transition-all focus:border-blue-500"
+                          type="text"
+                          name="jobRole"
+                          id="Job Role"
+                          value={formData.jobRole}
+                          readOnly
+                          onClick={() => {
+                            setIsDropdownOpen(!isDropdownOpen);
+                            setToggleDropdown("jobRole");
+                          }}
+                        />
+                        {!isDropdownOpen &&
+                          toggleDropdown === "jobRole" && (
+                            <div
+                              className="absolute w-full h-fit max-h-[350px] mt-1 bg-white border-2 border-zinc-200 overflow-x-hidden overflow-y-auto rounded-xl z-10"
+                              id="dropDownBox"
+                            >
+                              {Object.keys(jobRole).map((category) => (
+                                <div
+                                  className="flex flex-col gap-2"
+                                  key={category}
+                                >
+                                  <div className="px-4 py-2 text-xl text-center font-opensans font-semibold bg-zinc-100">
+                                    -{category}-
+                                  </div>
+                                  {
+                                  jobRole[category].map((role, index) => (
+                                    <label
+                                      key={index}
+                                      className="py-2 px-10 text-lg font-lato font-semibold cursor-pointer hover:bg-gray-100"
+                                      htmlFor={role.toLowerCase()}
+                                    >
+                                      <input
+                                        type="radio"
+                                        name="jobRole"
+                                        id={role.toLowerCase()}
+                                        className="w-fit h-5 hidden"
+                                        value={role.toLowerCase()}
+                                        onChange={handleChange}
+                                      />
+                                      {role}
+                                    </label>
+                                  ))}
+                                </div>
+                              ))}
+                            </div>
+                          )}
+                      </div>
                     </label>
                     
+                    {/* Specify Your Role */}
+                    <label
+                      className="relative flex flex-col gap-3 mb-4"
+                      htmlFor="Specify Your Role"
+                    >
+                      <h3 className="text-xl font-lato font-semibold">
+                        Specify Your Role:
+                        {formData.jobRole !== "" && formData.jobRole !== "other" && (
+                          <span className="optional">(optional)</span>
+                        )}
+                      </h3>
+                      {formData.additionalJobRole === "" && errors.additionalJobRole && (
+                        <p className="error">{errors.additionalJobRole}</p>
+                      )}
+                      <input
+                        className="outline-none border-2 border-zinc-200 rounded-xl w-full py-3 px-4 text-lg font-lato font-semibold text-zinc-800 leading-tight transition-all focus:border-blue-500"
+                        id="Specify Your Role"
+                        type="text"
+                        name="additionalJobRole"
+                        value={`${
+                          formData.jobRole !== "" && formData.jobRole !== "other"
+                            ? "No filing required."
+                            : formData.additionalJobRole
+                        }`}
+                        onChange={handleChange}
+                        disabled={
+                          formData.jobRole !== "" && formData.jobRole !== "other"
+                        }
+                      />
+                    </label>
+
                     {/*  Annual Income */}
                     <label
                       className="relative flex flex-col gap-3 mb-4"
                       htmlFor="Annual Income"
                     >
-                      <h3 className="text-xl font-lato font-semibold">
+                      <h3 className="text-xl font-lato font-semibold group">
                         Annual Income:
+                        <i className="ri-question-fill ml-1 text-base font-normal cursor-help"></i>
+                        <div className="py-1 px-3 absolute left-40 top-0 w-fit h-fit rounded-md bg-[#41414185] backdrop-blur-sm text-base text-slate-50 font-lato font-medium drop-shadow-md opacity-0 invisible transition-all group-hover:opacity-100 group-hover:visible">
+                          <b>Why required?</b>&nbsp; To understand financial stability and planning.
+                        </div>
                       </h3>
-                      <div className="anyQuery absolute left-[9.5em] top-4 z-30 w-[25%] h-fit border-2 border-blue-600 bg-[#f8fafc85] backdrop-blur-sm p-3 rounded-md text-base text-zinc-700 font-lato font-medium transition-all">
-                        Why required? To understand financial stability and planning.
-                      </div>
                       {errors.annualIncome && (
                         <p className="error">{errors.annualIncome}</p>
                       )}
@@ -1030,13 +1114,14 @@ const Register = () => {
                           )}
                       </div>
                     </label>
+
                     <div className="flex flex-row justify-between items-center w-full h-auto">
                       <button
                         className="self-end w-fit h-auto px-5 py-2 bg-gray-500 rounded-lg flex justify-between items-center text-xl text-slate-100 font-opensans font-medium transition-all hover:bg-gray-600"
                         type="button"
                         onClick={handlePrev}
                       >
-                        <i className="ri-arrow-left-s-line text-end font-medium"></i>{" "}
+                        <i className="ri-arrow-left-s-line text-end font-medium"></i>
                         Back
                       </button>
                       <button
@@ -1044,7 +1129,7 @@ const Register = () => {
                         type="button"
                         onClick={handleNext}
                       >
-                        Next{" "}
+                        Next
                         <i className="ri-arrow-right-s-line text-end font-medium"></i>
                       </button>
                     </div>
