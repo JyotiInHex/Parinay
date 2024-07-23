@@ -109,7 +109,7 @@ function validation(step, data) {
       if(jobRole === ""){
         errors.jobRole = "Please select a valid job role form the list"
       }
-      if(additionalJobRole === "" && jobRole === "other"){
+      if(additionalJobRole === "" && jobRole === "other" || additionalJobRole === "" && jobRole === ""){
         errors.additionalJobRole = "This field cannot be empty if not specified."
       }
       if (annualIncome === "") {
