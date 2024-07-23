@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import registerBg from "../assets/registration-1.webp";
 import validation from "./validation";
 
@@ -20,6 +20,7 @@ import {
 } from "../data/formData";
 
 const Register = () => {
+  useEffect(()=>{document.title = "Register"})
   const [step, setStep] = useState(5);
   const [formData, setFormData] = useState({
     profileFor: "",
@@ -82,6 +83,11 @@ const Register = () => {
   const handleSubmission = (e) => {
     e.preventDefault();
   };
+
+  let limit = 4000;
+  let total = limit - formData.aboutSelf.length
+
+  console.log(total);
 
   return (
     <>
@@ -1158,15 +1164,16 @@ const Register = () => {
                         About self: <span className="optional">(Recommend)</span>
                       </h3>
                       <textarea
-                        className="outline-none border-2 border-zinc-200 rounded-xl w-full py-3 px-4 text-lg font-lato font-semibold text-zinc-800 leading-tight resize-none transition-all focus:border-blue-500"
+                        className="outline-none border-2 border-zinc-200 rounded-xl w-full py-3 px-4 text-lg text-justify font-lato font-semibold text-zinc-800 leading-tight resize-none transition-all focus:border-blue-500"
                         id="College You Attended"
                         cols="40"
-                        rows="23"
+                        rows="15"
                         name="aboutSelf"
                         value={formData.aboutSelf}
                         onChange={handleChange}
+                        maxlength="1800"                        
                       ></textarea>
-                      <span className="w-full mt-2 h-auto text-right text-sm font-lato font-semibold">Maximum 4000 characters</span>
+                      <span className="w-full mt-2 h-auto text-right text-sm font-lato font-semibold">Maximum 1800 characters</span>
                     </label>
 
                     <div className="flex flex-row justify-between items-center w-full h-auto">

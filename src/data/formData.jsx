@@ -63,11 +63,15 @@ export let maritalStatus = [
 ];
 export let diets = [
   "Vegetarian",
-  "Non Vegetarian",
-  "Occasionally non-vegetarian",
-  "Eggetarian",
-  "Jain",
+  "Non-Vegetarian",
   "Vegan",
+  "Eggetarian",
+  "Occasionally Non-Vegetarian",
+  "Jain",
+  "Pescatarian (includes fish but no other meat)",
+  "Gluten-Free",
+  "Dairy-Free",
+  "Low-Carb/Keto",
 ];
 export let heights = [
   "4ft 5in - 134cm",
@@ -104,32 +108,29 @@ export let heights = [
   "7ft 0in - 213cm",
 ];
 export let hobbies = [
-  "Bird Watching",
-  "Cooking",
-  "Crafting",
-  "Dancing",
+  "Reading",
+  "Traveling",
+  "Cooking/Baking",
   "Gardening",
-  "Painting",
-  "Reading Literature",
-  "Trekking",
-  "Writing Poetry",
-  "Nothing",
-];
-export let interest = [
-  "Cinema",
-  "Cuisine",
-  "Ethnic Fashion and Textiles",
-  "Festivals",
-  "Historical Sites",
-  "Local Community Service",
-  "Music (Folk Songs)",
-  "Wildlife Conservation",
+  "Painting/Drawing",
+  "Playing Musical Instruments",
+  "Photography",
+  "Hiking/Camping",
+  "Yoga/Meditation",
+  "Playing Sports (e.g., cricket, football, badminton)",
   "Nothing",
 ];
 export let mostLikes = [
-  "Listening Music",
-  "Reading Book",
-  "Watching Movie",
+  "Technology/Programming",
+  "Music (e.g., classical, folk, modern)",
+  "Movies/TV Shows",
+  "Literature/Books",
+  "Arts and Crafts",
+  "Fitness/Wellness",
+  "History/Culture",
+  "Environmental Conservation",
+  "Social Issues/Activism",
+  "Culinary Arts",
   "Nothing",
 ];
 export let pets = [
