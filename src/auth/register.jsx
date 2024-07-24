@@ -17,6 +17,7 @@ import {
   workWith,
   jobRole,
   incomeList,
+  parentStatus,
 } from "../data/formData";
 
 const Register = () => {
@@ -52,6 +53,8 @@ const Register = () => {
     annualIncome: "",
     profileImg: "",
     aboutSelf: "",
+    fatherStatus: "",
+    motherStatus: "",
   });
   const [profilePic, setProfilePic] = useState(null);
   const [animation, setAnimation] = useState("");
@@ -1260,7 +1263,114 @@ const Register = () => {
                     <i className="ri-arrow-right-s-line text-end font-medium"></i>
                   </h2>
                   <div className="relative flex flex-col mt-5 w-full h-auto">
-                    last step
+                    {/* Father */}
+                    <label
+                      className="relative flex flex-col gap-3 mb-4"
+                      htmlFor="Father Status"
+                    >
+                      <h3 className="text-xl font-lato font-semibold">
+                        Father Status:
+                      </h3>
+                      {errors.fatherStatus && (
+                        <p className="error">{errors.fatherStatus}</p>
+                      )}
+                      <div className="relative">
+                        <input
+                          className="outline-none border-2 border-zinc-200 rounded-xl w-full py-3 px-4 text-lg font-lato font-semibold text-zinc-800 leading-tight cursor-pointer transition-all focus:border-blue-500"
+                          type="text"
+                          name="fatherStatus"
+                          id="Father Status"
+                          value={formData.fatherStatus}
+                          readOnly
+                          onClick={() => {
+                            setIsDropdownOpen(!isDropdownOpen);
+                            setToggleDropdown("fatherStatus");
+                          }}
+                        />
+                        {!isDropdownOpen &&
+                          toggleDropdown === "fatherStatus" && (
+                            <div
+                              className="absolute w-full h-fit max-h-[350px] flex flex-col gap-2 mt-1 bg-white border-2 border-zinc-200 overflow-x-hidden overflow-y-auto rounded-xl z-10"
+                              id="dropDownBox"
+                            >
+                              {Object.keys(parentStatus).map((category) => (
+                                (category === "Father") && 
+                                parentStatus[category].map((status, index) => (
+                                    <label
+                                      key={index}
+                                      className="py-2 px-10 text-lg font-lato font-semibold cursor-pointer hover:bg-gray-100"
+                                      htmlFor={status}
+                                    >
+                                      <input
+                                        type="radio"
+                                        name="fatherStatus"
+                                        id={status}
+                                        className="w-fit h-5 hidden"
+                                        value={status}
+                                        onChange={handleChange}
+                                      />
+                                      {status}
+                                    </label>
+                                  ))
+                              ))}
+                            </div>
+                          )}
+                      </div>
+                    </label>
+                    {/* Mother */}
+                    <label
+                      className="relative flex flex-col gap-3 mb-4"
+                      htmlFor="Mother Status"
+                    >
+                      <h3 className="text-xl font-lato font-semibold">
+                        Mother Status:
+                      </h3>
+                      {errors.motherStatus && (
+                        <p className="error">{errors.motherStatus}</p>
+                      )}
+                      <div className="relative">
+                        <input
+                          className="outline-none border-2 border-zinc-200 rounded-xl w-full py-3 px-4 text-lg font-lato font-semibold text-zinc-800 leading-tight cursor-pointer transition-all focus:border-blue-500"
+                          type="text"
+                          name="motherStatus"
+                          id="Mother Status"
+                          value={formData.motherStatus}
+                          readOnly
+                          onClick={() => {
+                            setIsDropdownOpen(!isDropdownOpen);
+                            setToggleDropdown("motherStatus");
+                          }}
+                        />
+                        {!isDropdownOpen &&
+                          toggleDropdown === "motherStatus" && (
+                            <div
+                              className="absolute w-full h-fit max-h-[350px] flex flex-col gap-2 mt-1 bg-white border-2 border-zinc-200 overflow-x-hidden overflow-y-auto rounded-xl z-10"
+                              id="dropDownBox"
+                            >
+                              {Object.keys(parentStatus).map((category) => (
+                                (category === "Mother") && 
+                                parentStatus[category].map((status, index) => (
+                                    <label
+                                      key={index}
+                                      className="py-2 px-10 text-lg font-lato font-semibold cursor-pointer hover:bg-gray-100"
+                                      htmlFor={status}
+                                    >
+                                      <input
+                                        type="radio"
+                                        name="motherStatus"
+                                        id={status}
+                                        className="w-fit h-5 hidden"
+                                        value={status}
+                                        onChange={handleChange}
+                                      />
+                                      {status}
+                                    </label>
+                                  ))
+                              ))}
+                            </div>
+                          )}
+                      </div>
+                    </label>
                   </div>
                 </fieldset>
               )}

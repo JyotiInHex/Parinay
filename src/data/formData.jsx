@@ -320,3 +320,19 @@ export let incomeList = [
   "₹75 Lakhs to ₹1 Crore",
   "₹1 Crore & above",
 ];
+export let parentStatus = {
+  "Father": [
+    "Employed",
+    "Business",
+    "Retired",
+    "Not employed",
+    "Passed away"
+  ],
+  "Mother": [
+    "Employed",
+    "Business",
+    "Retired",
+    "Homemaker",
+    "Passed away"
+  ]
+}
