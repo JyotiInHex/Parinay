@@ -20,8 +20,11 @@ import {
 } from "../data/formData";
 
 const Register = () => {
-  useEffect(()=>{document.title = "Register"})
-  const [step, setStep] = useState(5);
+  useEffect(() => {
+    document.title = "Register";
+  });
+
+  const [step, setStep] = useState(6);
   const [formData, setFormData] = useState({
     profileFor: "",
     fName: "",
@@ -47,20 +50,32 @@ const Register = () => {
     jobRole: "",
     additionalJobRole: "",
     annualIncome: "",
+    profileImg: "",
     aboutSelf: "",
   });
+  const [profilePic, setProfilePic] = useState(null);
   const [animation, setAnimation] = useState("");
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [toggleDropdown, setToggleDropdown] = useState("");
   const [errors, setErrors] = useState({});
 
   const handleChange = (e) => {
-    const { name, value } = e.target;
+    const { name, value, files } = e.target;
     setFormData({ ...formData, [name]: value });
     setErrors((prevErrors) => ({
       ...prevErrors,
-      [name]: undefined, // or null, or ''
+      [name]: undefined,
     }));
+
+    if (name === "profileImg") {
+      if (files && files.length > 0) {
+        const fileURL = URL.createObjectURL(files[0]);
+        setProfilePic(fileURL);
+      } else {
+        setProfilePic(null);
+      }
+    }
+
     setIsDropdownOpen(null);
     setToggleDropdown("");
   };
@@ -83,11 +98,6 @@ const Register = () => {
   const handleSubmission = (e) => {
     e.preventDefault();
   };
-
-  let limit = 4000;
-  let total = limit - formData.aboutSelf.length
-
-  console.log(total);
 
   return (
     <>
@@ -1155,25 +1165,69 @@ const Register = () => {
                     <i className="ri-arrow-right-s-line text-end font-medium"></i>
                   </h2>
                   <div className="relative flex flex-col mt-5 w-full h-auto">
+                    {/* Profile Photo */}
+                    <label
+                      className="relative flex flex-col gap-0 mb-4"
+                      htmlFor="Profile Photo"
+                    >
+                      <h3 className="text-xl font-lato font-semibold mb-3">
+                        Profile Photo:
+                        <span className="optional"></span>
+                      </h3>
+                      {errors.profileImg && (
+                        <p className="error">{errors.profileImg}</p>
+                      )}
+                      <figure className="relative z-10 place-self-center w-[127.5px] h-[127.5px] rounded-full border-2 border-zinc-500 border-dashed bg-gray-50 overflow-hidden">
+                        <img
+                          className="w-full h-full object-cover"
+                          src={profilePic}
+                          alt={profilePic}
+                        />
+                        <i className="ri-user-3-line absolute z-[-1] -bottom-2 left-[50%] translate-x-[-50%] text-8xl text-zinc-400 font-thin pointer-events-none"></i>
+                      </figure>
+                      <input
+                        type="file"
+                        name="profileImg"
+                        id="Profile Photo"
+                        value={formData.profileImg}
+                        onChange={handleChange}
+                        hidden
+                        accept=".jpeg,.jpg,.png"
+                      />
+                    </label>
+
                     {/* About self */}
                     <label
-                      className="relative flex flex-col gap-3 mb-4"
-                      htmlFor="College You Attended"
+                      className="relative flex flex-col gap-0 mb-4"
+                      htmlFor="About self"
                     >
-                      <h3 className="text-xl font-lato font-semibold">
-                        About self: <span className="optional">(Recommend)</span>
+                      <h3 className="text-xl font-lato font-semibold mb-3">
+                        About self:
+                        <span className="optional">(Recommend)</span>
                       </h3>
+                      {errors.aboutSelf && (
+                        <p className="error">{errors.aboutSelf}</p>
+                      )}
                       <textarea
                         className="outline-none border-2 border-zinc-200 rounded-xl w-full py-3 px-4 text-lg text-justify font-lato font-semibold text-zinc-800 leading-tight resize-none transition-all focus:border-blue-500"
-                        id="College You Attended"
+                        id="About self"
                         cols="40"
                         rows="15"
                         name="aboutSelf"
                         value={formData.aboutSelf}
                         onChange={handleChange}
-                        maxlength="1800"                        
+                        maxlength="1800"
                       ></textarea>
-                      <span className="w-full mt-2 h-auto text-right text-sm font-lato font-semibold">Maximum 1800 characters</span>
+                      <span className="w-full h-auto text-right text-sm font-lato font-semibold">
+                        <p className="text-base font-opensans font-medium">
+                          <b>{formData.aboutSelf.length}</b>/1800
+                        </p>
+                        {formData.aboutSelf.length === 1800 && (
+                          <p className="text-red-500">
+                            Maximum 1800 characters
+                          </p>
+                        )}
+                      </span>
                     </label>
 
                     <div className="flex flex-row justify-between items-center w-full h-auto">
@@ -1194,6 +1248,19 @@ const Register = () => {
                         <i className="ri-arrow-right-s-line text-end font-medium"></i>
                       </button>
                     </div>
+                  </div>
+                </fieldset>
+              )}
+
+              {step === 6 && (
+                <fieldset className={`${animation} w-full min-w-full h-auto`}>
+                  <h2 className="flex justify-between items-end text-3xl font-playfair font-extrabold border-b-2 border-gray-600 pb-2">
+                    <i className="ri-arrow-left-s-line text-end font-medium"></i>
+                    Family Details
+                    <i className="ri-arrow-right-s-line text-end font-medium"></i>
+                  </h2>
+                  <div className="relative flex flex-col mt-5 w-full h-auto">
+                    last step
                   </div>
                 </fieldset>
               )}

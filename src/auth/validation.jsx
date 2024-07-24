@@ -22,6 +22,8 @@ function validation(step, data) {
     jobRole,
     additionalJobRole,
     annualIncome,
+    profileImg,
+    aboutSelf,
   } = data;
   let errors = {};
   const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -30,7 +32,6 @@ function validation(step, data) {
   const DateOfBirth = new Date(DOB);
   const today = new Date();
   let years = Math.abs(today.getFullYear() - DateOfBirth.getFullYear());
-  console.log(qualifications);
   switch (step) {
     case 1:
       if (profileFor === "") {
@@ -114,6 +115,14 @@ function validation(step, data) {
       }
       if (annualIncome === "") {
         errors.annualIncome = "Enter annual income.";
+      }
+      break;
+    case 5:
+      if (profileImg === "") {
+        errors.profileImg = "Please upload your profile picture for batter matches."
+      }
+      if (aboutSelf === "") {
+        errors.aboutSelf = "We Recommend to write at least 10 lines of about yourself!"
       }
       break;
     default:
