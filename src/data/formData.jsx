@@ -280,7 +280,7 @@ export let jobRole = {
     "Marketing & Advertising",
     "Other",
   ],
-  "Self-Employed":[
+  "Self Employed":[
     "Freelancing",
     "Consultancy",
     "Small Business Owner",

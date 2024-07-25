@@ -285,7 +285,11 @@ const Register = () => {
                             {religions.map((religion, index) => (
                               <label
                                 key={index}
-                                className="py-2 px-4 text-lg font-lato font-semibold cursor-pointer hover:bg-gray-100"
+                                className={`${
+                                  formData.religion ===
+                                    religion.toLowerCase() &&
+                                  "bg-blue-500 text-slate-50"
+                                } py-2 px-4 text-lg font-lato font-semibold cursor-pointer transition-all hover:text-zinc-700 hover:bg-gray-100 `}
                                 htmlFor={religion.toLowerCase()}
                               >
                                 <input
@@ -377,7 +381,7 @@ const Register = () => {
                       <input
                         className="outline-none border-2 border-zinc-200 rounded-xl w-full py-3 px-4 text-lg font-lato font-semibold text-zinc-800 leading-tight transition-all focus:border-blue-500"
                         id="Phone Number"
-                        type="number"
+                        type="tel"
                         name="phoneNumber"
                         value={formData.phoneNumber}
                         onChange={handleChange}
@@ -435,7 +439,11 @@ const Register = () => {
                             {districts.map((livingIn, index) => (
                               <label
                                 key={index}
-                                className="py-2 px-4 text-lg font-lato font-semibold cursor-pointer hover:bg-gray-100"
+                                className={`${
+                                  formData.livingIn ===
+                                    livingIn.toLowerCase() &&
+                                  "bg-blue-500 text-slate-50"
+                                } py-2 px-4 text-lg font-lato font-semibold cursor-pointer transition-all hover:text-zinc-700 hover:bg-gray-100 `}
                                 htmlFor={livingIn.toLowerCase()}
                               >
                                 <input
@@ -553,7 +561,10 @@ const Register = () => {
                               {maritalStatus.map((status, index) => (
                                 <label
                                   key={index}
-                                  className="py-2 px-4 text-lg font-lato font-semibold cursor-pointer hover:bg-gray-100"
+                                  className={`${
+                                    formData.marital === status.toLowerCase() &&
+                                    "bg-blue-500 text-slate-50"
+                                  } py-2 px-4 text-lg font-lato font-semibold cursor-pointer transition-all hover:text-zinc-700 hover:bg-gray-100 `}
                                   htmlFor={status.toLowerCase()}
                                 >
                                   <input
@@ -600,7 +611,10 @@ const Register = () => {
                             {diets.map((diet, index) => (
                               <label
                                 key={index}
-                                className="py-2 px-4 text-lg font-lato font-semibold cursor-pointer hover:bg-gray-100"
+                                className={`${
+                                  formData.diet === diet.toLowerCase() &&
+                                  "bg-blue-500 text-slate-50"
+                                } py-2 px-4 text-lg font-lato font-semibold cursor-pointer transition-all hover:text-zinc-700 hover:bg-gray-100 `}
                                 htmlFor={diet.toLowerCase()}
                               >
                                 <input
@@ -651,7 +665,10 @@ const Register = () => {
                             {heights.map((height, index) => (
                               <label
                                 key={index}
-                                className="py-2 px-4 text-lg font-lato font-semibold cursor-pointer hover:bg-gray-100"
+                                className={`${
+                                  formData.height === height.toLowerCase() &&
+                                  "bg-blue-500 text-slate-50"
+                                } py-2 px-10 text-lg font-lato font-semibold cursor-pointer transition-all hover:text-zinc-700 hover:bg-gray-100 `}
                                 htmlFor={height.toLowerCase()}
                               >
                                 <input
@@ -702,7 +719,10 @@ const Register = () => {
                             {hobbies.map((hobby, index) => (
                               <label
                                 key={index}
-                                className="py-2 px-4 text-lg font-lato font-semibold cursor-pointer hover:bg-gray-100"
+                                className={`${
+                                  formData.hobbies === hobby.toLowerCase() &&
+                                  "bg-blue-500 text-slate-50"
+                                } py-2 px-4 text-lg font-lato font-semibold cursor-pointer transition-all hover:text-zinc-700 hover:bg-gray-100 `}
                                 htmlFor={hobby.toLowerCase()}
                               >
                                 <input
@@ -753,7 +773,10 @@ const Register = () => {
                             {mostLikes.map((fav, index) => (
                               <label
                                 key={index}
-                                className="py-2 px-4 text-lg font-lato font-semibold cursor-pointer hover:bg-gray-100"
+                                className={`${
+                                  formData.mostLikes === fav.toLowerCase() &&
+                                  "bg-blue-500 text-slate-50"
+                                } py-2 px-4 text-lg font-lato font-semibold cursor-pointer transition-all hover:text-zinc-700 hover:bg-gray-100 `}
                                 htmlFor={fav.toLowerCase()}
                               >
                                 <input
@@ -800,7 +823,10 @@ const Register = () => {
                             {pets.map((pet, index) => (
                               <label
                                 key={index}
-                                className="py-2 px-4 text-lg font-lato font-semibold cursor-pointer hover:bg-gray-100"
+                                className={`${
+                                  formData.pet === pet.toLowerCase() &&
+                                  "bg-blue-500 text-slate-50"
+                                } py-2 px-4 text-lg font-lato font-semibold cursor-pointer transition-all hover:text-zinc-700 hover:bg-gray-100 `}
                                 htmlFor={pet.toLowerCase()}
                               >
                                 <input
@@ -889,7 +915,11 @@ const Register = () => {
                                   {qualifications[category].map((HQ, index) => (
                                     <label
                                       key={index}
-                                      className="py-2 px-10 text-lg font-lato font-semibold cursor-pointer hover:bg-gray-100"
+                                      className={`${
+                                        formData.qualifications ===
+                                          HQ.toLowerCase() &&
+                                        "bg-blue-500 text-slate-50"
+                                      } py-2 px-10 text-lg font-lato font-semibold cursor-pointer transition-all hover:text-zinc-700 hover:bg-gray-100 `}
                                       htmlFor={HQ.toLowerCase()}
                                     >
                                       <input
@@ -974,7 +1004,10 @@ const Register = () => {
                             {workWith.map((type, index) => (
                               <label
                                 key={index}
-                                className="py-2 px-4 text-lg font-lato font-semibold cursor-pointer hover:bg-gray-100"
+                                className={`${
+                                  formData.workWith === type.toLowerCase() &&
+                                  "bg-blue-500 text-slate-50"
+                                } py-2 px-4 text-lg font-lato font-semibold cursor-pointer transition-all hover:text-zinc-700 hover:bg-gray-100 `}
                                 htmlFor={type.toLowerCase()}
                               >
                                 <input
@@ -1012,6 +1045,7 @@ const Register = () => {
                           id="Job Role"
                           value={formData.jobRole}
                           readOnly
+                          disabled={formData.workWith === ""}
                           onClick={() => {
                             setIsDropdownOpen(!isDropdownOpen);
                             setToggleDropdown("jobRole");
@@ -1027,26 +1061,34 @@ const Register = () => {
                                 className="flex flex-col gap-2"
                                 key={category}
                               >
-                                <div className="px-4 py-2 text-xl text-center font-opensans font-semibold bg-zinc-100">
-                                  -{category}-
-                                </div>
-                                {jobRole[category].map((role, index) => (
-                                  <label
-                                    key={index}
-                                    className="py-2 px-10 text-lg font-lato font-semibold cursor-pointer hover:bg-gray-100"
-                                    htmlFor={role.toLowerCase()}
-                                  >
-                                    <input
-                                      type="radio"
-                                      name="jobRole"
-                                      id={role.toLowerCase()}
-                                      className="w-fit h-5 hidden"
-                                      value={role.toLowerCase()}
-                                      onChange={handleChange}
-                                    />
-                                    {role}
-                                  </label>
-                                ))}
+                                {formData.workWith ===
+                                  category.toLowerCase() && (
+                                  <div className="px-4 py-2 text-xl text-center font-opensans font-semibold bg-zinc-100">
+                                    {category}
+                                  </div>
+                                )}
+                                {formData.workWith === category.toLowerCase() &&
+                                  jobRole[category].map((role, index) => (
+                                    <label
+                                      key={index}
+                                      className={`${
+                                        formData.jobRole ===
+                                          role.toLowerCase() &&
+                                        "bg-blue-500 text-slate-50"
+                                      } py-2 px-10 text-lg font-lato font-semibold cursor-pointer transition-all hover:text-zinc-700 hover:bg-gray-100 `}
+                                      htmlFor={role.toLowerCase()}
+                                    >
+                                      <input
+                                        type="radio"
+                                        name="jobRole"
+                                        id={role.toLowerCase()}
+                                        className="w-fit h-5 hidden"
+                                        value={role.toLowerCase()}
+                                        onChange={handleChange}
+                                      />
+                                      {role}
+                                    </label>
+                                  ))}
                               </div>
                             ))}
                           </div>
@@ -1127,7 +1169,11 @@ const Register = () => {
                               {incomeList.map((income, index) => (
                                 <label
                                   key={index}
-                                  className="py-2 px-4 text-lg font-lato font-semibold cursor-pointer hover:bg-gray-100"
+                                  className={`${
+                                    formData.annualIncome ===
+                                      income.toLowerCase() &&
+                                    "bg-blue-500 text-slate-50"
+                                  } py-2 px-4 text-lg font-lato font-semibold cursor-pointer transition-all hover:text-zinc-700 hover:bg-gray-100 `}
                                   htmlFor={income.toLowerCase()}
                                 >
                                   <input
@@ -1188,19 +1234,18 @@ const Register = () => {
                       {errors.profileImg && (
                         <p className="error">{errors.profileImg}</p>
                       )}
-                      <figure className="relative z-10 place-self-center w-[127.5px] h-[127.5px] rounded-full border-2 border-zinc-500 border-dashed bg-gray-50 overflow-hidden">
+                      <figure className="relative z-10 place-self-center w-[172.5px] h-[172.5px] rounded-full border-2 border-zinc-500 border-dashed bg-gray-50 overflow-hidden">
                         <img
                           className="w-full h-full object-cover"
                           src={profilePic}
                           alt={profilePic}
                         />
-                        <i className="ri-user-3-line absolute z-[-1] -bottom-2 left-[50%] translate-x-[-50%] text-8xl text-zinc-400 font-thin pointer-events-none"></i>
+                        <i className="ri-user-3-line absolute z-[-1] -bottom-2 left-[50%] translate-x-[-50%] text-9xl text-zinc-400 font-thin pointer-events-none"></i>
                       </figure>
                       <input
                         type="file"
                         name="profileImg"
                         id="Profile Photo"
-                        value={formData.profileImg}
                         onChange={handleChange}
                         hidden
                         accept=".jpeg,.jpg,.png"
@@ -1223,11 +1268,11 @@ const Register = () => {
                         className="outline-none border-2 border-zinc-200 rounded-xl w-full py-3 px-4 text-lg text-justify font-lato font-semibold text-zinc-800 leading-tight resize-none transition-all focus:border-blue-500"
                         id="About self"
                         cols="40"
-                        rows="15"
+                        rows="13"
                         name="aboutSelf"
                         value={formData.aboutSelf}
                         onChange={handleChange}
-                        maxlength="1800"
+                        maxLength="1800"
                       ></textarea>
                       <span className="w-full h-auto text-right text-sm font-lato font-semibold">
                         <p className="text-base font-opensans font-medium">
@@ -1305,7 +1350,10 @@ const Register = () => {
                                 {familyType.map((type, index) => (
                                   <label
                                     key={index}
-                                    className="py-2 px-4 text-lg font-lato font-semibold cursor-pointer hover:bg-gray-100"
+                                    className={`${
+                                      formData.familyType === type &&
+                                      "bg-blue-500 text-slate-50"
+                                    } py-2 px-4 text-lg font-lato font-semibold cursor-pointer transition-all hover:text-zinc-700 hover:bg-gray-100 `}
                                     htmlFor={type}
                                   >
                                     <input
@@ -1357,7 +1405,10 @@ const Register = () => {
                                 {["Yes", "No"].map((type, index) => (
                                   <label
                                     key={index}
-                                    className="py-2 px-4 text-lg font-lato font-semibold cursor-pointer hover:bg-gray-100"
+                                    className={`${
+                                      formData.livingInWithFamily === type &&
+                                      "bg-blue-500 text-slate-50"
+                                    } py-2 px-4 text-lg font-lato font-semibold cursor-pointer transition-all hover:text-zinc-700 hover:bg-gray-100 `}
                                     htmlFor={type}
                                   >
                                     <input
@@ -1410,7 +1461,10 @@ const Register = () => {
                               {familySocialStatus.map((type, index) => (
                                 <label
                                   key={index}
-                                  className="py-2 px-4 text-lg font-lato font-semibold cursor-pointer hover:bg-gray-100"
+                                  className={`${
+                                    formData.familySocialStatus === type &&
+                                    "bg-blue-500 text-slate-50"
+                                  } py-2 px-4 text-lg font-lato font-semibold cursor-pointer transition-all hover:text-zinc-700 hover:bg-gray-100 `}
                                   htmlFor={type}
                                 >
                                   <input
@@ -1467,7 +1521,10 @@ const Register = () => {
                                       (status, index) => (
                                         <label
                                           key={index}
-                                          className="py-2 px-4 text-lg font-lato font-semibold cursor-pointer hover:bg-gray-100"
+                                          className={`${
+                                            formData.fatherStatus === status &&
+                                            "bg-blue-500 text-slate-50"
+                                          } py-2 px-4 text-lg font-lato font-semibold cursor-pointer transition-all hover:text-zinc-700 hover:bg-gray-100 `}
                                           htmlFor={status}
                                         >
                                           <input
@@ -1525,7 +1582,10 @@ const Register = () => {
                                       (status, index) => (
                                         <label
                                           key={index}
-                                          className="py-2 px-4 text-lg font-lato font-semibold cursor-pointer hover:bg-gray-100"
+                                          className={`${
+                                            formData.motherStatus === status &&
+                                            "bg-blue-500 text-slate-50"
+                                          } py-2 px-4 text-lg font-lato font-semibold cursor-pointer transition-all hover:text-zinc-700 hover:bg-gray-100 `}
                                           htmlFor={status}
                                         >
                                           <input
@@ -1547,7 +1607,7 @@ const Register = () => {
                       </label>
                     </div>
 
-                    <div className="flex gap-4">
+                    <div className="flex gap-4 mb-52">
                       {/* Siblings types */}
                       <label
                         className="relative w-full flex flex-col gap-3 mb-4"
@@ -1582,7 +1642,10 @@ const Register = () => {
                                   (category, index) => (
                                     <label
                                       key={index}
-                                      className="py-2 px-4 text-lg font-lato font-semibold cursor-pointer hover:bg-gray-100"
+                                      className={`${
+                                        formData.siblingsType === category &&
+                                        "bg-blue-500 text-slate-50"
+                                      } py-2 px-4 text-lg font-lato font-semibold cursor-pointer transition-all hover:text-zinc-700 hover:bg-gray-100 `}
                                       htmlFor={category}
                                     >
                                       <input
@@ -1642,33 +1705,40 @@ const Register = () => {
                                 className="absolute w-full h-fit max-h-[350px] flex flex-col gap-2 mt-1 bg-white border-2 border-zinc-200 overflow-x-hidden overflow-y-auto rounded-xl z-10"
                                 id="dropDownBox"
                               >
-                                {Object.keys(siblings).map((category) => (
-                                  <div
-                                    className="flex flex-col gap-2"
-                                    key={category}
-                                  >
-                                    {formData.siblingsType === category &&
-                                      siblings[category].map(
-                                        (siblingsCount, index) => (
-                                          <label
-                                            key={index}
-                                            className={`${formData.siblingsNum === siblingsCount && 'bg-blue-500 text-slate-50'} py-2 px-4 text-lg font-lato font-semibold cursor-pointer hover:bg-gray-100 `}
-                                            htmlFor={siblingsCount}
-                                          >
-                                            <input
-                                              type="radio"
-                                              name="siblingsNum"
-                                              id={siblingsCount}
-                                              className="w-fit h-5 hidden"
-                                              value={siblingsCount}
-                                              onChange={handleChange}
-                                            />
-                                            {siblingsCount}
-                                          </label>
-                                        )
-                                      )}
-                                  </div>
-                                ))}
+                                {Object.keys(siblings).map(
+                                  (category) =>
+                                    formData.siblingsType === category && (
+                                      <div
+                                        className="flex flex-col gap-2"
+                                        key={category}
+                                      >
+                                        {formData.siblingsType === category &&
+                                          siblings[category].map(
+                                            (siblingsCount, index) => (
+                                              <label
+                                                key={index}
+                                                className={`${
+                                                  formData.siblingsNum ===
+                                                    siblingsCount &&
+                                                  "bg-blue-500 text-slate-50"
+                                                } py-2 px-4 text-lg font-lato font-semibold cursor-pointer transition-all hover:text-zinc-700 hover:bg-gray-100 `}
+                                                htmlFor={siblingsCount}
+                                              >
+                                                <input
+                                                  type="radio"
+                                                  name="siblingsNum"
+                                                  id={siblingsCount}
+                                                  className="w-fit h-5 hidden"
+                                                  value={siblingsCount}
+                                                  onChange={handleChange}
+                                                />
+                                                {siblingsCount}
+                                              </label>
+                                            )
+                                          )}
+                                      </div>
+                                    )
+                                )}
                               </div>
                             )}
                         </div>

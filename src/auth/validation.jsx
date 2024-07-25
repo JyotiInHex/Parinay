@@ -129,7 +129,10 @@ function validation(step, data) {
         errors.profileImg = "Please upload your profile picture for batter matches."
       }
       if (aboutSelf === "") {
-        errors.aboutSelf = "We Recommend to write at least 10 lines of about yourself!"
+        errors.aboutSelf = "Please write something about your self."
+      }
+      if (aboutSelf !== "" && aboutSelf.length < 700) {
+        errors.aboutSelf  = "We Recommend to write at least 10 lines of about yourself!"
       }
       break;
     case 6:
