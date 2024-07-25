@@ -24,6 +24,13 @@ function validation(step, data) {
     annualIncome,
     profileImg,
     aboutSelf,
+    familyType,
+    familySocialStatus,
+    livingInWithFamily,
+    fatherStatus,
+    motherStatus,
+    siblingsType,
+    siblingsNum,
   } = data;
   let errors = {};
   const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -123,6 +130,29 @@ function validation(step, data) {
       }
       if (aboutSelf === "") {
         errors.aboutSelf = "We Recommend to write at least 10 lines of about yourself!"
+      }
+      break;
+    case 6:
+      if (familyType === "") {
+        errors.familyType = "Family type is required!";
+      }
+      if (familySocialStatus === "") {
+        errors.familySocialStatus = "Please select family social status.";
+      }
+      if (livingInWithFamily === "") {
+        errors.livingInWithFamily = "This field is required!";
+      }
+      if (fatherStatus === "") {
+        errors.fatherStatus = "Please select your father status.";
+      }
+      if (motherStatus === "") {
+        errors.motherStatus = "Please select your mother status.";
+      }
+      if (siblingsType === "") {
+        errors.siblingsType = "Please specify if any.";
+      }
+      if (siblingsType !== "" && siblingsType !== "No Siblings" && siblingsNum === "") {
+        errors.siblingsNum = "Please select how many?";
       }
       break;
     default:

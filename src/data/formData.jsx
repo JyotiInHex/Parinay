@@ -336,3 +336,44 @@ export let parentStatus = {
     "Passed away"
   ]
 }
+export let familyType = [
+  "Joint Family",
+  "Nuclear Family",
+]
+export let familySocialStatus = [
+  "Upper Class",
+  "Upper Middle Class",
+  "Middle Class",
+  "Lower Middle Class",
+  "Working Class",
+]
+export let siblings = {
+  "No Siblings": [
+    "0 Brothers, 0 Sisters",
+  ],
+  "Only Brothers": [
+    "1 Brother",
+    "2 Brothers",
+    "3 Brothers",
+    "4 Brothers",
+    "5 & Above Brothers",
+  ],
+  "Only Sisters": [
+    "1 Sister",
+    "2 Sisters",
+    "3 Sisters",
+    "4 Sisters",
+    "5 & Above Sisters",
+  ],
+  "Mixed Siblings": [
+    "1 Brother, 1 Sister",
+    "1 Brother, 2 Sisters",
+    "1 Brother, 3 Above Sisters",
+    "2 Brothers, 1 Sister",
+    "2 Brothers, 2 Sisters",
+    "2 Brothers, 3 Above Sisters",
+    "3 Above Brothers, 1 Sister",
+    "3 Above Brothers, 2 Sisters",
+    "3 Above Brothers, 3 Above Sisters",
+  ]
+}
