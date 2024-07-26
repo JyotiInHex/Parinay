@@ -337,8 +337,14 @@ export let parentStatus = {
   ]
 }
 export let familyType = [
+  "Extended Family",
   "Joint Family",
   "Nuclear Family",
+]
+export let familyValue = [
+  "Traditional",
+  "Moderate",
+  "Liberal",
 ]
 export let familySocialStatus = [
   "Upper Class",

@@ -18,6 +18,7 @@ import {
   jobRole,
   incomeList,
   familyType,
+  familyValue,
   familySocialStatus,
   parentStatus,
   siblings,
@@ -28,7 +29,7 @@ const Register = () => {
     document.title = "Register";
   });
 
-  const [step, setStep] = useState(6);
+  const [step, setStep] = useState(7);
   const [formData, setFormData] = useState({
     profileFor: "",
     fName: "",
@@ -36,8 +37,8 @@ const Register = () => {
     gender: "",
     religion: "",
     community: "",
-    email: "",
-    phoneNumber: "",
+    email: "Paragjyoti43d@gmail.com",
+    phoneNumber: "6002461148",
     DOB: "",
     livingIn: "",
     address: "",
@@ -57,6 +58,7 @@ const Register = () => {
     profileImg: "",
     aboutSelf: "",
     familyType: "",
+    familyValue: "",
     familySocialStatus: "",
     livingInWithFamily: "",
     fatherStatus: "",
@@ -1372,48 +1374,48 @@ const Register = () => {
                         </div>
                       </label>
 
-                      {/* Living with family */}
+                      {/* Social status */}
                       <label
                         className="relative w-full flex flex-col gap-3 mb-4"
-                        htmlFor="Living with family"
+                        htmlFor="Social status"
                       >
                         <h3 className="text-xl font-lato font-semibold">
-                          Living with Family:
+                          Social Status:
                         </h3>
-                        {errors.livingInWithFamily && (
-                          <p className="error">{errors.livingInWithFamily}</p>
+                        {errors.familySocialStatus && (
+                          <p className="error">{errors.familySocialStatus}</p>
                         )}
                         <div className="relative">
                           <input
                             className="outline-none border-2 border-zinc-200 rounded-xl w-full py-3 px-4 text-lg font-lato font-semibold text-zinc-800 leading-tight cursor-pointer transition-all focus:border-blue-500"
                             type="text"
-                            name="livingInWithFamily"
-                            id="Living with family"
-                            value={formData.livingInWithFamily}
+                            name="familySocialStatus"
+                            id="Social status"
+                            value={formData.familySocialStatus}
                             readOnly
                             onClick={() => {
                               setIsDropdownOpen(!isDropdownOpen);
-                              setToggleDropdown("livingInWithFamily");
+                              setToggleDropdown("familySocialStatus");
                             }}
                           />
                           {!isDropdownOpen &&
-                            toggleDropdown === "livingInWithFamily" && (
+                            toggleDropdown === "familySocialStatus" && (
                               <div
                                 className="absolute w-full h-fit max-h-[350px] flex flex-col gap-2 mt-1 bg-white border-2 border-zinc-200 overflow-x-hidden overflow-y-auto rounded-xl z-10"
                                 id="dropDownBox"
                               >
-                                {["Yes", "No"].map((type, index) => (
+                                {familySocialStatus.map((type, index) => (
                                   <label
                                     key={index}
                                     className={`${
-                                      formData.livingInWithFamily === type &&
+                                      formData.familySocialStatus === type &&
                                       "bg-blue-500 text-slate-50"
                                     } py-2 px-4 text-lg font-lato font-semibold cursor-pointer transition-all hover:text-zinc-700 hover:bg-gray-100 `}
                                     htmlFor={type}
                                   >
                                     <input
                                       type="radio"
-                                      name="livingInWithFamily"
+                                      name="familySocialStatus"
                                       id={type}
                                       className="w-fit h-5 hidden"
                                       value={type}
@@ -1428,48 +1430,48 @@ const Register = () => {
                       </label>
                     </div>
 
-                    {/* Social status */}
+                    {/* Living with family */}
                     <label
                       className="relative w-full flex flex-col gap-3 mb-4"
-                      htmlFor="Social status"
+                      htmlFor="Living with family"
                     >
                       <h3 className="text-xl font-lato font-semibold">
-                        Social Status:
+                        Living with Family:
                       </h3>
-                      {errors.familySocialStatus && (
-                        <p className="error">{errors.familySocialStatus}</p>
+                      {errors.livingInWithFamily && (
+                        <p className="error">{errors.livingInWithFamily}</p>
                       )}
                       <div className="relative">
                         <input
                           className="outline-none border-2 border-zinc-200 rounded-xl w-full py-3 px-4 text-lg font-lato font-semibold text-zinc-800 leading-tight cursor-pointer transition-all focus:border-blue-500"
                           type="text"
-                          name="familySocialStatus"
-                          id="Social status"
-                          value={formData.familySocialStatus}
+                          name="livingInWithFamily"
+                          id="Living with family"
+                          value={formData.livingInWithFamily}
                           readOnly
                           onClick={() => {
                             setIsDropdownOpen(!isDropdownOpen);
-                            setToggleDropdown("familySocialStatus");
+                            setToggleDropdown("livingInWithFamily");
                           }}
                         />
                         {!isDropdownOpen &&
-                          toggleDropdown === "familySocialStatus" && (
+                          toggleDropdown === "livingInWithFamily" && (
                             <div
                               className="absolute w-full h-fit max-h-[350px] flex flex-col gap-2 mt-1 bg-white border-2 border-zinc-200 overflow-x-hidden overflow-y-auto rounded-xl z-10"
                               id="dropDownBox"
                             >
-                              {familySocialStatus.map((type, index) => (
+                              {["Yes", "No"].map((type, index) => (
                                 <label
                                   key={index}
                                   className={`${
-                                    formData.familySocialStatus === type &&
+                                    formData.livingInWithFamily === type &&
                                     "bg-blue-500 text-slate-50"
                                   } py-2 px-4 text-lg font-lato font-semibold cursor-pointer transition-all hover:text-zinc-700 hover:bg-gray-100 `}
                                   htmlFor={type}
                                 >
                                   <input
                                     type="radio"
-                                    name="familySocialStatus"
+                                    name="livingInWithFamily"
                                     id={type}
                                     className="w-fit h-5 hidden"
                                     value={type}
@@ -1483,131 +1485,183 @@ const Register = () => {
                       </div>
                     </label>
 
+                    {/* Family Values */}
+                    <label
+                      className="relative w-full flex flex-col gap-3 mb-4"
+                      htmlFor="Family Values"
+                    >
+                      <h3 className="text-xl font-lato font-semibold">
+                        Family Values:{" "}
+                        <span className="optional">(Optional)</span>
+                      </h3>
+
+                      <div className="relative">
+                        <input
+                          className="outline-none border-2 border-zinc-200 rounded-xl w-full py-3 px-4 text-lg font-lato font-semibold text-zinc-800 leading-tight cursor-pointer transition-all focus:border-blue-500"
+                          type="text"
+                          name="familyValue"
+                          id="Family Values"
+                          value={formData.familyValue}
+                          readOnly
+                          onClick={() => {
+                            setIsDropdownOpen(!isDropdownOpen);
+                            setToggleDropdown("familyValue");
+                          }}
+                        />
+                        {!isDropdownOpen &&
+                          toggleDropdown === "familyValue" && (
+                            <div
+                              className="absolute w-full h-fit max-h-[350px] flex flex-col gap-2 mt-1 bg-white border-2 border-zinc-200 overflow-x-hidden overflow-y-auto rounded-xl z-10"
+                              id="dropDownBox"
+                            >
+                              {familyValue.map((value, index) => (
+                                <label
+                                  key={index}
+                                  className={`${
+                                    formData.familyValue === value &&
+                                    "bg-blue-500 text-slate-50"
+                                  } py-2 px-4 text-lg font-lato font-semibold cursor-pointer transition-all hover:text-zinc-700 hover:bg-gray-100 `}
+                                  htmlFor={value}
+                                >
+                                  <input
+                                    type="radio"
+                                    name="familyValue"
+                                    id={value}
+                                    className="w-fit h-5 hidden"
+                                    value={value}
+                                    onChange={handleChange}
+                                  />
+                                  {value}
+                                </label>
+                              ))}
+                            </div>
+                          )}
+                      </div>
+                    </label>
+
+                    {/* Father */}
+                    <label
+                      className="relative w-full flex flex-col gap-3 mb-4"
+                      htmlFor="Father Status"
+                    >
+                      <h3 className="text-xl font-lato font-semibold">
+                        Father Status:
+                      </h3>
+                      {errors.fatherStatus && (
+                        <p className="error">{errors.fatherStatus}</p>
+                      )}
+                      <div className="relative">
+                        <input
+                          className="outline-none border-2 border-zinc-200 rounded-xl w-full py-3 px-4 text-lg font-lato font-semibold text-zinc-800 leading-tight cursor-pointer transition-all focus:border-blue-500"
+                          type="text"
+                          name="fatherStatus"
+                          id="Father Status"
+                          value={formData.fatherStatus}
+                          readOnly
+                          onClick={() => {
+                            setIsDropdownOpen(!isDropdownOpen);
+                            setToggleDropdown("fatherStatus");
+                          }}
+                        />
+                        {!isDropdownOpen &&
+                          toggleDropdown === "fatherStatus" && (
+                            <div
+                              className="absolute w-full h-fit max-h-[350px] flex flex-col gap-2 mt-1 bg-white border-2 border-zinc-200 overflow-x-hidden overflow-y-auto rounded-xl z-10"
+                              id="dropDownBox"
+                            >
+                              {Object.keys(parentStatus).map(
+                                (category) =>
+                                  category === "Father" &&
+                                  parentStatus[category].map(
+                                    (status, index) => (
+                                      <label
+                                        key={index}
+                                        className={`${
+                                          formData.fatherStatus === status &&
+                                          "bg-blue-500 text-slate-50"
+                                        } py-2 px-4 text-lg font-lato font-semibold cursor-pointer transition-all hover:text-zinc-700 hover:bg-gray-100 `}
+                                        htmlFor={status}
+                                      >
+                                        <input
+                                          type="radio"
+                                          name="fatherStatus"
+                                          id={status}
+                                          className="w-fit h-5 hidden"
+                                          value={status}
+                                          onChange={handleChange}
+                                        />
+                                        {status}
+                                      </label>
+                                    )
+                                  )
+                              )}
+                            </div>
+                          )}
+                      </div>
+                    </label>
+
+                    {/* Mother */}
+                    <label
+                      className="relative w-full flex flex-col gap-3 mb-4"
+                      htmlFor="Mother Status"
+                    >
+                      <h3 className="text-xl font-lato font-semibold">
+                        Mother Status:
+                      </h3>
+                      {errors.motherStatus && (
+                        <p className="error">{errors.motherStatus}</p>
+                      )}
+                      <div className="relative">
+                        <input
+                          className="outline-none border-2 border-zinc-200 rounded-xl w-full py-3 px-4 text-lg font-lato font-semibold text-zinc-800 leading-tight cursor-pointer transition-all focus:border-blue-500"
+                          type="text"
+                          name="motherStatus"
+                          id="Mother Status"
+                          value={formData.motherStatus}
+                          readOnly
+                          onClick={() => {
+                            setIsDropdownOpen(!isDropdownOpen);
+                            setToggleDropdown("motherStatus");
+                          }}
+                        />
+                        {!isDropdownOpen &&
+                          toggleDropdown === "motherStatus" && (
+                            <div
+                              className="absolute w-full h-fit max-h-[350px] flex flex-col gap-2 mt-1 bg-white border-2 border-zinc-200 overflow-x-hidden overflow-y-auto rounded-xl z-10"
+                              id="dropDownBox"
+                            >
+                              {Object.keys(parentStatus).map(
+                                (category) =>
+                                  category === "Mother" &&
+                                  parentStatus[category].map(
+                                    (status, index) => (
+                                      <label
+                                        key={index}
+                                        className={`${
+                                          formData.motherStatus === status &&
+                                          "bg-blue-500 text-slate-50"
+                                        } py-2 px-4 text-lg font-lato font-semibold cursor-pointer transition-all hover:text-zinc-700 hover:bg-gray-100 `}
+                                        htmlFor={status}
+                                      >
+                                        <input
+                                          type="radio"
+                                          name="motherStatus"
+                                          id={status}
+                                          className="w-fit h-5 hidden"
+                                          value={status}
+                                          onChange={handleChange}
+                                        />
+                                        {status}
+                                      </label>
+                                    )
+                                  )
+                              )}
+                            </div>
+                          )}
+                      </div>
+                    </label>
+
                     <div className="flex gap-4">
-                      {/* Father */}
-                      <label
-                        className="relative w-full flex flex-col gap-3 mb-4"
-                        htmlFor="Father Status"
-                      >
-                        <h3 className="text-xl font-lato font-semibold">
-                          Father Status:
-                        </h3>
-                        {errors.fatherStatus && (
-                          <p className="error">{errors.fatherStatus}</p>
-                        )}
-                        <div className="relative">
-                          <input
-                            className="outline-none border-2 border-zinc-200 rounded-xl w-full py-3 px-4 text-lg font-lato font-semibold text-zinc-800 leading-tight cursor-pointer transition-all focus:border-blue-500"
-                            type="text"
-                            name="fatherStatus"
-                            id="Father Status"
-                            value={formData.fatherStatus}
-                            readOnly
-                            onClick={() => {
-                              setIsDropdownOpen(!isDropdownOpen);
-                              setToggleDropdown("fatherStatus");
-                            }}
-                          />
-                          {!isDropdownOpen &&
-                            toggleDropdown === "fatherStatus" && (
-                              <div
-                                className="absolute w-full h-fit max-h-[350px] flex flex-col gap-2 mt-1 bg-white border-2 border-zinc-200 overflow-x-hidden overflow-y-auto rounded-xl z-10"
-                                id="dropDownBox"
-                              >
-                                {Object.keys(parentStatus).map(
-                                  (category) =>
-                                    category === "Father" &&
-                                    parentStatus[category].map(
-                                      (status, index) => (
-                                        <label
-                                          key={index}
-                                          className={`${
-                                            formData.fatherStatus === status &&
-                                            "bg-blue-500 text-slate-50"
-                                          } py-2 px-4 text-lg font-lato font-semibold cursor-pointer transition-all hover:text-zinc-700 hover:bg-gray-100 `}
-                                          htmlFor={status}
-                                        >
-                                          <input
-                                            type="radio"
-                                            name="fatherStatus"
-                                            id={status}
-                                            className="w-fit h-5 hidden"
-                                            value={status}
-                                            onChange={handleChange}
-                                          />
-                                          {status}
-                                        </label>
-                                      )
-                                    )
-                                )}
-                              </div>
-                            )}
-                        </div>
-                      </label>
-
-                      {/* Mother */}
-                      <label
-                        className="relative w-full flex flex-col gap-3 mb-4"
-                        htmlFor="Mother Status"
-                      >
-                        <h3 className="text-xl font-lato font-semibold">
-                          Mother Status:
-                        </h3>
-                        {errors.motherStatus && (
-                          <p className="error">{errors.motherStatus}</p>
-                        )}
-                        <div className="relative">
-                          <input
-                            className="outline-none border-2 border-zinc-200 rounded-xl w-full py-3 px-4 text-lg font-lato font-semibold text-zinc-800 leading-tight cursor-pointer transition-all focus:border-blue-500"
-                            type="text"
-                            name="motherStatus"
-                            id="Mother Status"
-                            value={formData.motherStatus}
-                            readOnly
-                            onClick={() => {
-                              setIsDropdownOpen(!isDropdownOpen);
-                              setToggleDropdown("motherStatus");
-                            }}
-                          />
-                          {!isDropdownOpen &&
-                            toggleDropdown === "motherStatus" && (
-                              <div
-                                className="absolute w-full h-fit max-h-[350px] flex flex-col gap-2 mt-1 bg-white border-2 border-zinc-200 overflow-x-hidden overflow-y-auto rounded-xl z-10"
-                                id="dropDownBox"
-                              >
-                                {Object.keys(parentStatus).map(
-                                  (category) =>
-                                    category === "Mother" &&
-                                    parentStatus[category].map(
-                                      (status, index) => (
-                                        <label
-                                          key={index}
-                                          className={`${
-                                            formData.motherStatus === status &&
-                                            "bg-blue-500 text-slate-50"
-                                          } py-2 px-4 text-lg font-lato font-semibold cursor-pointer transition-all hover:text-zinc-700 hover:bg-gray-100 `}
-                                          htmlFor={status}
-                                        >
-                                          <input
-                                            type="radio"
-                                            name="motherStatus"
-                                            id={status}
-                                            className="w-fit h-5 hidden"
-                                            value={status}
-                                            onChange={handleChange}
-                                          />
-                                          {status}
-                                        </label>
-                                      )
-                                    )
-                                )}
-                              </div>
-                            )}
-                        </div>
-                      </label>
-                    </div>
-
-                    <div className="flex gap-4 mb-52">
                       {/* Siblings types */}
                       <label
                         className="relative w-full flex flex-col gap-3 mb-4"
@@ -1762,6 +1816,91 @@ const Register = () => {
                         Next
                         <i className="ri-arrow-right-s-line text-end font-medium"></i>
                       </button>
+                    </div>
+                  </div>
+                </fieldset>
+              )}
+
+              {step === 7 && (
+                <fieldset className={`${animation} w-full min-w-full h-auto`}>
+                  <h2 className="flex justify-between items-end text-3xl font-playfair font-extrabold border-b-2 border-gray-600 pb-2">
+                    <i className="ri-arrow-left-s-line text-end font-medium"></i>
+                    Verification
+                    <i className="ri-arrow-right-s-line text-end font-medium"></i>
+                  </h2>
+                  <div className="relative flex flex-col mt-5 w-full h-auto text-zinc-700">
+                    <h3 className="text-2xl font-lato font-semibold mb-2">
+                      We Are Almost Done!
+                    </h3>
+                    <p className="text-justify text-lg font-opensans font-medium">
+                      To ensure the security and authenticity of our community,
+                      we need to verify your email, phone number, and Government
+                      ID. Please complete the following steps to finish setting
+                      up your profile.
+                    </p>
+                    <div className="mt-5">
+                      {/* Email ID Verification */}
+                      <label
+                        className="relative flex flex-col gap-3 mb-5"
+                        htmlFor="Email ID Verification"
+                      >
+                        <h3 className="text-xl font-lato font-semibold">
+                          Email ID Verification:
+                        </h3>
+                        {errors.email && (
+                          <p className="error">{errors.email}</p>
+                        )}
+                        <input
+                          className="outline-none border-2 border-zinc-200 rounded-xl w-full py-3 px-4 text-lg font-lato font-semibold text-zinc-800 leading-tight transition-all focus:border-blue-500"
+                          id="Email ID Verification"
+                          type="text"
+                          name="email"
+                          value={formData.email}
+                          readOnly
+                          onChange={handleChange}
+                        />
+                      </label>
+
+                      {/* Phone No Verification */}
+                      <label
+                        className="relative flex flex-col gap-3 mb-5"
+                        htmlFor="Phone No Verification"
+                      >
+                        <h3 className="text-xl font-lato font-semibold">
+                          Phone No Verification:{" "}
+                          <span className="optional">(An OTP has been sent to your phone number: <i className="not-italic text-blue-700 underline">{formData.phoneNumber}</i>. &nbsp; If you want to change your phone number, please update it right here.)</span>
+                        </h3>
+                        {errors.phoneNumber && (
+                          <p className="error">{errors.phoneNumber}</p>
+                        )}
+                        <input
+                          className="outline-none border-2 border-zinc-200 rounded-xl w-full py-3 px-4 text-lg font-lato font-semibold text-zinc-800 leading-tight transition-all focus:border-blue-500"
+                          id="Phone No Verification"
+                          type="tel"
+                          name="phoneNumber"
+                          value={formData.phoneNumber}
+                          onChange={handleChange}
+                        />
+                      </label>
+
+                      <div className="flex flex-row justify-between items-center w-full h-auto">
+                        <button
+                          className="self-end w-fit h-auto px-5 py-2 bg-gray-500 rounded-lg flex justify-between items-center text-xl text-slate-100 font-opensans font-medium transition-all hover:bg-gray-600"
+                          type="button"
+                          onClick={handlePrev}
+                        >
+                          <i className="ri-arrow-left-s-line text-end font-medium"></i>
+                          Back
+                        </button>
+                        <button
+                          className="self-end w-fit h-auto px-5 py-2 bg-gray-500 rounded-lg flex justify-between items-center text-xl text-slate-100 font-opensans font-medium transition-all hover:bg-gray-600"
+                          type="button"
+                          onClick={handleNext}
+                        >
+                          Next
+                          <i className="ri-arrow-right-s-line text-end font-medium"></i>
+                        </button>
+                      </div>
                     </div>
                   </div>
                 </fieldset>
