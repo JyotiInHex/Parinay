@@ -69,12 +69,13 @@ const Register = () => {
     GovIdDoc: "",
   });
   const [profilePic, setProfilePic] = useState(null);
-  const [documentName, setDocName] = useState(null);
+  const [documentName, setDocName] = useState("");
   const [animation, setAnimation] = useState("");
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [toggleDropdown, setToggleDropdown] = useState(false);
   const [errors, setErrors] = useState({});
   const currentError = validation(step, formData);
+  const [otpPopUp, setOtpPopup] = useState(false);
 
   const handleChange = (e) => {
     const { name, value, files } = e.target;
@@ -121,8 +122,9 @@ const Register = () => {
   const handleProceed = () => {
     if (Object.keys(currentError).length > 0) {
       setErrors(currentError);
+      setOtpPopup(false);
     } else {
-      alert("alert");
+      setOtpPopup(true);
     }
   };
 
@@ -1977,10 +1979,11 @@ const Register = () => {
                           )}
                           <h4
                             className={`${
-                              formData.GovIdType === "" && "bg-[#f5f7f8]"
-                            } outline-none border-2 bg-white border-zinc-200 rounded-xl w-[20em] max-w-[20em] h-auto min-h-[2.8em] py-3 px-4 text-lg font-lato font-semibold text-zinc-800 leading-tight cursor-pointer transition-all focus:border-blue-500`}
+                              formData.GovIdType === "" && documentName === "" && "bg-[#f5f7f8] text-[#bebebe]"
+                            } outline-none border-2 bg-white border-zinc-200 rounded-xl w-[20em] max-w-[20em] h-auto min-h-[2.8em] py-3 px-4 text-lg font-lato font-semibold text-zinc-600 leading-tight cursor-pointer transition-all focus:border-blue-500 whitespace-nowrap overflow-hidden`}
                           >
-                            {documentName}
+                            <i className="ri-upload-2-fill"></i>{" "}
+                            {(documentName === "") ? "Upload a file in .jpg, or .pdf formate." : documentName}
                           </h4>
                           <input
                             type="file"
@@ -2031,6 +2034,16 @@ const Register = () => {
             </div>
           </form>
         </div>
+        {otpPopUp && (
+          <div className="absolute top-0 left-0 w-full h-full bg-zinc-500/40 z-40 flex flex-col justify-center">
+            <div className="self-center flex flex-col justify-center w-2/5 h-fit bg-slate-50 p-6 rounded-lg text-zinc-700">
+              <h2 className="text-xl text-center font-lato font-semibold">Otp Verification</h2>
+              <label htmlFor="email-otp" className="flex gap-2">
+                
+              </label>
+            </div>
+          </div>
+        )}
       </div>
     </>
   );
