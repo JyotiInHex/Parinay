@@ -383,3 +383,9 @@ export let siblings = {
     "3 Above Brothers, 3 Above Sisters",
   ]
 }
+export let govIDs = [
+  "Passport",
+  "Driving License",
+  "Voter ID",
+  "Pan Card",
+]

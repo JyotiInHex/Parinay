@@ -31,6 +31,8 @@ function validation(step, data) {
     motherStatus,
     siblingsType,
     siblingsNum,
+    GovIdType,
+    GovIdDoc
   } = data;
   let errors = {};
   const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -158,7 +160,23 @@ function validation(step, data) {
         errors.siblingsNum = "Please select how many?";
       }
       break;
-    default:
+    case 7:
+      if (email === "") {
+        errors.email = "Email ID required.";
+      } else if (!emailPattern.test(email)) {
+        errors.email = "Valid email required.";
+      }
+      if (phoneNumber === "") {
+        errors.phoneNumber = "Phone number required .";
+      } else if (!phonePattern.test(phoneNumber)) {
+        errors.phoneNumber = "Valid phone number required.";
+      }
+      if (GovIdType === "") {
+        errors.GovIdType = "Government ID is required."
+      }
+      if (GovIdType !== "" && GovIdDoc === "") {
+        errors.GovIdDoc = "Upload your selected Gov ID document."
+      }
       break;
   }
   return errors;
