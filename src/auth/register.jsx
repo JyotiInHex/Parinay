@@ -37,8 +37,8 @@ const Register = () => {
     gender: "",
     religion: "",
     community: "",
-    email: "",
-    phoneNumber: "",
+    email: "paragjyoti43d@gmail.com",
+    phoneNumber: "6002461148",
     DOB: "",
     livingIn: "",
     address: "",
@@ -74,8 +74,8 @@ const Register = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [toggleDropdown, setToggleDropdown] = useState(false);
   const [errors, setErrors] = useState({});
+  const [otpPopUp, setOtpPopup] = useState(true);
   const currentError = validation(step, formData);
-  const [otpPopUp, setOtpPopup] = useState(false);
 
   const handleChange = (e) => {
     const { name, value, files } = e.target;
@@ -1979,11 +1979,15 @@ const Register = () => {
                           )}
                           <h4
                             className={`${
-                              formData.GovIdType === "" && documentName === "" && "bg-[#f5f7f8] text-[#bebebe]"
+                              formData.GovIdType === "" &&
+                              documentName === "" &&
+                              "bg-[#f5f7f8] text-[#bebebe]"
                             } outline-none border-2 bg-white border-zinc-200 rounded-xl w-[20em] max-w-[20em] h-auto min-h-[2.8em] py-3 px-4 text-lg font-lato font-semibold text-zinc-600 leading-tight cursor-pointer transition-all focus:border-blue-500 whitespace-nowrap overflow-hidden`}
                           >
                             <i className="ri-upload-2-fill"></i>{" "}
-                            {(documentName === "") ? "Upload a file in .jpg, or .pdf formate." : documentName}
+                            {documentName === ""
+                              ? "Upload a file in .jpg, or .pdf formate."
+                              : documentName}
                           </h4>
                           <input
                             type="file"
@@ -1998,10 +2002,13 @@ const Register = () => {
                       </div>
 
                       <div className="mt-1 mb-4">
-                        <h3 className="text-lg font-lato font-semibold">Why We Require Government ID ?</h3>
-                        <p className="text-base font-opensans font-medium"><b className="text-2xl">→</b>&nbsp;
-                          A government ID helps us confirm your identity, adding
-                          an extra layer of security. It helps us:
+                        <h3 className="text-lg font-lato font-semibold">
+                          Why We Require Government ID ?
+                        </h3>
+                        <p className="text-base font-opensans font-medium">
+                          <b className="text-2xl">→</b>&nbsp; A government ID
+                          helps us confirm your identity, adding an extra layer
+                          of security. It helps us:
                         </p>
                         <ul className="px-12 list-disc flex flex-col text-base font-opensans font-medium">
                           <li>Authenticate your profile as genuine.</li>
@@ -2035,12 +2042,33 @@ const Register = () => {
           </form>
         </div>
         {otpPopUp && (
-          <div className="absolute top-0 left-0 w-full h-full bg-zinc-500/40 z-40 flex flex-col justify-center">
-            <div className="self-center flex flex-col justify-center w-2/5 h-fit bg-slate-50 p-6 rounded-lg text-zinc-700">
-              <h2 className="text-xl text-center font-lato font-semibold">Otp Verification</h2>
-              <label htmlFor="email-otp" className="flex gap-2">
-                
-              </label>
+          <div className={`${otpPopUp && 'opacity-100 visible'} absolute top-0 left-0 w-full h-full bg-zinc-500/40 z-40 flex flex-col justify-center transition-all`}>
+            <div className={`${otpPopUp && 'animate-slide-top'} self-center flex flex-col justify-center w-2/5 h-fit bg-slate-50 p-6 rounded-lg text-zinc-700`}>
+              <h2 className="relative text-xl text-center font-lato font-semibold after:absolute after:left-0 after:-bottom-1 after:w-full after:h-[2px] after:bg-slate-400">
+                Phone Verification
+              </h2>
+
+              <p className="text-lg text-center font-lato font-medium mt-3">An OTP has been sent to your phone number: <i className="not-italic text-blue-700 font-semibold underline">{formData.phoneNumber}</i>.
+              </p>
+              
+              <form method="POST" onSubmit={handleSubmission} className="space-y-3 p-5 w-full h-fit">
+                <label htmlFor="email-otp" className="flex flex-col justify-center items-center gap-3">
+                  <span className="text-lg whitespace-nowrap font-lato font-semibold">Enter OTP:</span>
+                  <div className="flex justify-center items-center gap-3">
+                    {["OTP-1","OTP-2","OTP-3","OTP-4"].map((digits, index) => (
+                      <input
+                        key={index}
+                        className="outline-none w-[11%] h-1/6 border-2 border-gray-300 rounded-lg p-2 text-center text-lg font-merriweather font-extrabold"
+                        type="text"
+                        name="phoneOtp"
+                        id={digits}
+                        maxLength={1}
+                      />
+                    ))}
+                  </div>
+                  <div>Resend (20s)</div>
+                </label>
+              </form>
             </div>
           </div>
         )}
