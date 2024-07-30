@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import registerBg from "../assets/registration-1.webp";
 import validation from "./validation";
+import { registrationFormState } from "./fromStructure";
 import {
   profileFor,
   genders,
@@ -30,44 +31,8 @@ const Register = () => {
   });
 
   const [step, setStep] = useState(7);
-  const [formData, setFormData] = useState({
-    profileFor: "",
-    fName: "",
-    lName: "",
-    gender: "",
-    religion: "",
-    community: "",
-    email: "paragjyoti43d@gmail.com",
-    phoneNumber: "6002461148",
-    DOB: "",
-    livingIn: "",
-    address: "",
-    zipCode: "",
-    marital: "",
-    diet: "",
-    height: "",
-    hobbies: "",
-    mostLikes: "",
-    pet: "",
-    qualifications: "",
-    collegeName: "",
-    workWith: "",
-    jobRole: "",
-    additionalJobRole: "",
-    annualIncome: "",
-    profileImg: "",
-    aboutSelf: "",
-    familyType: "",
-    familyValue: "",
-    familySocialStatus: "",
-    livingInWithFamily: "",
-    fatherStatus: "",
-    motherStatus: "",
-    siblingsType: "",
-    siblingsNum: "",
-    GovIdType: "",
-    GovIdDoc: "",
-  });
+  const [formData, setFormData] = useState(registrationFormState);
+  const [otp, setOtpPin] = useState(new Array(4).fill(""));
   const [profilePic, setProfilePic] = useState(null);
   const [documentName, setDocName] = useState("");
   const [animation, setAnimation] = useState("");
@@ -76,6 +41,25 @@ const Register = () => {
   const [errors, setErrors] = useState({});
   const [otpPopUp, setOtpPopup] = useState(true);
   const currentError = validation(step, formData);
+  const [timeRemains, setTimerUpdate] = useState(20);
+
+  function selector(elem) {
+    return document.querySelector(elem);
+  }
+
+  const handleNext = () => {
+    if (Object.keys(currentError).length > 0) {
+      setErrors(currentError);
+    } else {
+      setAnimation("animate-slide-left");
+      setStep(step + 1);
+    }
+  };
+
+  const handlePrev = () => {
+    setAnimation("animate-slide-right");
+    step === 0 ? setStep(0) : setStep(step - 1);
+  };
 
   const handleChange = (e) => {
     const { name, value, files } = e.target;
@@ -105,20 +89,6 @@ const Register = () => {
     setToggleDropdown(false);
   };
 
-  const handleNext = () => {
-    if (Object.keys(currentError).length > 0) {
-      setErrors(currentError);
-    } else {
-      setAnimation("animate-slide-left");
-      setStep(step + 1);
-    }
-  };
-
-  const handlePrev = () => {
-    setAnimation("animate-slide-right");
-    step === 0 ? setStep(0) : setStep(step - 1);
-  };
-
   const handleProceed = () => {
     if (Object.keys(currentError).length > 0) {
       setErrors(currentError);
@@ -126,6 +96,37 @@ const Register = () => {
     } else {
       setOtpPopup(true);
     }
+
+  };
+
+  const handleOtpChange = (element, index) => {
+    let newOtp = [...otp];
+    newOtp[index] = element.value;
+    setOtpPin(newOtp);
+
+    if (element.value !== "" && index < 3) {
+      selector(`#otp-${index + 1}`).focus();
+    }
+  };
+
+  const handleKeyDown = (e, index) => {
+    if (
+      (e.key === "Backspace" && index > 0 && !otp[index]) ||
+      (e.key === "ArrowLeft" && index > 0)
+    ) {
+      selector(`#otp-${index - 1}`).focus();
+    } else if (e.key === "ArrowRight" && index < 3) {
+      selector(`#otp-${index + 1}`).focus();
+    }
+  };
+
+  const handleCancel = (e) => {
+    setFormData(registrationFormState);
+    setProfilePic("");
+    setDocName("");
+    setOtpPin("");
+    // setStep(1);
+    setOtpPopup(false);
   };
 
   const handleSubmission = (e) => {
@@ -161,11 +162,7 @@ const Register = () => {
               possibilities.
             </p>
           </div>
-          <form
-            className="registrationForm w-full h-auto bg-slate-50 rounded-r-md overflow-x-clip"
-            method="POST"
-            onSubmit={handleSubmission}
-          >
+          <form className="registrationForm w-full h-auto bg-slate-50 rounded-r-md overflow-x-clip">
             <div className="relative w-full h-fit transition-all p-7 flex text-zinc-700">
               {step === 1 && (
                 <fieldset className={`${animation} w-full min-w-full h-auto`}>
@@ -1865,7 +1862,7 @@ const Register = () => {
                         htmlFor="Email ID Verification"
                       >
                         <h3 className="text-xl font-lato font-semibold">
-                          Your Email ID:
+                          Email ID:
                         </h3>
                         <span className="optional">
                           If you want to change your Email ID, please update it
@@ -1981,7 +1978,7 @@ const Register = () => {
                             className={`${
                               formData.GovIdType === "" &&
                               documentName === "" &&
-                              "bg-[#f5f7f8] text-[#bebebe]"
+                              "bg-[#f5f7f8] text-[#d4d4d4]"
                             } outline-none border-2 bg-white border-zinc-200 rounded-xl w-[20em] max-w-[20em] h-auto min-h-[2.8em] py-3 px-4 text-lg font-lato font-semibold text-zinc-600 leading-tight cursor-pointer transition-all focus:border-blue-500 whitespace-nowrap overflow-hidden`}
                           >
                             <i className="ri-upload-2-fill"></i>{" "}
@@ -2042,33 +2039,83 @@ const Register = () => {
           </form>
         </div>
         {otpPopUp && (
-          <div className={`${otpPopUp && 'opacity-100 visible'} absolute top-0 left-0 w-full h-full bg-zinc-500/40 z-40 flex flex-col justify-center transition-all`}>
-            <div className={`${otpPopUp && 'animate-slide-top'} self-center flex flex-col justify-center w-2/5 h-fit bg-slate-50 p-6 rounded-lg text-zinc-700`}>
+          <div
+            className={`${
+              otpPopUp && "opacity-100 visible"
+            } absolute top-0 left-0 w-full h-full bg-zinc-500/40 z-40 flex flex-col justify-center transition-all`}
+          >
+            <div
+              className={`${
+                otpPopUp && "animate-slide-top"
+              } self-center flex flex-col justify-center w-2/5 h-fit bg-slate-50 p-6 rounded-lg text-zinc-700`}
+            >
               <h2 className="relative text-xl text-center font-lato font-semibold after:absolute after:left-0 after:-bottom-1 after:w-full after:h-[2px] after:bg-slate-400">
                 Phone Verification
               </h2>
 
-              <p className="text-lg text-center font-lato font-medium mt-3">An OTP has been sent to your phone number: <i className="not-italic text-blue-700 font-semibold underline">{formData.phoneNumber}</i>.
+              <p className="text-lg text-center font-lato font-medium mt-3">
+                An OTP has been sent to your phone number:{" "}
+                <i className="not-italic font-semibold">
+                  +91 {formData.phoneNumber}
+                </i>
+                .
               </p>
-              
-              <form method="POST" onSubmit={handleSubmission} className="space-y-3 p-5 w-full h-fit">
-                <label htmlFor="email-otp" className="flex flex-col justify-center items-center gap-3">
-                  <span className="text-lg whitespace-nowrap font-lato font-semibold">Enter OTP:</span>
+
+              <form className="space-y-3 p-5 w-full h-fit">
+                <label
+                  htmlFor="email-otp"
+                  className="flex flex-col justify-center items-center gap-3"
+                >
+                  <span className="text-lg whitespace-nowrap font-lato font-semibold">
+                    Enter OTP:
+                  </span>
                   <div className="flex justify-center items-center gap-3">
-                    {["OTP-1","OTP-2","OTP-3","OTP-4"].map((digits, index) => (
+                    {["OTP-1", "OTP-2", "OTP-3", "OTP-4"].map((index) => (
                       <input
                         key={index}
                         className="outline-none w-[11%] h-1/6 border-2 border-gray-300 rounded-lg p-2 text-center text-lg font-merriweather font-extrabold"
                         type="text"
                         name="phoneOtp"
-                        id={digits}
+                        value={otp[index]}
+                        onChange={(e) => {
+                          handleOtpChange(e.target, index);
+                        }}
+                        onKeyDown={(e) => {
+                          handleKeyDown(e, index)
+                        }}
+                        id={`otp-${index}`}
                         maxLength={1}
                       />
                     ))}
                   </div>
-                  <div>Resend (20s)</div>
+                  <div className="flex gap-1">
+                    <button
+                      className="outline-none border-0 bg-transparent text-base text-zinc-500/60 font-opensans"
+                      disabled={!timeRemains == 0}
+                    >
+                      Resend OTP in
+                    </button>
+                    <h6 className="text-lg font-opensans font-semibold">
+                      00:{timeRemains}
+                    </h6>
+                  </div>
                 </label>
               </form>
+              <div className="flex justify-evenly items-center gap-10 text-lg text-slate-100 font-opensans font-semibold">
+                <button
+                  className="outline-none border-2 border-black w-full h-fit bg-black py-2 rounded-lg"
+                  type="button"
+                  onClick={handleCancel}
+                >
+                  Cancel
+                </button>
+                <button
+                  className="outline-none border-2 border-blue-600 w-full h-fit bg-blue-600 py-2 rounded-lg"
+                  type="submit"
+                >
+                  Submit
+                </button>
+              </div>
             </div>
           </div>
         )}
