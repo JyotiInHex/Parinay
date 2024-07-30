@@ -26,26 +26,23 @@ import {
 } from "../data/formData";
 
 const Register = () => {
-  useEffect(() => {
-    document.title = "Register";
-  });
+  useEffect(() => {document.title = "Register";});
 
   const [step, setStep] = useState(7);
   const [formData, setFormData] = useState(registrationFormState);
-  const [otp, setOtpPin] = useState(new Array(4).fill(""));
-  const [profilePic, setProfilePic] = useState(null);
+  const [profilePic, setProfilePic] = useState("");
   const [documentName, setDocName] = useState("");
+  const [otp, setOtpPin] = useState(new Array(4).fill(""));
   const [animation, setAnimation] = useState("");
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [toggleDropdown, setToggleDropdown] = useState(false);
   const [errors, setErrors] = useState({});
-  const [otpPopUp, setOtpPopup] = useState(true);
+  const [otpPopUp, setOtpPopup] = useState(false);
+  const [timeRemains, setTimerUpdate] = useState(60);
   const currentError = validation(step, formData);
-  const [timeRemains, setTimerUpdate] = useState(20);
+  const intervalRef = useRef(null);
 
-  function selector(elem) {
-    return document.querySelector(elem);
-  }
+  function selector(elem) {return document.querySelector(elem);}
 
   const handleNext = () => {
     if (Object.keys(currentError).length > 0) {
@@ -95,8 +92,13 @@ const Register = () => {
       setOtpPopup(false);
     } else {
       setOtpPopup(true);
-    }
+      
+      if (intervalRef.current) clearInterval(intervalRef.current);
 
+      intervalRef.current = setInterval(() => {
+        setTimerUpdate(prevCount => (prevCount !== 0) ? prevCount - 1 : 0)
+      }, 1000);
+    }
   };
 
   const handleOtpChange = (element, index) => {
@@ -120,15 +122,21 @@ const Register = () => {
     }
   };
 
-  const handleCancel = (e) => {
+  const handleOtpResend = () => {
+    setTimerUpdate(61)
+  }
+
+  const handleCancel = () => {
     setFormData(registrationFormState);
     setProfilePic("");
     setDocName("");
-    setOtpPin("");
-    // setStep(1);
+    setOtpPin(new Array(4).fill(""));
+    setStep(7);
     setOtpPopup(false);
+    setTimerUpdate(60)
+    if (intervalRef.current) { clearInterval(intervalRef.current); }
   };
-
+  
   const handleSubmission = (e) => {
     e.preventDefault();
   };
@@ -1978,8 +1986,8 @@ const Register = () => {
                             className={`${
                               formData.GovIdType === "" &&
                               documentName === "" &&
-                              "bg-[#f5f7f8] text-[#d4d4d4]"
-                            } outline-none border-2 bg-white border-zinc-200 rounded-xl w-[20em] max-w-[20em] h-auto min-h-[2.8em] py-3 px-4 text-lg font-lato font-semibold text-zinc-600 leading-tight cursor-pointer transition-all focus:border-blue-500 whitespace-nowrap overflow-hidden`}
+                              "bg-[#f5f7f8]"
+                            } outline-none border-2 bg-white border-zinc-200 rounded-xl w-[20em] max-w-[20em] h-auto min-h-[2.8em] py-3 px-4 text-lg font-lato font-semibold ${formData.GovIdType === '' ? 'text-[#d4d4d4]' : 'text-zinc-600'} leading-tight cursor-pointer transition-all focus:border-blue-500 whitespace-nowrap overflow-hidden`}
                           >
                             <i className="ri-upload-2-fill"></i>{" "}
                             {documentName === ""
@@ -2061,7 +2069,7 @@ const Register = () => {
                 .
               </p>
 
-              <form className="space-y-3 p-5 w-full h-fit">
+              <form method="POST" className="space-y-3 p-5 w-full h-fit" autoComplete="off">
                 <label
                   htmlFor="email-otp"
                   className="flex flex-col justify-center items-center gap-3"
@@ -2070,9 +2078,9 @@ const Register = () => {
                     Enter OTP:
                   </span>
                   <div className="flex justify-center items-center gap-3">
-                    {["OTP-1", "OTP-2", "OTP-3", "OTP-4"].map((index) => (
+                    {["OTP-1", "OTP-2", "OTP-3", "OTP-4"].map((digit, index) => (
                       <input
-                        key={index}
+                        key={digit}
                         className="outline-none w-[11%] h-1/6 border-2 border-gray-300 rounded-lg p-2 text-center text-lg font-merriweather font-extrabold"
                         type="text"
                         name="phoneOtp"
@@ -2090,20 +2098,22 @@ const Register = () => {
                   </div>
                   <div className="flex gap-1">
                     <button
-                      className="outline-none border-0 bg-transparent text-base text-zinc-500/60 font-opensans"
+                      className={`${(timeRemains === 0) ? 'text-zinc-700' : 'text-gray-400'} outline-none border-0 bg-transparent text-base font-opensans`}
+                      type="button"
                       disabled={!timeRemains == 0}
+                      onClick={handleOtpResend}
                     >
                       Resend OTP in
                     </button>
                     <h6 className="text-lg font-opensans font-semibold">
-                      00:{timeRemains}
+                      00:{timeRemains.toString().padStart(2,'0')}
                     </h6>
                   </div>
                 </label>
               </form>
               <div className="flex justify-evenly items-center gap-10 text-lg text-slate-100 font-opensans font-semibold">
                 <button
-                  className="outline-none border-2 border-black w-full h-fit bg-black py-2 rounded-lg"
+                  className="outline-none border-2 border-zinc-900 w-full h-fit bg-zinc-900 py-2 rounded-lg"
                   type="button"
                   onClick={handleCancel}
                 >
