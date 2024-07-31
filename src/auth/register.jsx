@@ -25,10 +25,14 @@ import {
   govIDs,
 } from "../data/formData";
 
-const Register = () => {
-  useEffect(() => {document.title = "Register";});
+const MyContext = React.createContext();
 
-  const [step, setStep] = useState(7);
+const Register = () => {
+  useEffect(() => {
+    document.title = "Register";
+  });
+
+  const [step, setStep] = useState(1);
   const [formData, setFormData] = useState(registrationFormState);
   const [profilePic, setProfilePic] = useState("");
   const [documentName, setDocName] = useState("");
@@ -39,10 +43,13 @@ const Register = () => {
   const [errors, setErrors] = useState({});
   const [otpPopUp, setOtpPopup] = useState(false);
   const [timeRemains, setTimerUpdate] = useState(60);
+  const [otpResendLimit, setResendLimit] = useState(0);
   const currentError = validation(step, formData);
   const intervalRef = useRef(null);
 
-  function selector(elem) {return document.querySelector(elem);}
+  function selector(elem) {
+    return document.querySelector(elem);
+  }
 
   const handleNext = () => {
     if (Object.keys(currentError).length > 0) {
@@ -92,12 +99,25 @@ const Register = () => {
       setOtpPopup(false);
     } else {
       setOtpPopup(true);
-      
-      if (intervalRef.current) clearInterval(intervalRef.current);
+      if (otpResendLimit < 5) {
+        <>// otp Send Api here</>;
 
-      intervalRef.current = setInterval(() => {
-        setTimerUpdate(prevCount => (prevCount !== 0) ? prevCount - 1 : 0)
-      }, 1000);
+        if (intervalRef.current) clearInterval(intervalRef.current);
+        intervalRef.current = setInterval(() => {
+          setTimerUpdate((prevCount) => (prevCount !== 0 ? prevCount - 1 : 0));
+        }, 1000);
+      }
+    }
+  };
+
+  const handleOtpResend = () => {
+    if (otpResendLimit < 5) {
+      <>// otp re send api here</>;
+      setTimerUpdate(60);
+      setResendLimit(otpResendLimit + 1);
+    } else {
+      alert("unable to send otp limit extend! please try again later");
+      handleCancel();
     }
   };
 
@@ -122,23 +142,22 @@ const Register = () => {
     }
   };
 
-  const handleOtpResend = () => {
-    setTimerUpdate(61)
-  }
-
   const handleCancel = () => {
     setFormData(registrationFormState);
     setProfilePic("");
     setDocName("");
     setOtpPin(new Array(4).fill(""));
-    setStep(7);
+    setStep(1);
     setOtpPopup(false);
-    setTimerUpdate(60)
-    if (intervalRef.current) { clearInterval(intervalRef.current); }
+    setTimerUpdate(60);
+    if (intervalRef.current) {
+      clearInterval(intervalRef.current);
+    }
   };
-  
+
   const handleSubmission = (e) => {
     e.preventDefault();
+    alert("welcome");
   };
 
   return (
@@ -172,6 +191,12 @@ const Register = () => {
           </div>
           <form className="registrationForm w-full h-auto bg-slate-50 rounded-r-md overflow-x-clip">
             <div className="relative w-full h-fit transition-all p-7 flex text-zinc-700">
+              <MyContext.Provider value={{
+                step,setStep,
+                
+              }}>
+
+              </MyContext.Provider>
               {step === 1 && (
                 <fieldset className={`${animation} w-full min-w-full h-auto`}>
                   <h2 className="flex justify-between items-end text-3xl font-playfair font-extrabold border-b-2 border-gray-600 pb-2">
@@ -1987,7 +2012,11 @@ const Register = () => {
                               formData.GovIdType === "" &&
                               documentName === "" &&
                               "bg-[#f5f7f8]"
-                            } outline-none border-2 bg-white border-zinc-200 rounded-xl w-[20em] max-w-[20em] h-auto min-h-[2.8em] py-3 px-4 text-lg font-lato font-semibold ${formData.GovIdType === '' ? 'text-[#d4d4d4]' : 'text-zinc-600'} leading-tight cursor-pointer transition-all focus:border-blue-500 whitespace-nowrap overflow-hidden`}
+                            } outline-none border-2 bg-white border-zinc-200 rounded-xl w-[20em] max-w-[20em] h-auto min-h-[2.8em] py-3 px-4 text-lg font-lato font-semibold ${
+                              formData.GovIdType === ""
+                                ? "text-[#d4d4d4]"
+                                : "text-zinc-600"
+                            } leading-tight cursor-pointer transition-all focus:border-blue-500 whitespace-nowrap overflow-hidden`}
                           >
                             <i className="ri-upload-2-fill"></i>{" "}
                             {documentName === ""
@@ -2069,7 +2098,11 @@ const Register = () => {
                 .
               </p>
 
-              <form method="POST" className="space-y-3 p-5 w-full h-fit" autoComplete="off">
+              <form
+                method="POST"
+                className="space-y-3 p-5 w-full h-fit"
+                autoComplete="off"
+              >
                 <label
                   htmlFor="email-otp"
                   className="flex flex-col justify-center items-center gap-3"
@@ -2078,27 +2111,31 @@ const Register = () => {
                     Enter OTP:
                   </span>
                   <div className="flex justify-center items-center gap-3">
-                    {["OTP-1", "OTP-2", "OTP-3", "OTP-4"].map((digit, index) => (
-                      <input
-                        key={digit}
-                        className="outline-none w-[11%] h-1/6 border-2 border-gray-300 rounded-lg p-2 text-center text-lg font-merriweather font-extrabold"
-                        type="text"
-                        name="phoneOtp"
-                        value={otp[index]}
-                        onChange={(e) => {
-                          handleOtpChange(e.target, index);
-                        }}
-                        onKeyDown={(e) => {
-                          handleKeyDown(e, index)
-                        }}
-                        id={`otp-${index}`}
-                        maxLength={1}
-                      />
-                    ))}
+                    {["OTP-1", "OTP-2", "OTP-3", "OTP-4"].map(
+                      (digit, index) => (
+                        <input
+                          key={digit}
+                          className="outline-none w-[11%] h-1/6 border-2 border-gray-300 rounded-lg p-2 text-center text-lg font-merriweather font-extrabold"
+                          type="text"
+                          name="phoneOtp"
+                          value={otp[index]}
+                          onChange={(e) => {
+                            handleOtpChange(e.target, index);
+                          }}
+                          onKeyDown={(e) => {
+                            handleKeyDown(e, index);
+                          }}
+                          id={`otp-${index}`}
+                          maxLength={1}
+                        />
+                      )
+                    )}
                   </div>
                   <div className="flex gap-1">
                     <button
-                      className={`${(timeRemains === 0) ? 'text-zinc-700' : 'text-gray-400'} outline-none border-0 bg-transparent text-base font-opensans`}
+                      className={`${
+                        timeRemains === 0 ? "text-zinc-700" : "text-gray-400"
+                      } outline-none border-0 bg-transparent text-base font-opensans`}
                       type="button"
                       disabled={!timeRemains == 0}
                       onClick={handleOtpResend}
@@ -2106,7 +2143,7 @@ const Register = () => {
                       Resend OTP in
                     </button>
                     <h6 className="text-lg font-opensans font-semibold">
-                      00:{timeRemains.toString().padStart(2,'0')}
+                      00:{timeRemains.toString().padStart(2, "0")}
                     </h6>
                   </div>
                 </label>
@@ -2122,6 +2159,7 @@ const Register = () => {
                 <button
                   className="outline-none border-2 border-blue-600 w-full h-fit bg-blue-600 py-2 rounded-lg"
                   type="submit"
+                  onClick={handleSubmission}
                 >
                   Submit
                 </button>
