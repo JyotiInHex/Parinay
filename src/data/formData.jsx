@@ -1,4 +1,4 @@
-export let profileFor = [
+export let Profiles = [
   "Self",
   "Son",
   "Daughter",
@@ -7,8 +7,8 @@ export let profileFor = [
   "Friend",
   "Relative",
 ];
-export let genders = ["Man", "Woman", "Other"];
-export let religions = [
+export let Genders = ["Man", "Woman", "Other"];
+export let Religions = [
   "Hinduism",
   "Islam",
   "Christianity",
@@ -17,7 +17,7 @@ export let religions = [
   "Jainism",
   "Others",
 ];
-export let districts = [
+export let Districts = [
   "Baksa",
   "Barpeta",
   "Bajali",
@@ -54,14 +54,14 @@ export let districts = [
   "Udalguri",
   "West Karbi Anglong",
 ];
-export let maritalStatus = [
+export let MaritalStatus = [
   "Never Married",
   "Divorced",
   "Widowed",
   "Separated",
   "Annulled",
 ];
-export let diets = [
+export let Diets = [
   "Vegetarian",
   "Non-Vegetarian",
   "Vegan",
@@ -73,7 +73,7 @@ export let diets = [
   "Dairy-Free",
   "Low-Carb/Keto",
 ];
-export let heights = [
+export let Heights = [
   "4ft 5in - 134cm",
   "4ft 6in - 137cm",
   "4ft 7in - 140cm",
@@ -107,7 +107,7 @@ export let heights = [
   "6ft 11in - 211cm",
   "7ft 0in - 213cm",
 ];
-export let hobbies = [
+export let Hobbies = [
   "Reading",
   "Traveling",
   "Cooking/Baking",
@@ -120,7 +120,7 @@ export let hobbies = [
   "Playing Sports (e.g., cricket, football, badminton)",
   "Nothing",
 ];
-export let mostLikes = [
+export let MostLikes = [
   "Technology/Programming",
   "Music (e.g., classical, folk, modern)",
   "Movies/TV Shows",
@@ -133,7 +133,7 @@ export let mostLikes = [
   "Culinary Arts",
   "Nothing",
 ];
-export let pets = [
+export let Pets = [
   "Birds",
   "Cat",
   "Dog",
@@ -142,7 +142,7 @@ export let pets = [
   "Rabbits",
   "Nothing",
 ];
-export let qualifications = {
+export let Qualifications = {
   "Doctorate Level": [
     "Ph.D. in Science",
     "Ph.D. in Engineering",
@@ -229,14 +229,14 @@ export let qualifications = {
   ],
   Others: ["Secondary School", "Preferred Not to say"],
 };
-export let workWith = [
+export let WorkWith = [
   "Business",
   "Government Job",
   "Private Job",
   "Self Employed",
   "Not Working",
 ];
-export let jobRole = {
+export let JobRole = {
   "Business": [
     "Manufacturing",
     "Retail",
@@ -303,7 +303,7 @@ export let jobRole = {
     "Not Seeking Employment",
   ],
 };
-export let incomeList = [
+export let IncomeList = [
   "No Income",
   "Up to ₹1 Lakh",
   "₹1 Lakh to ₹2 Lakhs",
@@ -320,7 +320,7 @@ export let incomeList = [
   "₹75 Lakhs to ₹1 Crore",
   "₹1 Crore & above",
 ];
-export let parentStatus = {
+export let ParentStatus = {
   "Father": [
     "Employed",
     "Business",
@@ -336,24 +336,24 @@ export let parentStatus = {
     "Passed away"
   ]
 }
-export let familyType = [
+export let FamilyType = [
   "Extended Family",
   "Joint Family",
   "Nuclear Family",
 ]
-export let familyValue = [
+export let FamilyValue = [
   "Traditional",
   "Moderate",
   "Liberal",
 ]
-export let familySocialStatus = [
+export let FamilySocialStatus = [
   "Upper Class",
   "Upper Middle Class",
   "Middle Class",
   "Lower Middle Class",
   "Working Class",
 ]
-export let siblings = {
+export let Siblings = {
   "No Siblings": [
     "0 Brothers, 0 Sisters",
   ],
@@ -383,7 +383,7 @@ export let siblings = {
     "3 Above Brothers, 3 Above Sisters",
   ]
 }
-export let govIDs = [
+export let GovIDs = [
   "Passport",
   "Driving License",
   "Voter ID",
