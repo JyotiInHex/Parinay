@@ -9,13 +9,24 @@ import GetStarted from "../components/dynamic/getStarted";
 import * as fromData from "../data/formData";
 
 const Landing = () => {
-  const { Genders } = fromData;
-  const [preferenceData, setPrefData] = useState("");
+  const { Genders, Religions} = fromData;
+  const preferences = {
+    lookingFor: "",
+    ageFrom: "",
+    ageTo: "",
+    religion: "",
+  };
+  const ages = Array.from({ length: 51 }, (_, i) => 20 + i);
+  const [preferenceData, setPrefData] = useState(preferences);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [toggleDropdown, setToggleDropdown] = useState("");
 
-  const handleChange = () => {};
-  
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setPrefData({ ...preferenceData, [name]: value });
+    setIsDropdownOpen(false);
+    setToggleDropdown("");
+  };
 
   return (
     <>
@@ -51,40 +62,194 @@ const Landing = () => {
         </div>
         <form className="w-[85%] h-40 bg-[#ffffffb7] self-center -translate-y-20 rounded-xl backdrop-blur-lg flex items-center gap-4 p-8 text-zinc-700">
           <fieldset className="flex gap-3 items-center">
-            <h5 className="text-xl font-chaviera font-semibold text-shadow-md">
+            <h5 className="whitespace-nowrap text-xl font-chaviera font-semibold text-shadow-md">
               I'm looking For a
             </h5>
             <label htmlFor="Looking For" className="relative">
               <input
-                className="cursor-pointer outline-none border-2 border-gray-300 rounded-md px-3 py-1 bg-white text-lg font-playfair font-semibold transition-all focus:border-blue-500"
+                className="w-full cursor-pointer outline-none border-2 border-gray-300 rounded-xl px-3 py-1 bg-white text-lg font-playfair font-semibold transition-all focus:border-blue-500"
                 type="text"
                 name="lookingFor"
                 id="Looking For"
-                value={"Woman"}
+                value={
+                  preferenceData.lookingFor
+                    ? preferenceData.lookingFor
+                    : "Select"
+                }
                 readOnly
                 onClick={() => {
                   setIsDropdownOpen(!isDropdownOpen);
                   setToggleDropdown("lookingFor");
                 }}
               />
-              {!isDropdownOpen && (toggleDropdown === "lookingFor") &&
-                <div className="absolute left-0 flex flex-col gap-2 border-2 border-gray-200 bg-zinc-600 w-full h-fit mt-1 py-2 rounded-md  transition-all">
+              {!isDropdownOpen && toggleDropdown === "lookingFor" && (
+                <div className="absolute left-0 flex flex-col gap-2 border-2 border-gray-200 bg-slate-50 w-full h-fit mt-1 py-2 rounded-xl  transition-all">
                   {Genders.slice(0, 2).map((gender, index) => (
                     <label
-                    key={index}
-                    htmlFor={gender}
-                    className="cursor-pointer bg-slate-50 px-3 py-1 text-lg font-playfair font-semibold"
+                      key={index}
+                      htmlFor={gender}
+                      className={`${
+                        preferenceData.lookingFor === gender && "bg-slate-200"
+                      } cursor-pointer px-3 py-1 text-lg font-playfair font-semibold`}
                     >
-                      <input type="radio" name="gender" id={gender} hidden />
+                      <input
+                        id={gender}
+                        type="radio"
+                        name="lookingFor"
+                        value={gender}
+                        hidden
+                        onChange={handleChange}
+                      />
                       {gender}
                     </label>
                   ))}
                 </div>
-              }
+              )}
             </label>
           </fieldset>
 
-          {/* <button type="button" className="relative overflow-hidden w-[50%] p-1 text-lg text-zinc-900 text-center font-lato font-semibold whitespace-nowrap border-2 border-zinc-900 bg-transparent rounded-full hover:text-slate-100 after:absolute after:left-[-6px] after:top-6 after:z-[-1] after:translate-y-[50%] after:rounded-[50%] after:bg-zinc-900 after:w-[10em] after:h-[2.5em] after:transition-all duration-1000 ease-in-out hover:after:top-[-25px] hover:after:rounded-none">Find My Match</button> */}
+          <fieldset className="flex gap-3 items-center">
+            <h5 className="whitespace-nowrap text-xl font-chaviera font-semibold text-shadow-md">
+              Aged
+            </h5>
+            <label htmlFor="Age From" className="relative">
+              <input
+                className="w-full cursor-pointer outline-none border-2 border-gray-300 rounded-xl px-3 py-1 bg-white text-lg font-playfair font-semibold transition-all focus:border-blue-500"
+                type="text"
+                name="ageFrom"
+                id="Age From"
+                value={preferenceData.ageFrom ? preferenceData.ageFrom : "20"}
+                readOnly
+                onClick={() => {
+                  setIsDropdownOpen(!isDropdownOpen);
+                  setToggleDropdown("ageFrom");
+                }}
+              />
+              {!isDropdownOpen && toggleDropdown === "ageFrom" && (
+                <div
+                  id="dropDownBox"
+                  className="absolute left-0 w-full h-auto min-h-96 max-h-96 overflow-auto flex flex-col gap-2 border-2 border-gray-200 bg-slate-50 mt-1 py-2 rounded-xl  transition-all"
+                >
+                  {ages.map((fromAge, index) => (
+                    <label
+                      key={index}
+                      htmlFor={fromAge}
+                      className={`${
+                        preferenceData.ageFrom === `${fromAge}` &&
+                        "bg-slate-200"
+                      } cursor-pointer px-3 py-1 text-lg font-playfair font-semibold`}
+                    >
+                      <input
+                        id={fromAge}
+                        type="radio"
+                        name="ageFrom"
+                        value={fromAge}
+                        hidden
+                        onChange={handleChange}
+                      />
+                      {fromAge}
+                    </label>
+                  ))}
+                </div>
+              )}
+            </label>
+          </fieldset>
+
+          <fieldset className="flex gap-3 items-center">
+            <h5 className="whitespace-nowrap text-xl font-chaviera font-semibold text-shadow-md">
+              To
+            </h5>
+            <label htmlFor="Age To" className="relative">
+              <input
+                className="w-full cursor-pointer outline-none border-2 border-gray-300 rounded-xl px-3 py-1 bg-white text-lg font-playfair font-semibold transition-all focus:border-blue-500"
+                type="text"
+                name="ageTo"
+                id="Age To"
+                value={preferenceData.ageTo ? preferenceData.ageTo : "26"}
+                readOnly
+                onClick={() => {
+                  setIsDropdownOpen(!isDropdownOpen);
+                  setToggleDropdown("ageTo");
+                }}
+              />
+              {!isDropdownOpen && toggleDropdown === "ageTo" && (
+                <div
+                  id="dropDownBox"
+                  className="absolute left-0 w-full h-auto min-h-96 max-h-96 overflow-auto flex flex-col gap-2 border-2 border-gray-200 bg-slate-50 mt-1 py-2 rounded-xl  transition-all"
+                >
+                  {ages.map((toAge, index) => (
+                    <label
+                      key={index}
+                      htmlFor={toAge}
+                      className={`${
+                        preferenceData.ageTo === `${toAge}` && "bg-slate-200"
+                      } cursor-pointer px-3 py-1 text-lg font-playfair font-semibold`}
+                    >
+                      <input
+                        id={toAge}
+                        type="radio"
+                        name="ageTo"
+                        value={toAge}
+                        hidden
+                        onChange={handleChange}
+                      />
+                      {toAge}
+                    </label>
+                  ))}
+                </div>
+              )}
+            </label>
+          </fieldset>
+
+          <fieldset className="flex gap-3 items-center">
+            <h5 className="whitespace-nowrap text-xl font-chaviera font-semibold text-shadow-md">
+              Religion
+            </h5>
+            <label htmlFor="Religion" className="relative">
+              <input
+                className="w-full cursor-pointer outline-none border-2 border-gray-300 rounded-xl px-3 py-1 bg-white text-lg font-playfair font-semibold transition-all focus:border-blue-500"
+                type="text"
+                name="religion"
+                id="Religion"
+                value={
+                  preferenceData.religion ? preferenceData.religion : "Select"
+                }
+                readOnly
+                onClick={() => {
+                  setIsDropdownOpen(!isDropdownOpen);
+                  setToggleDropdown("religion");
+                }}
+              />
+              {!isDropdownOpen && toggleDropdown === "religion" && (
+                <div
+                  id="dropDownBox"
+                  className="absolute left-0 w-full h-fit max-h-96 overflow-auto flex flex-col gap-2 border-2 border-gray-200 bg-slate-50 mt-1 py-2 rounded-xl  transition-all"
+                >
+                  {Religions.map((religion, index) => (
+                    <label
+                      key={index}
+                      htmlFor={religion}
+                      className={`${
+                        preferenceData.religion === `${religion}` && "bg-slate-200"
+                      } cursor-pointer px-3 py-1 text-lg font-playfair font-semibold`}
+                    >
+                      <input
+                        id={religion}
+                        type="radio"
+                        name="religion"
+                        value={religion}
+                        hidden
+                        onChange={handleChange}
+                      />
+                      {religion}
+                    </label>
+                  ))}
+                </div>
+              )}
+            </label>
+          </fieldset>
+
+          <button type="button" className="buttonEffect-1 z-10 outline-none w-1/4 h-auto py-1 border-2 border-zinc-700 rounded-full text-lg font-opensans font-semibold whitespace-nowrap hover:text-slate-50">Find Matches</button>
         </form>
         <Features />
         <About />

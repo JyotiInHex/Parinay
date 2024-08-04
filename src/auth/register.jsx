@@ -1,8 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
 import registerBg from "../assets/registration-1.webp";
-import validation from "./validation";
-import { registrationFormState } from "./fromStructure";
-
 import Step_1 from "../steps/step_1";
 import Step_2 from "../steps/step_2";
 import Step_3 from "../steps/step_3";
@@ -11,14 +8,12 @@ import Step_5 from "../steps/step_5";
 import Step_6 from "../steps/step_6";
 import Step_7 from "../steps/step_7";
 import OtpAuth from "./otpAuth";
+import validation from "./validation";
+import { registrationFormState } from "./fromStructure";
 
 export const MyContext = React.createContext();
 
 const Register = () => {
-  useEffect(() => {
-    document.title = "Register";
-  });
-
   const [step, setStep] = useState(7);
   const [formData, setFormData] = useState(registrationFormState);
   const [profilePic, setProfilePic] = useState("");
