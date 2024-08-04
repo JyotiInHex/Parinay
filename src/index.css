@@ -5,10 +5,11 @@
 @tailwind utilities;
 
 @font-face {
-  font-family: 'Chaviera';
+  font-family: "Chaviera";
   font-style: normal;
   font-weight: 400;
-  src: url('https://fonts.cdnfonts.com/s/86317/ChavieraRegular-d9PwZ.woff') format('woff');
+  src: url("https://fonts.cdnfonts.com/s/86317/ChavieraRegular-d9PwZ.woff")
+    format("woff");
 }
 
 *::selection {
@@ -60,6 +61,25 @@ body {
 
 .priceBg-art.six {
   background-image: url("assets/art-6.webp");
+}
+
+.priceCardsContainer #priceCard:nth-child(1) {
+  background-color: rgb(165 243 252);
+}
+.priceCardsContainer #priceCard:nth-child(2) {
+  background-color: rgb(229 231 235);
+}
+.priceCardsContainer #priceCard:nth-child(3) {
+  background-color: rgb(254 240 138);
+}
+.priceCardsContainer #priceCard:nth-child(4) {
+  background-color: rgb(221 214 254);
+}
+.priceCardsContainer #priceCard:nth-child(5) {
+  background-color: rgb(165, 252, 201);
+}
+.priceCardsContainer #priceCard:nth-child(6) {
+  background-color: rgb(252, 214, 165);
 }
 
 input[type="number"]::-webkit-outer-spin-button,
@@ -125,7 +145,7 @@ select {
 }
 
 .animate-slide-top {
-  animation:  slide-top 0.5s ease-in-out;
+  animation: slide-top 0.5s ease-in-out;
 }
 
 .animate-slide-right {
@@ -168,7 +188,7 @@ select {
     transform: translateX(0);
   }
 }
-.optional{
+.optional {
   font: 0.75em "Lato";
   font-weight: 600;
   color: rgb(131, 131, 131);
@@ -179,12 +199,12 @@ select {
   right: 0;
   font: 0.85em "Lato";
   font-weight: 500;
-  color: rgb(220, 38, 38) ;
+  color: rgb(220, 38, 38);
   border-radius: 2px;
   pointer-events: none;
 }
 textarea::-webkit-scrollbar,
-#dropDownBox::-webkit-scrollbar{
+#dropDownBox::-webkit-scrollbar {
   scroll-behavior: smooth;
   width: 8px;
   background-color: transparent;
@@ -192,9 +212,13 @@ textarea::-webkit-scrollbar,
   border-bottom-right-radius: 5px;
 }
 textarea::-webkit-scrollbar-thumb,
-#dropDownBox::-webkit-scrollbar-thumb{
+#dropDownBox::-webkit-scrollbar-thumb {
   background-color: rgb(59 130 246);
   border-radius: 5px;
 }
-textarea::-webkit-scrollbar{width: 5px;}
-textarea::-webkit-scrollbar-thumb{background-color: rgba(136, 135, 133, 0.301);}
+textarea::-webkit-scrollbar {
+  width: 5px;
+}
+textarea::-webkit-scrollbar-thumb {
+  background-color: rgba(136, 135, 133, 0.301);
+}

@@ -19,7 +19,7 @@ const Register = () => {
     document.title = "Register";
   });
 
-  const [step, setStep] = useState(1);
+  const [step, setStep] = useState(7);
   const [formData, setFormData] = useState(registrationFormState);
   const [profilePic, setProfilePic] = useState("");
   const [documentName, setDocName] = useState("");
@@ -87,7 +87,7 @@ const Register = () => {
     } else {
       setOtpPopup(true);
       if (otpResendLimit < 5) {
-        <>// otp Send Api here</>;
+        <>// otp Send Api here</>; 
 
         if (intervalRef.current) clearInterval(intervalRef.current);
         intervalRef.current = setInterval(() => {
@@ -241,6 +241,7 @@ const Register = () => {
         </div>
         <MyContext.Provider
           value={{
+            formData,
             otp,
             setOtpPin,
             otpPopUp,

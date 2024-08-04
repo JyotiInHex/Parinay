@@ -13,9 +13,9 @@ const Login = ({onForgotClick, onCloseClick}) => {
             src={logo}
             alt="logo"
           />
-          <caption className="text-lg font-lato font-semibold">
+          <h3 className="text-lg font-lato font-semibold">
             Parinay.com
-          </caption>
+          </h3>
         </figure>
         <div className="flex flex-row justify-between items-start gap-10">
             <div className="w-fit h-auto">
@@ -25,11 +25,11 @@ const Login = ({onForgotClick, onCloseClick}) => {
             </div>
             <form className="w-[125vh] bg-white p-7 rounded-lg drop-shadow-lg" method="POST">
                 <div className="mb-4 drop-shadow-md">
-                    <label className="block text-lg font-lato font-semibold mb-1" for="email">Email</label>
+                    <label className="block text-lg font-lato font-semibold mb-1" htmlFor="email">Email</label>
                     <input className="outline-none border-2 border-zinc-200 rounded-xl w-full py-3 px-4 text-base font-lato font-semibold text-zinc-800 leading-tight transition-all focus:border-blue-500" id="email" type="email" name="email" required/>
                 </div>
                 <div className="mb-6 drop-shadow-md">
-                    <label className="block text-lg font-lato font-semibold mb-1" for="password">Password</label>
+                    <label className="block text-lg font-lato font-semibold mb-1" htmlFor="password">Password</label>
                     <input className="outline-none border-2 border-zinc-200 rounded-xl w-full py-3 px-4 text-base font-lato font-semibold text-zinc-800 leading-tight transition-all focus:border-blue-500" id="password" type="password" name="password" required autoComplete="off"/>
                     <button className="w-full underline text-right text-base text-zinc-500 font-lato font-medium transition-all  hover:text-zinc-600" type="button" onClick={onForgotClick}>Forgot?</button>
                 </div>

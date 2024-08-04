@@ -13,9 +13,9 @@ const ForgotPass = ({onLoginClick, onCloseClick}) => {
                 src={logo}
                 alt="logo"
             />
-            <caption className="text-lg font-lato font-semibold">
+            <h3 className="text-lg font-lato font-semibold">
                 Parinay.com
-            </caption>
+            </h3>
             </figure>
             <div className="flex flex-row justify-between items-start gap-10">
                 <div className="w-fit h-auto">
@@ -28,7 +28,7 @@ const ForgotPass = ({onLoginClick, onCloseClick}) => {
                         <i className='ri-arrow-left-s-line'></i>Back
                     </span>
                     <div className="mb-4 mt-5 drop-shadow-md">
-                        <label className="block text-lg font-lato font-semibold mb-1" for="recoverEmail">Email</label>
+                        <label className="block text-lg font-lato font-semibold mb-1" htmlFor="recoverEmail">Email</label>
                         <input className="outline-none border-2 border-zinc-200 rounded-xl w-full py-3 px-4 text-base font-lato font-semibold text-zinc-800 leading-tight transition-all focus:border-blue-500" id="recoverEmail" type="email" name="email" required/>
                     </div>
                     <button className="w-full bg-blue-500 transition-all hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg" type="submit">Send Reset Link</button>
