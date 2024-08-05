@@ -59,7 +59,7 @@ const services = () => {
               <p className="text-lg text-zinc-700 text-justify font-lato"> We value your sequestration. Parinay.com employs robust security measures to cover your data and insure a safe courting terrain.</p>
             </li>
             <li className="relative z-10 w-[49%] h-auto bg-transparent rounded-lg border-2 p-5">
-              <i className="ri-user-settings-line absolute -top-6 left-3 w-8 h-8 p-5 border-2 bg-white flex items-center justify-center rounded-lg text-2xl text-[#0097a7]"></i>
+              <i className="ri-link-m absolute -top-6 left-3 w-8 h-8 p-5 border-2 bg-white flex items-center justify-center rounded-lg text-2xl text-[#0097a7]"></i>
               <span className="pointer-events-none absolute right-3 bottom-0 z-[-1] text-9xl text-slate-100 font-opensans font-semibold">07</span>
               <h5 className="text-lg text-[#0097a7] font-lato font-semibold mt-3">Artistic Connection</h5>
               <p className="text-lg text-zinc-700 text-justify font-lato">Engage with a community that shares your artistic background and values. share in conversations, share gests, and celebrate Assamese traditions together.</p>

@@ -5,7 +5,7 @@ const Header = ({onLoginClick}) => {
   return (
     <>
       <nav className="grid grid-cols-3 items-center px-14 py-8 bg-[#ffffff15] backdrop-blur-sm w-full h-fit">
-        <ul className="text-base font-lato font-bold text-zinc-900 tracking-wider justify-self-start flex gap-3">
+        <ul className="text-base font-lato font-bold text-zinc-900 tracking-wider justify-self-start flex gap-5">
           <Link to="/pricing"><li className="cursor-pointer">Pricing</li></Link>
           <Link to="/features"><li className="cursor-pointer">Features</li></Link>
           <Link to="/contact"><li className="cursor-pointer">Contact us</li></Link>

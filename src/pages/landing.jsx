@@ -1,19 +1,17 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import background from "../assets/parinay-desktop-banner 3.webp";
-import Profiles from "../components/dynamic/profiles";
 import About from "../components/dynamic/about";
 import Features from "../components/dynamic/features";
 import BlogStories from "../components/dynamic/blogStories";
 import GetStarted from "../components/dynamic/getStarted";
-import * as fromData from "../data/formData";
+import { Genders, Religions } from "../data/formData";
 
 const Landing = () => {
-  const { Genders, Religions} = fromData;
   const preferences = {
-    lookingFor: "",
-    ageFrom: "",
-    ageTo: "",
+    lookingFor: "Woman",
+    ageFrom: "20",
+    ageTo: "26",
     religion: "",
   };
   const ages = Array.from({ length: 51 }, (_, i) => 20 + i);
@@ -32,37 +30,35 @@ const Landing = () => {
     <>
       <div className="px-11 w-full h-auto flex flex-col mb-9">
         <div className="relative w-full h-auto overflow-hidden bg-transparent flex items-center justify-start rounded-3xl">
-          <figure className="background w-full h-[95vh]">
+          <figure className="relative background w-full h-[95vh] after:absolute after:left-0 after:top-0 after:w-full after:h-full after:bg-gradient-to-t after:from-black/70 after:to-transparent">
             <img
               src={background}
               alt="background"
               className="w-full h-full object-cover pointer-events-none"
             ></img>
           </figure>
-          <figcaption className="absolute z-10 p-11 w-full h-auto text-left pointer-events-none">
-            <h1 className="text-8xl font-chaviera text-white capitalize text-shadow-2xl">
-              Welcome to Parinay.com <br></br>{" "}
+          <figcaption className="absolute z-10 p-11 w-full h-auto pointer-events-none text-center">
+            <h1 className="flex flex-col items-center gap-3 text-8xl font-chaviera text-white capitalize text-shadow-2xl">
+              Welcome to Parinay.com
+              <i className="w-10/12 h-[2px] bg-white"></i>
               <span className="text-6xl">
+                {" "}
                 Find your perfect match effortlessly.
               </span>
             </h1>
-            <figcaption className="flex flex-col gap-3 text-shadow-5xl">
-              <h2 className="flex items-center justify-end gap-2 text-right text-xl text-white font-merriweather">
-                <span className="font-lato font-semibold underline rounded-full pointer-events-auto">
-                  <Link>Join our</Link>
-                </span>{" "}
-                vibrant community and discover your perfect life partner.
-              </h2>
-              <h2 className="text-right text-xl text-slate-200 font-merriweather flex items-center justify-end gap-1">
-                With thousands of profiles <Profiles /> to explore, you're
-                destined to meet someone truly special.
-              </h2>
-            </figcaption>
+            <p className="text-xl text-white font-lato font-medium mt-5">
+              <Link to="/register" className="underline pointer-events-auto">
+                Join our
+              </Link>{" "}
+              vibrant community and discover your perfect life partner.{" "}
+              <br></br> With thousands of profiles to explore, you're destined
+              to meet someone truly special.
+            </p>
           </figcaption>
         </div>
         <form className="w-[85%] h-40 bg-[#ffffffb7] self-center -translate-y-20 rounded-xl backdrop-blur-lg flex items-center gap-4 p-8 text-zinc-700">
           <fieldset className="flex gap-3 items-center">
-            <h5 className="whitespace-nowrap text-xl font-chaviera font-semibold text-shadow-md">
+            <h5 className="whitespace-nowrap text-xl font-chaviera font-semibold text-shadow-xl">
               I'm looking For a
             </h5>
             <label htmlFor="Looking For" className="relative">
@@ -71,11 +67,7 @@ const Landing = () => {
                 type="text"
                 name="lookingFor"
                 id="Looking For"
-                value={
-                  preferenceData.lookingFor
-                    ? preferenceData.lookingFor
-                    : "Select"
-                }
+                value={preferenceData.lookingFor}
                 readOnly
                 onClick={() => {
                   setIsDropdownOpen(!isDropdownOpen);
@@ -109,7 +101,7 @@ const Landing = () => {
           </fieldset>
 
           <fieldset className="flex gap-3 items-center">
-            <h5 className="whitespace-nowrap text-xl font-chaviera font-semibold text-shadow-md">
+            <h5 className="whitespace-nowrap text-xl font-chaviera font-semibold text-shadow-xl">
               Aged
             </h5>
             <label htmlFor="Age From" className="relative">
@@ -118,7 +110,7 @@ const Landing = () => {
                 type="text"
                 name="ageFrom"
                 id="Age From"
-                value={preferenceData.ageFrom ? preferenceData.ageFrom : "20"}
+                value={preferenceData.ageFrom}
                 readOnly
                 onClick={() => {
                   setIsDropdownOpen(!isDropdownOpen);
@@ -156,7 +148,7 @@ const Landing = () => {
           </fieldset>
 
           <fieldset className="flex gap-3 items-center">
-            <h5 className="whitespace-nowrap text-xl font-chaviera font-semibold text-shadow-md">
+            <h5 className="whitespace-nowrap text-xl font-chaviera font-semibold text-shadow-xl">
               To
             </h5>
             <label htmlFor="Age To" className="relative">
@@ -165,7 +157,7 @@ const Landing = () => {
                 type="text"
                 name="ageTo"
                 id="Age To"
-                value={preferenceData.ageTo ? preferenceData.ageTo : "26"}
+                value={preferenceData.ageTo}
                 readOnly
                 onClick={() => {
                   setIsDropdownOpen(!isDropdownOpen);
@@ -202,7 +194,7 @@ const Landing = () => {
           </fieldset>
 
           <fieldset className="flex gap-3 items-center">
-            <h5 className="whitespace-nowrap text-xl font-chaviera font-semibold text-shadow-md">
+            <h5 className="whitespace-nowrap text-xl font-chaviera font-semibold text-shadow-xl">
               Religion
             </h5>
             <label htmlFor="Religion" className="relative">
@@ -211,9 +203,7 @@ const Landing = () => {
                 type="text"
                 name="religion"
                 id="Religion"
-                value={
-                  preferenceData.religion ? preferenceData.religion : "Select"
-                }
+                value={preferenceData.religion || "Select"}
                 readOnly
                 onClick={() => {
                   setIsDropdownOpen(!isDropdownOpen);
@@ -230,7 +220,8 @@ const Landing = () => {
                       key={index}
                       htmlFor={religion}
                       className={`${
-                        preferenceData.religion === `${religion}` && "bg-slate-200"
+                        preferenceData.religion === `${religion}` &&
+                        "bg-slate-200"
                       } cursor-pointer px-3 py-1 text-lg font-playfair font-semibold`}
                     >
                       <input
@@ -249,7 +240,13 @@ const Landing = () => {
             </label>
           </fieldset>
 
-          <button type="button" className="buttonEffect-1 z-10 outline-none w-1/4 h-auto py-1 border-2 border-zinc-700 rounded-full text-lg font-opensans font-semibold whitespace-nowrap hover:text-slate-50">Find Matches</button>
+          <button
+            type="button"
+            className="buttonEffect-1 z-10 outline-none w-1/4 h-auto py-1 border-2 border-zinc-700 rounded-full text-lg font-opensans font-semibold whitespace-nowrap hover:text-slate-50"
+            name="findMyMatches"
+          >
+            Find Matches
+          </button>
         </form>
         <Features />
         <About />

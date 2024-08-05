@@ -14,7 +14,7 @@ import { registrationFormState } from "./fromStructure";
 export const MyContext = React.createContext();
 
 const Register = () => {
-  const [step, setStep] = useState(7);
+  const [step, setStep] = useState(1);
   const [formData, setFormData] = useState(registrationFormState);
   const [profilePic, setProfilePic] = useState("");
   const [documentName, setDocName] = useState("");
