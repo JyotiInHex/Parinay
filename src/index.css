@@ -184,11 +184,13 @@ input[type="radio"]:checked:after {
     transform: translateX(0);
   }
 }
+
 .optional {
   font: 0.75em "Lato";
   font-weight: 600;
   color: rgb(131, 131, 131);
 }
+
 .error {
   position: absolute;
   top: 6px;
@@ -199,6 +201,7 @@ input[type="radio"]:checked:after {
   border-radius: 2px;
   pointer-events: none;
 }
+
 textarea::-webkit-scrollbar,
 #dropDownBox::-webkit-scrollbar {
   scroll-behavior: smooth;
@@ -207,23 +210,41 @@ textarea::-webkit-scrollbar,
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
 }
+
 textarea::-webkit-scrollbar-thumb,
 #dropDownBox::-webkit-scrollbar-thumb {
   background-color: rgb(59 130 246);
   border-radius: 5px;
 }
+
 textarea::-webkit-scrollbar {
   width: 5px;
 }
+
 textarea::-webkit-scrollbar-thumb {
   background-color: rgba(136, 135, 133, 0.301);
 }
-.buttonEffect-1{
+.pageTransition-out {
+  opacity: 0;
+  /* transform: translateY(400px); */
+  filter: blur(100px);
+  transition: all 0.2s;
+}
+
+.pageTransition-active {
+  opacity: 1;
+  /* transform: translateY(unset); */
+  filter: blur(unset);
+  transition: all 0.2s;
+}
+
+.buttonEffect-1 {
   position: relative;
   overflow: hidden;
   transition: all 0.3s ease-in-out;
 }
-.buttonEffect-1::after{
+
+.buttonEffect-1::after {
   content: "";
   position: absolute;
   z-index: -1;
@@ -235,7 +256,8 @@ textarea::-webkit-scrollbar-thumb {
   border-radius: 50%;
   transition: all 0.4s cubic-bezier(0.785, 0.135, 0.15, 0.86);
 }
-.buttonEffect-1:hover::after{
+
+.buttonEffect-1:hover::after {
   bottom: 0;
   border-radius: unset;
 }
