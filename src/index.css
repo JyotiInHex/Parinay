@@ -224,19 +224,6 @@ textarea::-webkit-scrollbar {
 textarea::-webkit-scrollbar-thumb {
   background-color: rgba(136, 135, 133, 0.301);
 }
-.pageTransition-out {
-  opacity: 0;
-  /* transform: translateY(400px); */
-  filter: blur(100px);
-  transition: all 0.2s;
-}
-
-.pageTransition-active {
-  opacity: 1;
-  /* transform: translateY(unset); */
-  filter: blur(unset);
-  transition: all 0.2s;
-}
 
 .buttonEffect-1 {
   position: relative;

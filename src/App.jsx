@@ -39,8 +39,7 @@ const ScrollContainer = () => {
   const location = useLocation();
   const [showLogin, setShowLogin] = useState(false);
   const [showForgot, setShowForgot] = useState(false);
-  const [transitionState, setTransitionState] = useState('pageTransition-active');
-  
+
   const handleLoginClick = () => {
     setShowLogin(true);
     setShowForgot(false);
@@ -92,15 +91,6 @@ const ScrollContainer = () => {
     }
   }, [location.pathname]);
 
-  useEffect(() => {
-    const handleRouteChange = async () => {
-      setTransitionState('pageTransition-out');
-      await new Promise(resolve => setTimeout(resolve, 200));
-      setTransitionState('pageTransition-active')
-    };
-    handleRouteChange()
-  }, [location.pathname])
-  
   return (
     <>
       <div
@@ -142,7 +132,6 @@ const ScrollContainer = () => {
         ref={scrollRef}
         data-scroll-container
       >
-        <div className={transitionState}>
         <Header onLoginClick={handleLoginClick} />
         <Routes>
           <Route path="/" element={<Landing />} />
@@ -155,7 +144,6 @@ const ScrollContainer = () => {
           <Route path="*" element={<NotFound />} />
         </Routes>
         <Footer />
-        </div>
       </div>
     </>
   );
