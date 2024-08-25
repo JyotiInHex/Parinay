@@ -23,14 +23,17 @@
 }
 html,
 body {
-  scrollbar-width: none;
-}
-
-[data-scroll-container] {
-  position: relative;
-  overflow: hidden;
   width: 100%;
   height: 100%;
+}
+
+html::-webkit-scrollbar {
+  width: 7px;
+}
+
+html::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+  background-color: rgb(75, 75, 75);
 }
 
 .priceBg-art {

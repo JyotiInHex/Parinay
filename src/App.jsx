@@ -6,11 +6,9 @@ import {
   useLocation,
 } from "react-router-dom";
 
-import locomotiveScroll from "locomotive-scroll";
-import "locomotive-scroll/dist/locomotive-scroll.css";
-
-// import { useGSAP } from "@gsap/react";
 import "remixicon/fonts/remixicon.css";
+import Lenis from "lenis";
+import "lenis/dist/lenis.css";
 
 import Header from "./components/header/header";
 import Footer from "./components/footer/footer";
@@ -35,6 +33,7 @@ const ScrollToTop = () => {
 };
 
 const ScrollContainer = () => {
+  const lenis = new Lenis();
   const scrollRef = useRef(null);
   const location = useLocation();
   const [showLogin, setShowLogin] = useState(false);
@@ -52,17 +51,12 @@ const ScrollContainer = () => {
     setShowLogin(false);
     setShowForgot(false);
   };
-
-  useEffect(() => {
-    const scroll = new locomotiveScroll({
-      el: scrollRef.current,
-      smooth: true,
-    });
-    scroll.scrollTo(0, { duration: 0 });
-    return () => {
-      if (scroll) scroll.destroy();
-    };
-  }, [location.pathname]);
+  
+  function raf(time) {
+    lenis.raf(time);
+    requestAnimationFrame(raf);
+  }
+  requestAnimationFrame(raf);
 
   useEffect(() => {
     const pathname = location.pathname;
