@@ -32,11 +32,12 @@ function validation(step, data) {
     siblingsType,
     siblingsNum,
     GovIdType,
-    GovIdDoc
+    GovIdDoc,
   } = data;
   let errors = {};
   const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  const passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$/;
+  const passwordPattern =
+    /^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$/;
   const phonePattern = /^\d{10}$/;
   const DateOfBirth = new Date(DOB);
   const today = new Date();
@@ -76,11 +77,11 @@ function validation(step, data) {
       if (DOB === "") {
         errors.DOB = "Date of Birth required.";
       }
-      if (years <= 20){
-        errors.DOB = 'You must be at least 20 years old.';
+      if (years <= 20) {
+        errors.DOB = "You must be at least 20 years old.";
       }
-      if (years >= 50){
-        errors.DOB = 'You must be younger than 50 years old.';
+      if (years >= 50) {
+        errors.DOB = "You must be younger than 50 years old.";
       }
       if (livingIn === "") {
         errors.livingIn = "Please enter the city you currently live in.";
@@ -96,16 +97,16 @@ function validation(step, data) {
       if (height === "") {
         errors.height = "Please enter a valid height.";
       }
-      if(hobbies === ""){
+      if (hobbies === "") {
         errors.hobbies = "Please select at least one hobby form the list.";
       }
-      if(mostLikes === ""){
+      if (mostLikes === "") {
         errors.mostLikes = "Choose one preferred activity.";
       }
-      if(pet === ""){
+      if (pet === "") {
         errors.pet = "Select your pet.";
       }
-    break;
+      break;
     case 4:
       if (qualifications === "") {
         errors.qualifications = "Enter highest qualification.";
@@ -116,11 +117,15 @@ function validation(step, data) {
       if (workWith === "") {
         errors.workWith = "Specify employment type.";
       }
-      if(jobRole === ""){
-        errors.jobRole = "Please select a valid job role form the list"
+      if (jobRole === "") {
+        errors.jobRole = "Please select a valid job role form the list";
       }
-      if(additionalJobRole === "" && jobRole === "other" || additionalJobRole === "" && jobRole === ""){
-        errors.additionalJobRole = "This field cannot be empty if not specified."
+      if (
+        (additionalJobRole === "" && jobRole === "other") ||
+        (additionalJobRole === "" && jobRole === "")
+      ) {
+        errors.additionalJobRole =
+          "This field cannot be empty if not specified.";
       }
       if (annualIncome === "") {
         errors.annualIncome = "Enter annual income.";
@@ -128,13 +133,15 @@ function validation(step, data) {
       break;
     case 5:
       if (profileImg === "") {
-        errors.profileImg = "Please upload your profile picture for batter matches."
+        errors.profileImg =
+          "Please upload your profile picture for batter matches.";
       }
       if (aboutSelf === "") {
-        errors.aboutSelf = "Please write something about your self."
+        errors.aboutSelf = "Please write something about your self.";
       }
       if (aboutSelf !== "" && aboutSelf.length < 700) {
-        errors.aboutSelf  = "We Recommend to write at least 10 lines of about yourself!"
+        errors.aboutSelf =
+          "We Recommend to write at least 10 lines of about yourself!";
       }
       break;
     case 6:
@@ -156,7 +163,11 @@ function validation(step, data) {
       if (siblingsType === "") {
         errors.siblingsType = "Please specify if any.";
       }
-      if (siblingsType !== "" && siblingsType !== "No Siblings" && siblingsNum === "") {
+      if (
+        siblingsType !== "" &&
+        siblingsType !== "No Siblings" &&
+        siblingsNum === ""
+      ) {
         errors.siblingsNum = "Please select how many?";
       }
       break;
@@ -172,10 +183,10 @@ function validation(step, data) {
         errors.phoneNumber = "Valid phone number required.";
       }
       if (GovIdType === "") {
-        errors.GovIdType = "Government ID is required."
+        errors.GovIdType = "Government ID is required.";
       }
       if (GovIdType !== "" && GovIdDoc === "") {
-        errors.GovIdDoc = "Upload your selected Gov ID document."
+        errors.GovIdDoc = "Upload your selected Gov ID document.";
       }
       break;
   }
